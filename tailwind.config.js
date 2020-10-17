@@ -6,6 +6,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'card-image': "url('/images/alex-batchelor-q5IEr16VrTA-unsplash-2.jpg')",
+            },
         },
     },
     variants: {},

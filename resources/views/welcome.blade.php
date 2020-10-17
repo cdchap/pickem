@@ -1,60 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
-        <div class="absolute top-0 right-0 mt-4 mr-4">
-            @if (Route::has('login'))
-                <div class="space-x-4">
-                    @auth
-                        <a
-                            href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
-                        >
-                            Log out
-                        </a>
+    <div class="flex flex-col justify-center min-h-screen font-mono">
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Log in</a>
+        <x-login-menu/>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
-
-        <div class="flex items-center justify-center">
-            <div class="flex flex-col justify-around">
-                <div class="space-y-6">
-                    <a href="{{ route('home') }}">
-                        <x-logo class="w-auto h-16 mx-auto text-gray-900" />
-                    </a>
-
-                    <h1 class="text-5xl font-extrabold tracking-wider text-center text-gray-600">
-                        {{ config('app.name') }}
-                    </h1>
-
-                    <ul class="list-reset">
-                        <li class="inline px-4">
-                            <a href="https://tailwindcss.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Tailwind CSS</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://github.com/alpinejs/alpine" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Alpine.js</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://laravel.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Laravel</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://laravel-livewire.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Livewire</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="flex flex-col items-center justify-center py-56">
+            <h1 class="text-2xl md:text-6xl font-bold text-gray-900">🎉College Football🏈</h1>
+            <h2 class="text-xl md:text-3xl font-medium text-gray-500">Bowl confidence pool</h2>
+            <h2 class="text-xl md:text-3xl font-medium text-gray-500">🥣📈🏊‍♂</h2>
+            <div class="mt-8">
+                @auth
+                    <h3>Welcome {{ auth()->user()->username }}!!</h3>
+                @else
+                    <span class="inline-flex rounded-md shadow-sm">
+                        <button type="button"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
+                            Request Invite
+                        </button>
+                    </span>
+                @endauth
             </div>
+            
+        </div>
+        <div class="h-screen bg-card-image bg-center bg-cover  flex flex-col items-center justify-center">
+            // put in a livewire component that lists out to the bowls
+            {{-- <img class="h-auto w-full object-center object-cover shadow-lg" src="{{ asset('images/alex-batchelor-q5IEr16VrTA-unsplash-2.jpg')}}" alt=""> --}}
         </div>
     </div>
 @endsection
