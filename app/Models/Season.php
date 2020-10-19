@@ -12,4 +12,9 @@ class Season extends Model
     public function bowls() {
         return $this->hasMany('App\Models\Bowl');
     }
+
+    public function picks()
+    {
+        return $this->hasMany('App\Models\Pick', 'season_id', 'id');
+    }
 }
