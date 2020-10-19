@@ -22,7 +22,7 @@ class TeamSeeder extends Seeder
         Team::create(['name' => 'Arizona State', 'nickname' => 'Sun Devils']);
         Team::create(['name' => 'Arkansas', 'nickname' => 'Razorbacks']);
         Team::create(['name' => 'Arkansas State', 'nickname' => 'Red Wolves']);
-        Team::create(['name' => 'Army', 'nickname' => 'Black Nights']);
+        Team::create(['name' => 'Army', 'nickname' => 'Black Knights']);
         Team::create(['name' => 'Auburn', 'nickname' => 'Tigers']);
         Team::create(['name' => 'Ball State', 'nickname' => 'Cardinals']);
         Team::create(['name' => 'Baylor', 'nickname' => 'Bears']);
@@ -34,7 +34,7 @@ class TeamSeeder extends Seeder
         Team::create(['name' => 'California', 'nickname' => 'Golden Bears']);
         Team::create(['name' => 'Central Michigan', 'nickname' => 'Chippewas']);
         Team::create(['name' => 'Charlotte', 'nickname' => '49ers']);
-        Team::create(['name' => 'Cincinnati	', 'nickname' => 'Bearcats']);
+        Team::create(['name' => 'Cincinnati', 'nickname' => 'Bearcats']);
         Team::create(['name' => 'Clemson', 'nickname' => 'Tigers']);
         Team::create(['name' => 'Colorado', 'nickname' => 'Buffaloes']);
         Team::create(['name' => 'Colorado State', 'nickname' => 'Rams']);
