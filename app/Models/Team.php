@@ -24,5 +24,10 @@ class Team extends Model
         return $this->hasMany('App\Models\Bowl', 'winner_id', 'id');
     }
 
+    public function picks()
+    {
+        return $this->hasMany('App\Models\Pick', 'team_id', 'id');
+    }
+
    
 }

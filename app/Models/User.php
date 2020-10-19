@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function picks()
+    {
+        return $this->hasMany('App\Models\Pick', 'user_id', 'id');
+    }
 }

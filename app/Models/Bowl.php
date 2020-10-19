@@ -29,4 +29,8 @@ class Bowl extends Model
         return $this->belongsTo('App\Models\Team', 'winner_id');
     }
 
+    public function picks()
+    {
+        return $this->hasMany('App\Models\Pick', 'bowl_id', 'id');
+    }
 }
