@@ -11,7 +11,7 @@
             <h2 class="mt-4 text-xl md:text-2xl text-gray-500">🎉 🎉 🎉</h2>
             <div class="mt-8 bg-xo">
                 @auth
-                    <h3>Welcome {{ auth()->user()->username }}!!</h3>
+                    <h3>Welcome <span>@<a class="" href="#">{{ auth()->user()->username }}</a></span>!!</h3>
                 @else
                     <span class="inline-flex rounded-md shadow-sm">
                         <button type="button"
@@ -23,11 +23,11 @@
             </div>
             
         </div>
-        <div class="h-screen bg-card-image bg-center bg-cover  flex flex-col items-center justify-center text-white">
-            // put in a livewire component that lists out to the bowls
+        <div class="h-screen bg-card-image bg-center bg-cover bg-opacity-25 flex flex-col items-center justify-center text-white">
+            <p class="prose-2xl">// put in a livewire component that has just the top ten leaders</p>
         </div>
-        <div class=" bg bg-repeat">
-             // put in a livewire component that lists out to the bowls   
+        <div class="">
+             <livewire:bowl.bowl-list /> 
         </div>
     </div>
 @endsection

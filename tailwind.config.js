@@ -8,8 +8,11 @@ module.exports = {
             },
             backgroundImage: theme => ({
                 'card-image': "url('/images/alex-batchelor-q5IEr16VrTA-unsplash-2.jpg')",
-                'stadium-image': "url('/images/alex-batchelor-q5IEr16VrTA-unsplash-2.jpg')",
+                'xoxo': "url('/images/tic-tac-toe.svg')",
             }),
+            boxShadow: {
+                'black': '5px 10px rgba(0, 0, 0, 1)'
+            },
         },
     },
     variants: {},
