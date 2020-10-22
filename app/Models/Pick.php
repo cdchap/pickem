@@ -9,9 +9,11 @@ class Pick extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function season()
     {
-        return $this->belongsTo('App\Models\Season')
+        return $this->belongsTo('App\Models\Season');
     }
 
     public function user()

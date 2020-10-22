@@ -9,6 +9,8 @@ class Team extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function bowlHome() 
     {
         return $this->hasMany('App\Models\Bowl', 'home_id', 'id');

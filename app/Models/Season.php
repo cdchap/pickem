@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     use HasFactory;
+    
+    protected $guarded = [];
 
     public function bowls() {
         return $this->hasMany('App\Models\Bowl');
