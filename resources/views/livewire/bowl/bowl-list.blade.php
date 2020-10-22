@@ -11,9 +11,23 @@
                 </div>
                 <div class="flex flex-col justify-center mt-4 mb-4">
                     <div class="font-sans">
-                        <span>{{ $bowl->visitor->name }}</span>
-                        <span>vs.</span>
-                        <span>{{ $bowl->home->name }}</span>
+                        <div class="flex justify-between">
+                            <span class="">{{ $bowl->visitor->name }}</span>
+                            @if ($bowl->home_score > 0)
+                                <span class="font-bold"> {{ $bowl->home_score }}</span>
+                            @else
+                                <span class="font-bold text-cool-gray-300">{{ $bowl->home_score }}</span>
+                            @endif
+                        </div>
+                        <hr />
+                        <div class="flex justify-between">
+                            <span class="">{{ $bowl->home->name }}</span>
+                            @if ($bowl->visitor_score > 0)
+                                <span class="font-bold"> {{ $bowl->home_score }}</span>
+                            @else
+                                <span class="font-bold text-cool-gray-300">{{ $bowl->home_score }}</span>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

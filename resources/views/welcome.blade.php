@@ -26,8 +26,11 @@
         <div class="h-screen bg-card-image bg-center bg-cover bg-opacity-25 flex flex-col items-center justify-center text-white">
             <p class="prose-2xl">// put in a livewire component that has just the top ten leaders</p>
         </div>
-        <div class="">
+        <div>
              <livewire:bowl.bowl-list /> 
+        </div>
+        <div class="mt-16 bg-mich-stadium bg-contain bg-center h-screen text-white prose-2xl flex flex-col justify-center items-center">
+            // Something here that is intereseting
         </div>
     </div>
 @endsection
