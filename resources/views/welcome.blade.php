@@ -6,8 +6,8 @@
         <x-login-menu />
 
         <div class="flex flex-col items-center justify-center py-40">
-            <h1 class="text-2xl md:text-6xl font text-black border-b-4 border-red-600">College Football</h1>
-            <h2 class="mt-4 text-xl md:text-3xl text-gray-500">Bowl 🏈 Confidence 🏈 Pool</h2>
+            <h1 class="text-3xl md:text-6xl font-sans font-black text-black border-b-4 border-red-600">College Football</h1>
+            <h2 class="mt-4 text-lg md:text-2xl text-gray-500">Bowl 🏈 Confidence 🏈 Pool</h2>
             <h2 class="mt-4 text-xl md:text-2xl text-gray-500">🎉 🎉 🎉</h2>
             <div class="mt-8 bg-xo">
                 @auth

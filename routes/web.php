@@ -54,3 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 });
+
+Route::middleware('auth')->group(function() {
+    Route::get('/admin', App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/bowls', App\Http\Livewire\Bowl\BowlIndex::class)->name('admin.bowl-index');
+});
