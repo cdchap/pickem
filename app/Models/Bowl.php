@@ -43,6 +43,6 @@ class Bowl extends Model
 
     public function getKickoffAttribute($value)
     {
-        return \Carbon\Carbon::parse($value)->format('h:i');
+        return \Carbon\Carbon::parse($value)->format('g:iA');
     }
 }
