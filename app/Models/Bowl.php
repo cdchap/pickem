@@ -35,4 +35,14 @@ class Bowl extends Model
     {
         return $this->hasMany('App\Models\Pick', 'bowl_id', 'id');
     }
+
+    public function getDateAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('m/d/y');
+    }
+
+    public function getKickoffAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('h:i');
+    }
 }

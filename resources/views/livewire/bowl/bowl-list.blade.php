@@ -7,25 +7,25 @@
                 <div class="flex justify-start space-x-2">
                     <span class=" text-xs">{{ $bowl->channel }}</span>
                     <span class=" text-xs">{{ $bowl->kickoff }}</span> 
-                    <span class=" text-xs underline">{{ $bowl->date }}</span> 
+                    <span class=" text-xs underline">{{  $bowl->date }}</span> 
                 </div>
                 <div class="flex flex-col justify-center mt-4 mb-4">
                     <div class="font-sans">
-                        <div class="flex justify-between">
-                            <span class="">{{ $bowl->visitor->name }}</span>
+                        <div class="flex justify-between mb-1">
+                        <span class="">{{ $bowl->visitor->name }}</span>
                             @if ($bowl->home_score > 0)
-                                <span class="font-bold"> {{ $bowl->home_score }}</span>
+                                <span class="font-bold text-xl"> {{ $bowl->home_score }}</span>
                             @else
-                                <span class="font-bold text-cool-gray-300">{{ $bowl->home_score }}</span>
+                                <span class="font-bold text-cool-gray-300 text-xl">{{ $bowl->home_score }}</span>
                             @endif
                         </div>
                         <hr />
-                        <div class="flex justify-between">
+                        <div class="flex justify-between mt-1">
                             <span class="">{{ $bowl->home->name }}</span>
                             @if ($bowl->visitor_score > 0)
-                                <span class="font-bold"> {{ $bowl->home_score }}</span>
+                                <span class="font-bold text-xl"> {{ $bowl->home_score }}</span>
                             @else
-                                <span class="font-bold text-cool-gray-300">{{ $bowl->home_score }}</span>
+                                <span class="font-bold text-cool-gray-300 text-xl">{{ $bowl->home_score }}</span>
                             @endif
                         </div>
                     </div>
