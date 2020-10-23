@@ -47,7 +47,9 @@
                                        {{ $bowl->date }} {{ $bowl->kickoff }} 
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                        {{ $bowl->channel }}
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800 capitalize">
+                                            {{$bowl->channel}}
+                                        </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                                         {!! $bowl->home->name !!}

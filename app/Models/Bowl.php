@@ -45,4 +45,16 @@ class Bowl extends Model
     {
         return \Carbon\Carbon::parse($value)->format('g:iA');
     }
+
+    public function getChannelColorAttribute() 
+    {
+        return [
+            'ESPN' => 'red',
+            'ESPN2' => 'pink',
+            'ABC' => 'orange',
+            'FOX' => 'green',
+            'NBC' => 'purple',
+            'CBS' => 'gray',
+        ][$this->channel] ?? 'cool-gray';
+    }
 }
