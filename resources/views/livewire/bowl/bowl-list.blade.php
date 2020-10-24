@@ -5,11 +5,11 @@
             <div class="shadow-black border-2 border-black px-4 py-4 ">
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
-                    <span class=" text-xs">{{ $bowl->channel }}</span>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
                     <span class=" text-xs">{{ $bowl->kickoff }}</span> 
                     <span class=" text-xs underline">{{  $bowl->date }}</span> 
                 </div>
-                <div class="flex flex-col justify-center mt-4 mb-4">
+                <div class="flex flex-col justify-center mt-4">
                     <div class="font-sans">
                         <div class="flex justify-between mb-1">
                         <span class="">{!! $bowl->visitor->name !!}</span>
@@ -29,6 +29,15 @@
                             @endif
                         </div>
                     </div>
+                </div>
+                <div class="">
+                    @foreach ($picks as $pick)
+                        @if ($pick->bowl_id == $bowl->id)
+                            <span class="{{ $pick->team_id == $bowl->winner_id ?  'text-green-500' : 'text-red-500'}} text-xs" >&#64;{{$username}}:<span class="underline">{!! $pick->team->name !!}</span></span>
+                        @else 
+                            <span></span>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         @endforeach
