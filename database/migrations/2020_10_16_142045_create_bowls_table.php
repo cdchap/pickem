@@ -20,8 +20,8 @@ class CreateBowlsTable extends Migration
             $table->string('channel');
             $table->time('kickoff', 0);
             $table->date('date');
-            $table->unsignedBigInteger('home_id')->references('id')->on('teams');
-            $table->unsignedBigInteger('visitor_id')->references('id')->on('teams');
+            $table->unsignedBigInteger('home_id')->references('id')->on('teams')->nullable();
+            $table->unsignedBigInteger('visitor_id')->references('id')->on('teams')->nullable();
             $table->unsignedBigInteger('home_score')->default(0);
             $table->unsignedBigInteger('visitor_score')->default(0);
             $table->unsignedBigInteger('winner_id')->references('id')->on('teams')->nullable();

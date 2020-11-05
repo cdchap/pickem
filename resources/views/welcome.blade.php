@@ -143,12 +143,5 @@
             // Something here that is intereseting
         </div>
     </div>
-    @auth
-        <div x-data="{hasPicked:true}">
-            <livewire:bowl.pick-form />
-        </div>
-    @endauth
-   
-    
 
 @endsection

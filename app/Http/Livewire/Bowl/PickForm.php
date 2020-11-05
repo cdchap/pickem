@@ -13,6 +13,7 @@ class PickForm extends Component
     // pass bowls and teams to view ** that is in the render method **
     // save function to save picks to database
     // some way to store the order of the picks to create the confidence amount
+    // change role to admin?
 
     public function mount()
     {

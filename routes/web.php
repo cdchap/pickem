@@ -58,4 +58,5 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function() {
     Route::get('/admin', App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
     Route::get('/admin/bowls', App\Http\Livewire\Bowl\BowlIndex::class)->name('admin.bowl-index');
+    Route::view('/pickem', 'pickem')->name('pick-form');
 });
