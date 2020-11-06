@@ -12,17 +12,35 @@
                 <h2 class="mt-4 text-lg md:text-2xl text-gray-500">Bowl 🏈 Confidence 🏈 Pool</h2>
                 <h2 class="mt-4 text-xl md:text-2xl text-gray-500">🎉 🎉 🎉</h2>
                 <div class="mt-8 bg-xo">
-                    @auth
-                        <h3 class="font-sans text-xl text-gray-900">Welcome <a
-                                class="font-mono text-blue-600 underline hover:text-blue-400"
-                                href="#">&#64;{{ auth()->user()->username }}</a>!!</h3>
-                    @else
+                    @guest
                         <span class="inline-flex rounded-md shadow-sm">
                             <button type="button"
                                 class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
                                 Request Invitation
                             </button>
                         </span>
+                    @endguest
+
+                    @auth
+                        @can('make picks')
+                            <h3 class="font-sans text-xl text-gray-900">Welcome <a
+                                    class="font-mono text-blue-600 underline hover:text-blue-400"
+                                    href="#">&#64;{{ auth()->user()->username }}</a>!!
+                            </h3>
+                            <a href="#">
+                                <span class="inline-flex rounded-md shadow-sm">
+                                    <button type="button"
+                                        class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
+                                        Pick Winners
+                                    </button>
+                                </span>
+                            </a>
+                        @else
+                            <h3 class="font-sans text-xl text-gray-900">Welcome <a
+                                    class="font-mono text-blue-600 underline hover:text-blue-400"
+                                    href="#">&#64;{{ auth()->user()->username }}</a>!!
+                            </h3>
+                        @endcan
                     @endauth
                 </div>
             </div>
