@@ -1,8 +1,10 @@
 <div class=" container mx-auto px-4 sm:px-6 lg:px-8 ">
-    <h2 class="my-8 font-black font-sans tracking-wide uppercase text-4xl border-b-4 border-red-600">2020 Bowl Schedule</h2>
+    <div class="bg-white px-4 shadow-black border-b-4 border-red-600 mb-8 py-4">
+        <h2 class="font-black font-sans tracking-wide uppercase text-4xl underline">2020 Bowl Schedule</h2>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($bowls as $bowl)
-            <div class="shadow-black border-2 border-black px-4 py-4 ">
+            <div class="shadow-black border-2 bg-white border-black px-4 py-4 ">
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>

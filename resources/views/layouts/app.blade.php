@@ -28,7 +28,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js" defer></script>
     </head>
     <body>
-        <div>
+        <div class="">
             @yield('content')
         </div>
         @livewireScripts

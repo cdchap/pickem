@@ -5,8 +5,8 @@
 
         <x-login-menu />
 
-        <div class="flex flex-col items-center justify-center py-24 px-4">
-            <div class="text-center px-16 py-12 border-2 border-black shadow-black">
+        <div class="flex flex-col items-center justify-center py-48 px-4 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
+            <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white">
                 <h1 class="text-4xl md:text-6xl font-sans font-black text-black border-b-4 border-red-600">College
                     Football</h1>
                 <h2 class="mt-4 text-lg md:text-2xl text-gray-500">Bowl 🏈 Confidence 🏈 Pool</h2>
@@ -157,10 +157,10 @@
                </div>
             </div>
         </div>
-        <div>
+        <div class="bg-gradient-to-br  from-purple-400 via-pink-500 to-red-500 py-12">
              <livewire:bowl.bowl-list /> 
         </div>
-        <div class="mt-16 bg-black bg-contain bg-center h-screen text-white prose-2xl flex flex-col justify-center items-center">
+        <div class=" bg-black bg-contain bg-center h-screen text-white prose-2xl flex flex-col justify-center items-center">
             // Something here that is intereseting
         </div>
     </div>
