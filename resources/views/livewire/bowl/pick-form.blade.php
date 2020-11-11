@@ -11,19 +11,12 @@
     
     @foreach($bowls as $i => $bowl)
         <div class="grid grid-cols-8 gap-4 px-4 md:px-0">
-            <div class="col-span-7">
-                <form >
-                    <div class="flex flex-col justify-between px-6 shadow-black border-black border-2 my-2 ">
-                        <div>
-                            {{-- @foreach ($picks as $index => $pick)
-                                picks: {{ $pick }}
-                            @endforeach --}}
-                            
-                            seasonId: {{ $seasonId }}
-                            userId: {{ $userId }}
-                        </div>
-                        <fieldset class="my-8 grid grid-cols-2">
-                            <div>
+            
+            <div class="col-span-full">
+                <form>
+                    <div class="flex flex-col justify-center px-6 shadow-black border-black border-2 my-2 ">
+                        <fieldset class="my-8 grid grid-cols-3 bg-green-100 gap-4">
+                            <div class="bg-red-200">
                                 <legend class="font-medium text-xl font-sans text-black">
                                     {{ $bowl->name }}
                                 </legend>
@@ -31,10 +24,9 @@
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
                                 <span class="font-mono text-xs">{{ $bowl->kickoff }}</span>
                                 <span class="font-mono text-xs underline">{{ $bowl->date }}</span>
-                                <input type="hidden" name="picks[]" wire.model="picks.{{ $i }}.bowl_id" value="{{ $bowl->id }}">
                             </div>
 
-                            <div class="">
+                            <div class=" bg-yellow-100">
                                 <div class="flex items-center mb-4">
                                     <input wire:model="picks.{{ $i }}.team_id" name="picks[]"
                                         type="radio"
@@ -47,7 +39,7 @@
                                 </div>
                                 <hr>
                                 <div class="mt-4 flex items-center">
-                                    <input wire:model="picks.{{ $i }}.team_id" name="picks[$i][team_id]"
+                                    <input wire:model="picks.{{ $i }}.team_id" name="picks[]"
                                         type="radio"
                                         class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
                                         value="{{ $bowl->home->id }}">
@@ -57,6 +49,28 @@
                                     </label>
                                 </div>
                             </div>
+
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center bg-blue-300 space-y-2">
+                                <div class="">
+                                    <label for="confidence"
+                                        class="block text-sm leading-5 font-medium text-gray-700">Confidence</label>
+                                    <select id="confidence"
+                                        class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                                        <option selected>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                                <div class>
+                                    <span class="inline-flex rounded-md shadow-sm">
+                                        <button type="button"
+                                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
+                                            Make Pick
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
                         </fieldset>
                     </div>
                 </form>
