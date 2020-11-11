@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-col justify-center min-h-screen font-mono">
-
-        <x-login-menu />
-
-        <div class="flex flex-col items-center justify-center py-48 px-4 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
+    <div>
+        <div class="flex flex-col items-center justify-center py-48 px-4">
             <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white">
                 <h1 class="text-4xl md:text-6xl font-sans font-black text-black border-b-4 border-red-600">College
                     Football</h1>
@@ -58,16 +55,16 @@
                    </div>
                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                           <div class="shadow-black overflow-hidden">
+                           <div class="overflow-hidden">
                                <table class="min-w-full divide-y divide-black border-2 border-black">
                                    <thead>
                                        <tr>
                                            <th
-                                               class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium font-sans text-gray-500 uppercase tracking-wider">
+                                               class="px-6 py-3  bg-cool-gray-50 text-left text-xs leading-4 font-medium font-sans text-gray-500 uppercase tracking-wider">
                                                Username
                                            </th>
                                            <th
-                                               class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium font-sans text-gray-500 uppercase tracking-wider">
+                                               class="px-6 py-3 bg-cool-gray-50 text-left text-xs leading-4 font-medium font-sans text-gray-500 uppercase tracking-wider">
                                                Title
                                            </th>
                                        </tr>
@@ -157,7 +154,7 @@
                </div>
             </div>
         </div>
-        <div class="bg-gradient-to-br  from-purple-400 via-pink-500 to-red-500 py-12">
+        <div class=" py-12">
              <livewire:bowl.bowl-list /> 
         </div>
         <div class=" bg-black bg-contain bg-center h-screen text-white prose-2xl flex flex-col justify-center items-center">

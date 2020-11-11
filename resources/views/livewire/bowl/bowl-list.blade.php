@@ -1,6 +1,6 @@
 <div class=" container mx-auto px-4 sm:px-6 lg:px-8 ">
-    <div class="bg-white px-4 shadow-black border-b-4 border-red-600 mb-8 py-4">
-        <h2 class="font-black font-sans tracking-wide uppercase text-4xl underline">2020 Bowl Schedule</h2>
+    <div class="bg-white mb-8 py-4 border-b-4 border-red-600">
+        <h2 class="font-black font-sans tracking-wide uppercase text-4xl">2020 Bowl Schedule</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($bowls as $bowl)
