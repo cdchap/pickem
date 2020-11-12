@@ -20,6 +20,8 @@ class PickForm extends Component
     // some way to store the order of the picks to create the confidence amount
     // change role from basic to user.
 
+    protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
+
     public function mount()
     {
         $this->bowls = Bowl::where('season_id', 1)->with('home', 'visitor')->get();
@@ -39,6 +41,17 @@ class PickForm extends Component
     {
         unset($this->confidence[$confidenceNumber - 1]);
         
+    }
+
+    public function addConfidenceToArray($confidenceNumber)
+    {
+        
+        if(!in_array($confidenceNumber, $this->confidence)) {
+            $this->confidence = Arr::prepend($this->confidence, $confidenceNumber);
+        }
+
+        sort($this->confidence);
+
     }
 
     public function render()
