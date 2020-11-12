@@ -50,22 +50,34 @@
                                 </div>
                             </div>
 
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-center bg-blue-300 space-y-2">
+                            <div x-data="{ locked: false }" class="flex flex-col md:flex-row md:justify-between md:items-center bg-blue-300 space-y-2">
                                 <div class="">
                                     <label for="confidence"
                                         class="block text-sm leading-5 font-medium text-gray-700">Confidence</label>
-                                    <select id="confidence"
+                                    <div x-show="locked" class="font-bold text-center pt-2">
+                                        @if ( $picks[$i]['confidence'] )
+                                            <span>{{$picks[$i]['confidence']}}</span>
+                                        @endif
+                                    </div>
+                                    <select x-show="!locked" x-bind:disabled="locked" id="confidence" wire:model="picks.{{ $i }}.confidence"
                                         class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                                        <option selected>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
+                                        <option seleceted></option>
+                                        @foreach ($confidence as $item)
+                                        <option value="{{ $item }}">{{ $item }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class>
-                                    <span class="inline-flex rounded-md shadow-sm">
-                                        <button type="button"
+                                    <span x-show="!locked"class="inline-flex rounded-md shadow-sm">
+                                        <button @click="locked = true" wire:click="removeConfidenceFromArray({{$picks[$i]['confidence']}})" type="button"
                                             class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
-                                            Make Pick
+                                            Lock in pick
+                                        </button>
+                                    </span>
+                                    <span x-show="locked"class="inline-flex rounded-md shadow-sm">
+                                        <button @click="locked = false" type="button"
+                                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
+                                            Unlock pick
                                         </button>
                                     </span>
                                 </div>

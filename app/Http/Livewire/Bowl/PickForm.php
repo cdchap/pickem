@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Bowl;
 
 use Livewire\Component;
 use App\Models\Bowl;
+use Illuminate\Support\Arr;
 
 class PickForm extends Component
 {
@@ -12,6 +13,7 @@ class PickForm extends Component
     public $bowls;
     public $userId;
     public $seasonId = 1;
+    public $confidence;
     // load the bowls in mount, push each bowl to an array $picks, push user id and season id to array $picks
     // from the forms on the page, push the team id to array $picks
     // save function to save picks to database
@@ -22,13 +24,21 @@ class PickForm extends Component
     {
         $this->bowls = Bowl::where('season_id', 1)->with('home', 'visitor')->get();
         $this->userId = auth()->user()->id;
+        $this->confidence = range(1, $this->bowls->count());
         $this->picks = collect([]);
         foreach ($this->bowls as $i => $bowl) {
             $this->picks->push(['bowl_id' => $bowl->id,
                 'season_id' => $this->seasonId,
-                'user_id' => $this->userId
+                'user_id' => $this->userId,
+                'confidence' => 0
             ]);
         }
+    }
+
+    public function removeConfidenceFromArray($confidenceNumber)
+    {
+        unset($this->confidence[$confidenceNumber - 1]);
+        
     }
 
     public function render()
