@@ -32,6 +32,16 @@
             <x-login-menu />
             @yield('content')
         </div>
+        <div class=" h-48 bg-cool-gray-50">
+            <footer>
+                <div class="py-10 px-8 text-cool-gray-100">
+                    <div class="w-1/4">
+                        <x-wordmark />
+                    </div>
+                    
+                </div>
+            </footer>
+        </div>
         @livewireScripts
     </body>
 </html>

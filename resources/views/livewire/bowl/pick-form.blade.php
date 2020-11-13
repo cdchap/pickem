@@ -1,17 +1,39 @@
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-8">
     <div class="px-4 lg:px-0 mb-8">
         <h2 class="font-sans font-black text-3xl mb-4">Pick The Winners!</h2>
-        <p>
-            In the form below select the winner of each bowl game. After all the winners are selected you then drag the bowl cards 
-            up or down and place them in the order of confidence you have in your pick. The top <span class="uppercase underline">most</span> bowl will be your most confident
-            and the bottom will be your <span class="uppercase underline">least</span> confident pick. After you have put the bowls
-            in the order that you want, submit your picks witht he button at the bottom (<span class="hover:text-green-500 underline"><a href="#submit">go to submit button</a></span>).
+        <p class="font-sans">
+            In the form below select the winner of each bowl game. Then select the confidence you have in each
+            prediction with <span class="font-bole text-red-600">1</span> being the least confident. Once all
+            of your predictions are made submit the form with the button below. Any picks
+            left blank will result in a <span class="text-red-600 font-bold font-mono">0</span> point confidence value, so be sure to review
+            your picks before submitting. Good luck &#64;{{ auth()->user()->username }}!
         </p>
+        <div class="mt-10">
+            <div>
+                @if($bowlCount > 0)
+                    <h3 class="text-base md:text-xl mt-4">You have <span class="font-bold text-green-500">{{ $bowlCount }}</span>
+                        remaining bowls to pick!!</h3>
+                @else
+                    <h3 class="text-xl mt-4">You have <span class="font-bold text-red-500">{{ $bowlCount }}</span>
+                        remaining bowls to pick!!</h3>
+                @endif
+            </div>
+            <div class="mt-6">
+                <span class="inline-flex rounded-md shadow-sm">
+                    <button type="button"
+                        disabled="{{ $bowlCount > 0 ? false : true }}"
+                        class="inline-flex items-center px-2 flex-shrink-0 md:px-4 py-2 border border-transparent text-sm md:text-base leading-6 font-medium rounded-md text-white {{ $bowlCount > 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500' }} focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                        Submit Picks
+                    </button>
+                </span>
+            </div>
+        </div>
+       
     </div>
     
     @foreach($bowls as $i => $bowl)
         <div class="grid grid-cols-8 gap-4 px-4 md:px-0">
-            
+
             <div class="col-span-full">
                 <form>
                     <div class="flex flex-col justify-center px-6 shadow-black border-black border-2 my-2 ">
@@ -30,7 +52,7 @@
                                 <div class="flex items-center mb-4">
                                     <input wire:model="picks.{{ $i }}.team_id" name="picks[]"
                                         type="radio"
-                                        class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                                        class="form-radio h-4 w-4 text-green-600 transition duration-150 ease-in-out"
                                         value="{{ $bowl->visitor->id }}">
                                     <label for="visitor" class="ml-3">
                                         <span
@@ -41,8 +63,7 @@
                                 <div class="mt-4 flex items-center">
                                     <input wire:model="picks.{{ $i }}.team_id" name="picks[]"
                                         type="radio"
-                                        checked="checked"
-                                        class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                                        class="form-radio h-4 w-4 text-green-600 transition duration-150 ease-in-out"
                                         value="{{ $bowl->home->id }}">
                                     <label for="home" class="ml-3">
                                         <span
@@ -62,7 +83,7 @@
                                     </div>
                                     <select x-show="!locked" @input="locked = true" wire:input="$emit('confidenceSelected', $event.target.value)" id="confidence" wire:model="picks.{{ $i }}.confidence"
                                         class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                                        <option x-bind:seleceted="selected"></option>
+                                        <option selected></option>
                                         @foreach ($confidence as $item)
                                         <option value="{{ $item }}">{{ $item }}</option>
                                         @endforeach
@@ -70,14 +91,13 @@
                                 </div>
                                 <div class="flex flex-col justify-center items-center">
                                     <span x-show="locked"class="inline-flex rounded-md shadow-sm">
-                                        <button @click="locked = false, selected = true" wire:click="addConfidenceToArray({{ $picks[$i]['confidence'] }})" type="button"
+                                        <button @click="locked = false, selected = true" wire:click="addConfidenceToArray({{ $picks[$i]['confidence'] }}, {{ $i }})" type="button"
                                             class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
                                             Unlock pick
                                         </button>
                                     </span>
                                 </div>
                             </div>
-
                         </fieldset>
                     </div>
                 </form>
@@ -86,4 +106,5 @@
         </div>
                 
     @endforeach
+    
 </div>
