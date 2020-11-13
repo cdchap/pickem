@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Bowl;
+namespace App\Http\Livewire\Pick;
 
 use Livewire\Component;
 use App\Models\Bowl;
@@ -84,6 +84,6 @@ class PickForm extends Component
 
     public function render()
     {
-        return view('livewire.bowl.pick-form');
+        return view('livewire.pick.pick-form');
     }
 }

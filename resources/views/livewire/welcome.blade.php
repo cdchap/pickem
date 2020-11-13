@@ -21,7 +21,7 @@
                             <div class="max-w-sm">
                                 <h3 class="font-sans text-xl text-gray-900">Welcome <a
                                         class="font-mono text-blue-600 underline hover:text-blue-400"
-                                        href="#">&#64;{{ auth()->user()->username }}</a>!! First thing's first&hellip;click the button below to make your selections
+                                        href="{{ route('user.picks', auth()->user()->username) }}">&#64;{{ auth()->user()->username }}</a>!! First thing's first&hellip;click the button below to make your selections
                                 </h3>
                             </div>
                             

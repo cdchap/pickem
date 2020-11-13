@@ -32,10 +32,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="">
+                <div class="text-xs">
                     @foreach ($picks as $pick)
                         @if ($pick->bowl_id == $bowl->id)
-                            <span class="{{ $pick->team_id == $bowl->winner_id ?  'text-green-500' : 'text-red-500'}} text-xs" >&#64;{{$username}}:<span class="underline">{!! $pick->team->name !!}</span></span>
+                            <span class="{{ $pick->team_id == $bowl->winner_id ?  'text-green-500' : 'text-red-500'}} text-xs" >
+                                &#64;{{$username}}:
+                                <span class="underline">{!! $pick->team->name !!}</span>
+                            </span>
+                            @if ($pick->team_id == $bowl->winner_id)
+                                <span class="text-green-500"> +{{ $pick->confidence }}</span>
+                            @else
+                                <span class="text-red-500">+0</span>
+                            @endif
                         @else 
                             <span></span>
                         @endif
