@@ -28,7 +28,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js" defer></script>
     </head>
     <body>
-        <div class="flex flex-col justify-center min-h-screen font-mono">
+        <div class="flex flex-col min-h-screen font-mono">
             <x-login-menu />
             @yield('content')
         </div>
