@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Bowl;
 
 use Livewire\Component;
 use App\Models\Bowl;
+use App\Models\Pick;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
 
 use function PHPUnit\Framework\isEmpty;
@@ -12,6 +15,7 @@ class PickForm extends Component
 {
     public $picks;
     public $bowls;
+    public $user;
     public $userId;
     public $seasonId = 1;
     public $confidence;
@@ -24,6 +28,7 @@ class PickForm extends Component
     public function mount()
     {
         $this->bowls = Bowl::where('season_id', 1)->with('home', 'visitor')->get();
+        $this->user = auth()->user();
         $this->userId = auth()->user()->id;
         $this->confidence = range(1, $this->bowls->count());
         $this->picks = [];
@@ -61,7 +66,20 @@ class PickForm extends Component
 
     public function submit()
     {
+        foreach($this->picks as $pick) {
+            Pick::create([
+                'user_id' => $pick['user_id'],
+                'season_id' => $pick['season_id'],
+                'bowl_id' => $pick['bowl_id'],
+                'team_id' => $pick['team_id'], 
+                'confidence' => $pick['confidence']
+            ]);
+        }
 
+        $this->user->removeRole('basic');
+        $this->user->assignRole('user');        
+    
+        return redirect()->route('home');
     }
 
     public function render()

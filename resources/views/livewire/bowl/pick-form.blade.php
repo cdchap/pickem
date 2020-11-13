@@ -48,14 +48,15 @@
                             <div class="mt-2">
                                 <p class="text-sm leading-5 text-gray-500">
                                     Have you checked to see if you have chosen a winner for each bowl? Any bowl that 
-                                    does not have a winner picked with result in zero points.
+                                    does not have a winner picked will result in zero points.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                            <button type="button"
+                            <button type="submit"
+                                wire:click="submit"
                                 class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                 Pick&rsquo;em!
                             </button>
@@ -112,7 +113,7 @@
         <div class="grid grid-cols-8 gap-4 px-4 md:px-0">
 
             <div class="col-span-full">
-                <form>
+                <form wire:submit.prevent>
                     <div class="flex flex-col justify-center px-6 shadow-black border-black border-2 my-2 ">
                         <fieldset class="my-8 grid grid-cols-3  gap-4">
                             <div class="">

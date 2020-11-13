@@ -2,7 +2,9 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between py-4">
             <div class="text-white w-24">
-                <x-wordmark />
+                <a href="{{ route('home') }}">
+                    <x-wordmark />
+                </a>
             </div>
             <div class="mt-4 flex md:mt-0 md:ml-4 text-white">
                 @if(Route::has('login'))
