@@ -20,9 +20,11 @@ class UserPick extends Component
                  ->get();
         // dd($picks);
         foreach ($picks as $pick) {
-            if($pick->team_id ==  $pick->bowl->winner->id) {
-                $this->pointTotal = $this->pointTotal + $pick->confidence;
-            }
+            if(isset($pick->bowl->winner)){
+                if($pick->team_id == $pick->bowl->winner->id) {
+                    $this->pointTotal = $this->pointTotal + $pick->confidence;
+                }
+            }   
         }
     }
 
