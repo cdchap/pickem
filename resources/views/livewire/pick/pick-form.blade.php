@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-8">
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-8 mb-10">
     @can('make picks')
     {{-- Modal --}}
     <div x-data="{ showModal: false }">
@@ -82,8 +82,8 @@
                 left blank will result in a <span class="text-red-600 font-bold font-mono">0</span> point confidence value, so be sure to review
                 your picks before submitting. Good luck &#64;{{ auth()->user()->username }}!
             </p>
-            <div class="mt-10">
-                <div>
+            <div class="pb-5 border-b border-gray-200 mt-10">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
                     @if($bowlCount > 0)
                         <h3 class="text-base md:text-xl mt-4">You have <span class="font-bold text-green-500">{{ $bowlCount }}</span>
                             remaining bowls to pick!!</h3>
@@ -91,25 +91,20 @@
                         <h3 class="text-xl mt-4">You have <span class="font-bold text-red-500">{{ $bowlCount }}</span>
                             remaining bowls to pick!!</h3>
                     @endif
-                </div>
-                <div class="mt-6">
-                    <span class="inline-flex rounded-md shadow-sm">
-                        <button @click="showModal=true" type="button"
-                            {{ $bowlCount > 0 ? 'disabled' : '' }}
-                            class="inline-flex items-center px-2 flex-shrink-0 md:px-4 py-2 border border-transparent text-sm md:text-base leading-6 font-medium rounded-md text-white {{ $bowlCount > 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500' }} focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-                            Submit Picks
-                        </button>
-                    </span>
-                </div>
+                </h3>
             </div>
-        
+            <div class="mt-6">
+                <span class="inline-flex rounded-md shadow-sm">
+                    <button @click="showModal=true" type="button"
+                        {{ $bowlCount > 0 ? 'disabled' : '' }}
+                        class="inline-flex items-center px-2 flex-shrink-0 md:px-4 py-2 border border-transparent text-sm md:text-base leading-6 font-medium rounded-md text-white {{ $bowlCount > 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500' }} focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                        Submit Picks
+                    </button>
+                </span>
+            </div>
         </div>
     </div>
-    
-
-
-    
-    
+{{-- bowl pick cards --}}
     @foreach($bowls as $i => $bowl)
         <div class="grid grid-cols-8 gap-4 px-4 md:px-0">
 
