@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<div>
     <div>
         <div class="flex flex-col items-center justify-center py-48 px-4">
             <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white">
@@ -36,9 +34,11 @@
                                 </span>
                             </a>
                         @else
-                            <h3 class="font-sans text-xl text-gray-900">Welcome <a
+                            <h3 class="font-sans text-xl text-gray-900">Welcome 
+                                <a
                                     class="font-mono text-blue-600 underline hover:text-blue-400"
-                                    href="#">&#64;{{ auth()->user()->username }}</a>!!
+                                    href="{{ route('user.picks', auth()->user()->username) }}">&#64;{{ auth()->user()->username }}
+                                </a>!!
                             </h3>
                         @endcan
                     @endauth
@@ -161,5 +161,4 @@
             // Something here that is intereseting
         </div>
     </div>
-
-@endsection
+</div>

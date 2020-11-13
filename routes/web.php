@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', App\Http\Livewire\Welcome::class)->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -59,5 +59,5 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin', App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
     Route::get('/admin/bowls', App\Http\Livewire\Bowl\BowlIndex::class)->name('admin.bowl-index');
     Route::view('/pickem', 'pickem')->name('pick-form');
-    Route::view('/{user:username}/picks', 'user-picks')->name('user-picks');
+    Route::get('/picks/{user:username}', App\Http\Livewire\Pick\UserPick::class)->name('user.picks');
 });

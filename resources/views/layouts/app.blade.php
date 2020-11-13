@@ -31,6 +31,7 @@
         <div class="flex flex-col min-h-screen font-mono">
             <x-login-menu />
             @yield('content')
+            {{ $slot }}
         </div>
         <div class=" h-48 bg-cool-gray-50">
             <footer>
