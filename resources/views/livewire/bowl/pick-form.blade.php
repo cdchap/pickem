@@ -1,35 +1,112 @@
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-8">
-    <div class="px-4 lg:px-0 mb-8">
-        <h2 class="font-sans font-black text-3xl mb-4">Pick The Winners!</h2>
-        <p class="font-sans">
-            In the form below select the winner of each bowl game. Then select the confidence you have in each
-            prediction with <span class="font-bole text-red-600">1</span> being the least confident. Once all
-            of your predictions are made submit the form with the button below. Any picks
-            left blank will result in a <span class="text-red-600 font-bold font-mono">0</span> point confidence value, so be sure to review
-            your picks before submitting. Good luck &#64;{{ auth()->user()->username }}!
-        </p>
-        <div class="mt-10">
-            <div>
-                @if($bowlCount > 0)
-                    <h3 class="text-base md:text-xl mt-4">You have <span class="font-bold text-green-500">{{ $bowlCount }}</span>
-                        remaining bowls to pick!!</h3>
-                @else
-                    <h3 class="text-xl mt-4">You have <span class="font-bold text-red-500">{{ $bowlCount }}</span>
-                        remaining bowls to pick!!</h3>
-                @endif
-            </div>
-            <div class="mt-6">
-                <span class="inline-flex rounded-md shadow-sm">
-                    <button type="button"
-                        disabled="{{ $bowlCount > 0 ? false : true }}"
-                        class="inline-flex items-center px-2 flex-shrink-0 md:px-4 py-2 border border-transparent text-sm md:text-base leading-6 font-medium rounded-md text-white {{ $bowlCount > 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500' }} focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-                        Submit Picks
-                    </button>
-                </span>
+    {{-- Modal --}}
+    <div x-data="{ showModal: false }">
+        <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <!--
+        Background overlay, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+        Leaving: "ease-in duration-200"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+                <div class="fixed inset-0 transition-opacity">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+
+                <!-- This element is to trick the browser into centering the modal contents. -->
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
+                <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+                <div @click.away="showModal = false" class="inline-block align-bottom bg-white px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
+                    role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div class="sm:flex sm:items-start">
+                        <div
+                            class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-orange-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <!-- Heroicon name: exclamation -->
+                            <svg class="h-6 w-6 text-orange-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                Submit Picks
+                            </h3>
+                            <div class="mt-2">
+                                <p class="text-sm leading-5 text-gray-500">
+                                    Have you checked to see if you have chosen a winner for each bowl? Any bowl that 
+                                    does not have a winner picked with result in zero points.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                            <button type="button"
+                                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                Pick&rsquo;em!
+                            </button>
+                        </span>
+                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                            <button @click="showModal=false" type="button"
+                                class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                Go back
+                            </button>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
-       
+
+        <div class="px-4 lg:px-0 mb-8">
+            <h2 class="font-sans font-black text-3xl mb-4">Pick The Winners!</h2>
+            <p class="font-sans">
+                In the form below select the winner of each bowl game. Then select the confidence you have in each
+                prediction with <span class="font-bole text-red-600">1</span> being the least confident. Once all
+                of your predictions are made submit the form with the button below. Any picks
+                left blank will result in a <span class="text-red-600 font-bold font-mono">0</span> point confidence value, so be sure to review
+                your picks before submitting. Good luck &#64;{{ auth()->user()->username }}!
+            </p>
+            <div class="mt-10">
+                <div>
+                    @if($bowlCount > 0)
+                        <h3 class="text-base md:text-xl mt-4">You have <span class="font-bold text-green-500">{{ $bowlCount }}</span>
+                            remaining bowls to pick!!</h3>
+                    @else
+                        <h3 class="text-xl mt-4">You have <span class="font-bold text-red-500">{{ $bowlCount }}</span>
+                            remaining bowls to pick!!</h3>
+                    @endif
+                </div>
+                <div class="mt-6">
+                    <span class="inline-flex rounded-md shadow-sm">
+                        <button @click="showModal=true" type="button"
+                            {{ $bowlCount > 0 ? 'disabled' : '' }}
+                            class="inline-flex items-center px-2 flex-shrink-0 md:px-4 py-2 border border-transparent text-sm md:text-base leading-6 font-medium rounded-md text-white {{ $bowlCount > 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500' }} focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                            Submit Picks
+                        </button>
+                    </span>
+                </div>
+            </div>
+        
+        </div>
     </div>
+    
+
+
+    
     
     @foreach($bowls as $i => $bowl)
         <div class="grid grid-cols-8 gap-4 px-4 md:px-0">
@@ -72,7 +149,7 @@
                                 </div>
                             </div>
 
-                            <div x-data="{ locked: false, selected: true }" class="flex flex-col md:flex-row md:justify-around md:items-center  space-y-2">
+                            <div x-data="{ locked: false, selected: true, showModal: false }" class="flex flex-col md:flex-row md:justify-around md:items-center  space-y-2">
                                 <div class="flex flex-col justify-center items-center">
                                     <label for="confidence"
                                         class="block text-sm leading-5 font-medium text-gray-700">Confidence</label>

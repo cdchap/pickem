@@ -10,17 +10,13 @@ use function PHPUnit\Framework\isEmpty;
 
 class PickForm extends Component
 {
-    // array to hold form data
     public $picks;
     public $bowls;
     public $userId;
     public $seasonId = 1;
     public $confidence;
     public $bowlCount;
-    // load the bowls in mount, push each bowl to an array $picks, push user id and season id to array $picks
-    // from the forms on the page, push the team id to array $picks
     // save function to save picks to database
-    // some way to store the order of the picks to create the confidence amount
     // change role from basic to user.
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
@@ -60,11 +56,6 @@ class PickForm extends Component
         $this->bowlCount++;
 
         sort($this->confidence);
-
-    }
-
-    public function reviewPicks()
-    {
 
     }
 
