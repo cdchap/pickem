@@ -19,7 +19,7 @@
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Winner Picked
+                                    &#64;{{ $userName }} Pick
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -30,26 +30,32 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($picks as $pick)
-                                <tr>
+                                <tr class="{{ $pick->team_id == $pick->bowl->winner->id ? 'bg-green-50' : 'bg-red-50'}}">
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                                         {{ $pick->bowl->name }}
                                     </td>
                                     <td
-                                        class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-300">
-                                        {{ $pick->bowl->winner ?? 'N/A' }}
+                                        class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-400">
+                                        {{ $pick->bowl->winner->name ?? 'N/A' }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                        {{ $pick->team->name }}
+                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 {{ $pick->team_id == $pick->bowl->winner->id ? 'text-green-500' : 'text-red-500 line-through'}}">
+                                        {{ $pick->team->name }} 
                                     </td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 text-center {{ $pick->team_id == $pick->bowl->winner->id ? 'text-green-500' : 'text-red-500 line-through'}}">
                                         {{ $pick->confidence }}
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6">
+                    <!-- Content goes here -->
+                        <span class="font-bold text-gray-500">Total: {{ $pointTotal }}</span>
+                    </div>
+                    
                 </div>
+                
             </div>
         </div>
     </div>

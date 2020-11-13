@@ -10,11 +10,20 @@ class UserPick extends Component
 {
     public $userName;
     public $userId;
-
+    public $pointTotal = 0;
     public function mount(User $user)
     {
         $this->userName = $user->username;
         $this->userId = $user->id;
+        $picks = Pick::where(['user_id' => $this->userId, 'season_id' => 1 ])
+                 ->with(['bowl'])
+                 ->get();
+        // dd($picks);
+        foreach ($picks as $pick) {
+            if($pick->team_id ==  $pick->bowl->winner->id) {
+                $this->pointTotal = $this->pointTotal + $pick->confidence;
+            }
+        }
     }
 
     public function render()
