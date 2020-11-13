@@ -1,6 +1,8 @@
 <div class="container mx-auto flex flex-col justify-center px-4 md:px-0">
-    <div class="my-10">
-        <h2 class="font-bold text-3xl font-sans">&#64;{{ $userName }}&rsquo;s Picks</h2>
+    <div class="pb-5 border-b border-gray-200 my-10">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+            &#64;{{ $userName }}&rsquo;s Picks
+        </h3>
     </div>
     <div class="flex flex-col justify-center items-center">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
