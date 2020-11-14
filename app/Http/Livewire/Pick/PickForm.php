@@ -5,8 +5,6 @@ namespace App\Http\Livewire\Pick;
 use Livewire\Component;
 use App\Models\Bowl;
 use App\Models\Pick;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
 
 use function PHPUnit\Framework\isEmpty;
@@ -20,8 +18,6 @@ class PickForm extends Component
     public $seasonId = 1;
     public $confidence;
     public $bowlCount;
-    // save function to save picks to database
-    // change role from basic to user.
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
 
@@ -33,7 +29,8 @@ class PickForm extends Component
         $this->confidence = range(1, $this->bowls->count());
         $this->picks = [];
         foreach ($this->bowls as $i => $bowl) {
-            array_push($this->picks,['bowl_id' => $bowl->id,
+            array_push($this->picks,[
+                'bowl_id' => $bowl->id,
                 'season_id' => $this->seasonId,
                 'user_id' => $this->userId,
                 'confidence' => 0

@@ -1,7 +1,7 @@
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-8 mb-10">
+<div class=" mx-auto pt-8 mb-10">
     @can('make picks')
     {{-- Modal --}}
-    <div x-data="{ showModal: false }">
+    <div x-data="{ showModal: false }" class="max-w-6xl mx-auto pt-8 mb-10">
         <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <!--
@@ -181,7 +181,7 @@
                 
     @endforeach
    @else
-        <div class="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
+        <div class="h-screen flex flex-col justify-center items-center w-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 -mt-8 -mb-10">
             <div class="w-1/3 border-2 border-black shadow-black px-4 py-6 bg-white">
                 <h3 class="text-2xl">🛑 Hey! ✋</h3>
                 <p class="text-cool-gray-900">You have already made your picks <a href="#"></a><span class="border-b-2 border-pink-500">&#64;{{ auth()->user()->username }}</span>! 
