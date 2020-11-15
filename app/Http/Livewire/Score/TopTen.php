@@ -38,6 +38,7 @@ class TopTen extends Component
 
         foreach ($users as $key => $user) {
             $score = 0;
+            $firstPick = $picks->where('user_id', $user->id)->first();
             foreach ($picks as $key => $pick) {
                 if(isset($pick->bowl->winner) && $pick->user_id == $user->id) {
                     if($pick->team_id == $pick->bowl->winner->id) {
@@ -47,7 +48,8 @@ class TopTen extends Component
             }
             array_push($scores, [
                 'username' => $user->username,
-                'score' => $score
+                'score' => $score,
+                'pick_date' => $firstPick->created_at
             ]);
         }
 
