@@ -66,7 +66,22 @@
                                         {!! $bowl->visitor->name !!}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <div>
+                                            <span class="inline-flex rounded-md shadow-sm mr-2">
+                                                <button type="button"
+                                                    class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-50 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
+                                                    edit
+                                                </button>
+                                            </span>
+                                            
+                                            <span class="inline-flex rounded-md shadow-sm">
+                                                <button type="button"
+                                                    class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
+                                                    delete
+                                                </button>
+                                            </span>
+                                        </div>
+                                        
                                     </td>
                                 </tr>
                             @endforeach
