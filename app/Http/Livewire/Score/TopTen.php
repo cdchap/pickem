@@ -49,7 +49,7 @@ class TopTen extends Component
             array_push($scores, [
                 'username' => $user->username,
                 'score' => $score,
-                'pick_date' => $firstPick->created_at
+                'pick_date' => $firstPick->created_at ?? $user->created_at
             ]);
         }
 

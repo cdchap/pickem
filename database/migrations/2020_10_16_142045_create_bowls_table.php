@@ -25,7 +25,7 @@ class CreateBowlsTable extends Migration
             $table->unsignedBigInteger('home_score')->default(0);
             $table->unsignedBigInteger('visitor_score')->default(0);
             $table->unsignedBigInteger('winner_id')->references('id')->on('teams')->nullable();
-            // $table->bool()->default(false);
+            $table->boolean('semi_final')->default(false);
             $table->timestamps();
         });
     }

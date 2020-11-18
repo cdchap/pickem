@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <div class="bg-white shadow overflow-hidden rounded-md w-72 sm:w-full">
         <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-4 mt-2">
@@ -53,7 +53,7 @@
                                             </div>
                                             <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
                                                 <!-- Heroicon name: check-circle -->
-                                                @if($key <= 2)
+                                                @if($key <= 2 && $score['score'] > 0)
                                                     <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                         fill="currentColor">

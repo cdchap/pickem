@@ -47,7 +47,7 @@
             
             
         </div>
-        <div class="min-h-screen bg-card-image bg-center bg-cover bg-opacity-25 flex flex-col items-center justify-center text-white">
+        <div class="min-h-screen bg-card-image bg-center bg-cover bg-opacity-25 flex flex-col items-center justify-center text-white py-15">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
                <livewire:score.top-ten />
             </div>
