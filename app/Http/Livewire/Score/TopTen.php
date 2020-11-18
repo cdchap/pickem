@@ -15,7 +15,6 @@ class TopTen extends Component
     public $users;
     public $userScores;
     public $picks;
-    public $bowlAvgs;
 
     public function mount()
     {
