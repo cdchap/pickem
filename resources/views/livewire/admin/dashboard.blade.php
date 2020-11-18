@@ -1,3 +1,4 @@
+@can('create')
 <div>
     @section('pageTitle', 'Dashboard')
    <div>
@@ -44,3 +45,4 @@
        </div>
    </div>
 </div>
+@endcan
