@@ -51,7 +51,7 @@
                             </button>
                         </div>
                         <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                            <div class="flex-shrink-0 flex items-center px-4">
+                            <div class="flex-shrink-0 flex items-center px-4 w-1/2">
                                 <x-wordmark />
                             </div>
                             <nav class="mt-5 px-2 space-y-1">
