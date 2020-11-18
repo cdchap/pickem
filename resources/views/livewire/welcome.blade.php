@@ -47,10 +47,10 @@
             
             
         </div>
-        <div class="min-h-screen bg-card-image bg-center bg-cover py-15">
-            <div class="container mx-auto max-w-2xl">
+        <div class="min-h-screen bg-card-image bg-center bg-cover  py-15">
+            <div class="md:flex md:flex-col md:justify-center md:items-center">
                 <livewire:score.top-ten />
-            </div>
+            </div>  
         </div>
         <div class=" py-12">
              <livewire:bowl.bowl-list /> 

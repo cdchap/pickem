@@ -1,5 +1,5 @@
-
-<div class="bg-white shadow overflow-hidden rounded-md w-72 sm:w-full">
+<div class="">
+    <div class="bg-white shadow overflow-hidden rounded-md w-full max-w-2xl">
     <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
         <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
             <div class="ml-4 mt-2">
@@ -71,3 +71,5 @@
         @endforeach
     </ul>
 </div>
+</div>
+
