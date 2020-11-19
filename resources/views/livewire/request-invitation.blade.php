@@ -1,10 +1,4 @@
-<div>
-    here will be a form that has a field for an email and a button to request an invitation
-    <p>
-        the form will connect to this livewire component. it will create new invitaion and store to the database
-    </p>
-    <div class="min-h-screen bg-white flex">
-        <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+<div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
             <div class="mx-auto w-full max-w-sm lg:w-96">
                 <div>
                     <div class="flex justify-center items-center w-full">
@@ -46,11 +40,4 @@
                 </div>
             </div>
         </div>
-        <div class="hidden lg:block relative w-0 flex-1">
-            <img class="absolute inset-0 h-full w-full object-cover"
-                src="{{asset('images/alex-batchelor-q5IEr16VrTA-unsplash-2.jpg')}}"
-               
-                alt="">
-        </div>
-    </div>
-</div>
+

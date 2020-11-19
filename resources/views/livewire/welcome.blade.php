@@ -9,10 +9,10 @@
                 <div class="mt-8 flex flex-col justify-center items-center">
                     @guest
                         <span class="inline-flex rounded-md shadow-sm">
-                            <button type="button"
+                            <a href="{{ route('register.request') }}"
                                 class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
                                 Request Invitation
-                            </button>
+                            </a>
                         </span>
                     @endguest
 

@@ -1,6 +1,6 @@
 @section('title', 'Sign in to your account')
 
-<div>
+<div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <a href="{{ route('home') }}">
             <x-logo class="w-auto h-16 mx-auto" />
@@ -11,8 +11,8 @@
         </h2>
         <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
             Or
-            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                create a new account
+            <a href="{{ route('register.request') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                request an invitation
             </a>
         </p>
     </div>

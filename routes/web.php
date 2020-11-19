@@ -28,7 +28,7 @@ Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
 
-    Route::get('register/request', RequestInvitation::class)->name('regiser.request');
+    Route::get('register/request', RequestInvitation::class)->name('register.request');
 
     Route::get('register', Register::class)
         ->name('register');
