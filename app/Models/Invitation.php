@@ -11,4 +11,8 @@ class Invitation extends Model
 
     protected $guarded = [];
     
+    public function generateInvitationToken()
+    {
+        $this->invitation_token = substr(md5(rand(0, 9) . $this->email . time()), 0, 32);
+    }
 }
