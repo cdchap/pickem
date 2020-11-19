@@ -78,10 +78,13 @@
                                             </span>
                                             
                                             <span class="inline-flex rounded-md shadow-sm">
-                                                <button type="button"
-                                                    class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
-                                                    delete
-                                                </button>
+                                                <a href="#">
+                                                    <button type="button"
+                                                        class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
+                                                        delete
+                                                    </button>
+                                                </a>
+                                                
                                             </span>
                                         </div>
                                         

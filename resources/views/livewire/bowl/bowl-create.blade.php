@@ -1,5 +1,5 @@
-<div class="fixed inset-0 overflow-hidden">
-    <div class="absolute inset-0 overflow-hidden">
+<div class="inset-0 overflow-hidden">
+    <div class="inset-0 overflow-hidden">
         <section class="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16"
             x-show="showCreate"
             x-transition:enter="ransform transition ease-in-out duration-500 sm:duration-700"
@@ -36,7 +36,6 @@
                                 <div class="h-7 flex items-center">
                                     <button aria-label="Close panel"
                                         @click="showCreate=false"
-                                        @click.away="showCreate=false"
                                         class="text-gray-400 hover:text-gray-500 transition ease-in-out duration-150">
                                         <!-- Heroicon name: x -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
