@@ -1,8 +1,15 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div x-show="open" class="fixed z-10 inset-0 overflow-y-auto">
+<div x-cloak x-show="open" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 "
+        x-transition:enter-end="opacity-100 "
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 "
+        x-transition:leave-end="opacity-0 "
+        class="fixed z-10 inset-0 overflow-y-auto">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        
         <!--
-      Background overlay, show/hide based on modal state.
 
       Entering: "ease-out duration-300"
         From: "opacity-0"
@@ -39,12 +46,11 @@
                 </div>
                 <div class="mt-3 text-center sm:mt-5">
                     <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                        Payment successful
+                        Proccessed Request <span x-text="$wire.email" class="font-bold"></span>
                     </h3>
                     <div class="mt-2">
-                        <p class="text-sm text-gray-500">
-                            Keep an eye out for an email sent to <span>{{ session('success')}}</span>. We will be
-                            sending you a link to register over the next couple of days.
+                        <p x-text="$wire.message" class="text-sm text-gray-500">
+                            
                         </p>
                     </div>
                 </div>

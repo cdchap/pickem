@@ -9,7 +9,7 @@ class RequestInvitation extends Component
 {
 
     public $email;
-    public $successMessage;
+    public $message;
 
     protected $rules = [
         'email' => 'required|email|unique:invitations'
@@ -24,8 +24,9 @@ class RequestInvitation extends Component
         $invitation->email = $this->email;
         $invitation->save();
 
-        $this->dispatchBrowserEvent('invitation-request-sent', ['message' => 'Excellent! We will be sending you an email in the next couple of days with a link to register', 'email' => $this->email]);
+        $this->dispatchBrowserEvent('invitation-request-sent');
 
+        $this->message = 'Excellent! Keep an eye out for an email the next couple of days. It will contain a link to register.';
         
     }
 
