@@ -8,6 +8,7 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\RequestInvitation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/', App\Http\Livewire\Welcome::class)->name('home');
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
+
+    Route::get('register/request', RequestInvitation::class)->name('regiser.request');
 
     Route::get('register', Register::class)
         ->name('register');
