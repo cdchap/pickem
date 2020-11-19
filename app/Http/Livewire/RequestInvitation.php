@@ -9,19 +9,23 @@ class RequestInvitation extends Component
 {
 
     public $email;
+    public $successMessage;
 
     protected $rules = [
         'email' => 'required|email|unique:invitations'
     ];
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
-
     public function createInvitation() {
-        $invitation = Invitation::create(['email' => $this->email ]);
+
+        $this->validate();
+
+        $invitation = new Invitation();
         $invitation->generateInvitationToken();
+        $invitation->email = $this->email;
+        $invitation->save();
+
+        $this->dispatchBrowserEvent('invitation-request-sent', ['message' => 'Excellent! We will be sending you an email in the next couple of days with a link to register', 'email' => $this->email]);
+
         
     }
 
