@@ -1,9 +1,8 @@
 <div x-data="{ showCreate: false }">
-   
-    <livewire:bowl.bowl-create />
     
     @section('pageTitle', 'Bowls')
     <div class="flex flex-col">
+        <livewire:bowl.bowl-create />
         <div class="mb-6">
         <span class="inline-flex rounded-md shadow-sm">
             <button type="button"
@@ -95,4 +94,5 @@
             </div>
         </div>
     </div>
+    
 </div>
