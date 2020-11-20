@@ -7,10 +7,14 @@
             <div class="shadow-black border-2 bg-white border-black px-4 py-4 ">
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
                     <span class=" text-xs">{{ $bowl->kickoff }}</span> 
                     <span class=" text-xs underline">{{  $bowl->date }}</span> 
+                    @if ($bowl->semifinal_display)
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-300 text-green-600">{{$bowl->semifinal_display}}</span>
+                    @endif
                 </div>
+                
                 <div class="flex flex-col justify-center mt-4">
                     <div class="font-sans">
                         <div class="flex justify-between mb-1">

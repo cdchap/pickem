@@ -57,4 +57,11 @@ class Bowl extends Model
             'CBS' => 'gray',
         ][$this->channel] ?? 'cool-gray';
     }
+
+    public function getSemiFinalDisplayAttribute()
+    {
+        return [
+            true => 'Semifinal 🏈',
+        ][$this->semi_final] ?? '';
+    }
 }

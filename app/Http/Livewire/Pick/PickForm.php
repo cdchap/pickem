@@ -21,7 +21,7 @@ class PickForm extends Component
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
     protected $rules = [
-        'picks.team_id' => 'required'
+        'picks.*.team_id' => 'required'
     ];
 
     public function mount()
