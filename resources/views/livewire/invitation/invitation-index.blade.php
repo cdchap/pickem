@@ -30,12 +30,12 @@
                                         {{$invitation->email}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$invitation->created_at}}
+                                        {{$invitation->created_at->diffForHumans()}}
                                     </td>
                                     <td id="copy_{{ $invitation->id }}"
                                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <div>
-                                            <div class="mt-1 flex rounded-sm shadow-sm">
+                                            <div class="flex rounded-sm shadow-sm">
                                                 <div class="relative flex items-stretch flex-grow focus-within:z-10">
                                                     <div
                                                         class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -49,7 +49,7 @@
                                                         </svg>
                                                     </div>
                                                     <input type="text" id="{{$invitation->id}}"
-                                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-sm pl-10 sm:text-sm border-gray-300"
+                                                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-sm pl-10 sm:text-xs border-gray-300"
                                                         value="{{ $invitation->getLink() }}">
                                                 </div>
                                                 <button
