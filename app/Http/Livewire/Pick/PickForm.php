@@ -20,7 +20,9 @@ class PickForm extends Component
     public $bowlCount;
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
-    
+    protected $rules = [
+        'picks.team_id' => 'required'
+    ];
 
     public function mount()
     {
@@ -69,6 +71,7 @@ class PickForm extends Component
 
     public function submit()
     {
+        
         foreach($this->picks as $pick) {
             Pick::create([
                 'user_id' => $pick['user_id'],
