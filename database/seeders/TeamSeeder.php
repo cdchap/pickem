@@ -142,5 +142,6 @@ class TeamSeeder extends Seeder
         Team::create(['name' => 'Western Michigan', 'nickname' => 'Broncos']);
         Team::create(['name' => 'Wisconsin', 'nickname' => 'Badgers']);
         Team::create(['name' => 'Wyoming', 'nickname' => 'Cowboys']);
+        Team::create(['name' => 'Univ. of Okla., Ladies Auxiliary', 'nickname' => 'Fighting Dames']);
     }
 }

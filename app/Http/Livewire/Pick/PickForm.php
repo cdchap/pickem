@@ -20,6 +20,7 @@ class PickForm extends Component
     public $bowlCount;
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
+    
 
     public function mount()
     {
@@ -37,6 +38,11 @@ class PickForm extends Component
             ]);
         }
         $this->bowlCount = $this->bowls->count();
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function removeConfidenceFromArray($confidenceNumber)
@@ -68,7 +74,7 @@ class PickForm extends Component
                 'user_id' => $pick['user_id'],
                 'season_id' => $pick['season_id'],
                 'bowl_id' => $pick['bowl_id'],
-                'team_id' => $pick['team_id'], 
+                'team_id' => $pick['team_id'] ?? 129, 
                 'confidence' => $pick['confidence']
             ]);
         }
