@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Auth;
 
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Livewire\Component;
+use App\Models\Invitation;
 
 class Register extends Component
 {
@@ -25,6 +27,15 @@ class Register extends Component
 
     /** @var string */
     public $passwordConfirmation = '';
+
+    public $invitation_token;
+
+    public function mount(Request $request)
+    {
+        $this->invitation_token = $request->invitation_token;
+        $invitation = Invitation::where('invitation_token', $this->invitation_token)->firstOrFail();
+        $this->email = $invitation->email;
+    }
 
     public function register()
     {
