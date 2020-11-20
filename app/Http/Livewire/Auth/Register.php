@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Livewire\Component;
 use App\Models\Invitation;
+use Carbon\Carbon;
 
 class Register extends Component
 {
@@ -52,6 +53,11 @@ class Register extends Component
             'name' => $this->name,
             'password' => Hash::make($this->password),
         ]);
+
+        $invitation = Invitation::where('email', $user->email)->firstOrFail();
+        $time = Carbon::now();
+        $invitation->registered_at = $time;
+        $invitation->save();
 
         $user->assignRole('basic');
 
