@@ -2,22 +2,12 @@
     <div class="inset-0 overflow-hidden">
         <section class="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16"
             x-show="showCreate"
-            x-transition:enter="ransform transition ease-in-out duration-500 sm:duration-700"
+            x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
             x-transition:enter-start="translate-x-full "
             x-transition:enter-end="translate-x-0 "
             x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
             x-transition:leave-start="translate-x-0 "
             x-transition:leave-end="translate-x-full ">
-            <!--
-        Slide-over panel, show/hide based on slide-over state.
-
-        Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-          From: "translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-          From: "translate-x-0"
-          To: "translate-x-full"
-      -->
         
             <div class="w-screen max-w-2xl">
                 <div class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
@@ -55,7 +45,7 @@
                                 <div>
                                     <label for="project_name"
                                         class="block text-sm font-medium leading-5 text-gray-900 sm:mt-px sm:pt-2">
-                                        Project name
+                                        Bowl name
                                     </label>
                                 </div>
                                 <div class="sm:col-span-2">

@@ -1,16 +1,16 @@
 <div x-data="{ showCreate: false }">
-    
+    <livewire:bowl.bowl-create />
     @section('pageTitle', 'Bowls')
     <div class="flex flex-col">
-        <livewire:bowl.bowl-create />
+        
         <div class="mb-6">
-        <span class="inline-flex rounded-md shadow-sm">
-            <button type="button"
-                @click="showCreate=true"
-                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
-                Create new bowl
-            </button>
-        </span>
+            <span class="inline-flex rounded-md shadow-sm z-0">
+                <button type="button"
+                    @click="showCreate=true"
+                    class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
+                    Create new bowl
+                </button>
+            </span>
         </div>
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
