@@ -1,7 +1,7 @@
-<div  class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div wire:init="loadTopTwentyFive" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <section>
-        <h3 class='text-gray-100 font-sans font-bold pl-4 sm:pl-0 '>CFP Top 25</h3>
-        <div wire:init="loadTopTwentyFive" class="flex flex-col font-sans">
+        <h3 class='text-gray-100 font-sans font-bold pl-4 sm:pl-0'>CFP Top 25</h3>
+        <div class="flex flex-col font-sans">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200">

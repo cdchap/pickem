@@ -10,18 +10,11 @@ class TopTwentyFive extends Component
     public $cfpTopTwentyFive = [];
     public $apTopTwentyFive = [];
     
-
-    public function mount()
-    {
-        
-    }
-
     public function loadTopTwentyFive()
     {
-        $topTwentyFive = collect(Http::get('http://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings')['rankings']);
+        $topTwentyFive = collect(Http::get('https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings')['rankings']);
         $this->cfpTopTwentyFive = $topTwentyFive->firstWhere('type', 'cfp');
         $this->cfpTopTwentyFive = $this->cfpTopTwentyFive['ranks'];
-        // dump($this->cfpTopTwentyFive);
         $this->apTopTwentyFive = $topTwentyFive->firstWhere('type', 'ap');
         $this->apTopTwentyFive = $this->apTopTwentyFive['ranks'];
         
