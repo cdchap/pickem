@@ -1,9 +1,7 @@
-<div wire:init="loadTopTwentyFive" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div  class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <section>
-        <div>
-            <h3 class='text-white pl-4 sm:pl-0'>{{ $topTwentyFive['0']['shortHeadline'] }}</h3>
-        </div>
-        <div class="flex flex-col font-sans">
+        <h3 class='text-gray-100 font-sans font-bold pl-4 sm:pl-0 '>CFP Top 25</h3>
+        <div wire:init="loadTopTwentyFive" class="flex flex-col font-sans">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200">
@@ -29,8 +27,8 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @forelse($topTwentyFive['0']['ranks'] as $i => $team)>
+                            <tbody >
+                                @forelse($cfpTopTwentyFive as $i => $team)>
                                     <tr
                                         class="{{ $i % 2 == 0 ? 'bg-white' : 'bg-gray-50' }}">
                                         <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500">
@@ -52,10 +50,10 @@
                                         </td>
                                     </tr>
                                 @empty
-                                <div>
-                                    loading...
-                                </div>
-                                @endforelse
+                                    <div class="text-white">
+                                        loading...
+                                    </div>
+                                @endforelse 
                             </tbody>
                         </table>
                     </div>
@@ -66,7 +64,7 @@
 
     <section>
         <div>
-            <h3 class='text-white pl-4 sm:pl-0'>{{ $topTwentyFive['1']['shortHeadline'] }}</h3>
+            <h3 class='text-gray-100 font-sans font-bold pl-4 sm:pl-0'>AP Top 25</h3>
         </div>
         <div class="flex flex-col font-sans">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -95,7 +93,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($topTwentyFive['1']['ranks'] as $i => $team)>
+                                @forelse($apTopTwentyFive as $i => $team)>
                                     <tr
                                         class="{{ $i % 2 == 0 ? 'bg-gray-50' : 'bg-white' }}">
                                         <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500">
