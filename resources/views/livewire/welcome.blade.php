@@ -55,8 +55,8 @@
         <div class=" py-12">
              <livewire:bowl.bowl-list /> 
         </div>
-        <div class=" bg-black bg-contain bg-center h-screen text-white prose-2xl flex flex-col justify-center items-center">
-            // Something here that is intereseting
+        <div class=" bg-black flex flex-col justify-center items-center py-20">
+            <livewire:top-twenty-five />
         </div>
     </div>
 </div>
