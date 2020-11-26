@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="sm:col-span-2">
                                     <div class="rounded-md shadow-sm">
-                                        <input id="project_name" class="form-input block w-full sm:text-sm sm:leading-5"
+                                        <input wire:model="name" id="bowlName" class="form-input block w-full sm:text-sm sm:leading-5"
                                             placeholder="">
                                     </div>
                                 </div>
@@ -72,62 +72,50 @@
                                 </div>
                             </div>
 
-                            <!-- Team members -->
-                            <div
-                                class="space-y-2 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:px-6 sm:py-5">
+                            <!-- Home Team -->
+                            <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
                                 <div>
-                                    <h3 class="text-sm font-medium leading-5 text-gray-900">
-                                        Team Members
-                                    </h3>
+                                    <label for="project_description"
+                                        class="block text-sm font-medium leading-5 text-gray-900 sm:mt-px sm:pt-2">
+                                        Home Team
+                                    </label>
                                 </div>
                                 <div class="sm:col-span-2">
-                                    <div class="flex space-x-2">
-                                        <a href="#"
-                                            class="flex-shrink-0 rounded-full hover:opacity-75 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                                            <img class="inline-block h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt="Tom Warner">
-                                        </a>
+                                    <div wire:init="loadTeams" class="">
+                                        <select wire:model="homeId" id="homeTeam"
+                                            class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                                            <option selected>select team</option>
+                                            @forelse ($teams as $team)
+                                                <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                            @empty
+                                                working...
+                                            @endforelse
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
-                                        <a href="#"
-                                            class="flex-shrink-0 rounded-full hover:opacity-75 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                                            <img class="inline-block h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt="Tom Warner">
-                                        </a>
-
-                                        <a href="#"
-                                            class="flex-shrink-0 rounded-full hover:opacity-75 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                                            <img class="inline-block h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt="Tom Warner">
-                                        </a>
-
-                                        <a href="#"
-                                            class="flex-shrink-0 rounded-full hover:opacity-75 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                                            <img class="inline-block h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt="Tom Warner">
-                                        </a>
-
-                                        <a href="#"
-                                            class="flex-shrink-0 rounded-full hover:opacity-75 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                                            <img class="inline-block h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt="Tom Warner">
-                                        </a>
-
-                                        <button type="button"
-                                            class="flex-shrink-0 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-dashed border-gray-200 text-gray-400 hover:text-gray-500 hover:border-gray-300 focus:text-gray-500 focus:border-gray-300 focus:outline-none transition ease-in-out duration-150"
-                                            aria-label="Add team member">
-                                            <!-- Heroicon name: plus -->
-                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </button>
+                            <!-- Home Team -->
+                            <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
+                                <div>
+                                    <label for="project_description"
+                                        class="block text-sm font-medium leading-5 text-gray-900 sm:mt-px sm:pt-2">
+                                        Home Team
+                                    </label>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <div wire:init="loadTeams" class="">
+                                        <select wire:model="visitorId" id="visitorTeam"
+                                            class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                                            <option selected>select team</option>
+                                            @forelse ($teams as $team)
+                                                <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                            @empty
+                                                working...
+                                            @endforelse
+                                            
+                                        </select>
                                     </div>
                                 </div>
                             </div>

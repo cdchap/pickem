@@ -1,6 +1,6 @@
 <div>
     <div>
-        <div class="flex flex-col items-center justify-center py-48 px-4">
+        <div class="flex flex-col items-center justify-center py-48 px-4 bg-gradient-two">
             <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white">
                 <h1 class="text-4xl md:text-6xl font-sans font-black text-black border-b-4 border-red-600">College
                     Football</h1>
@@ -47,16 +47,18 @@
             
             
         </div>
-        <div class="min-h-screen bg-card-image bg-center bg-cover  py-15">
+        <div class="min-h-screen bg-card-image bg-center bg-cover py-15">
             <div class="md:flex md:flex-col md:justify-center md:items-center">
                 <livewire:score.top-ten />
             </div>  
         </div>
-        <div class=" py-12">
+        <div class="py-12 mb-36">
              <livewire:bowl.bowl-list /> 
         </div>
-        <div class=" bg-black flex flex-col justify-center items-center py-20">
-            <livewire:top-twenty-five />
+        <div class="transform -skew-y-6 bg-gradient-three flex flex-col justify-center items-center py-20">
+            <div class="transform skew-y-6">
+                <livewire:top-twenty-five />
+            </div>
         </div>
     </div>
 </div>

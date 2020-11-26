@@ -7,7 +7,7 @@ use App\Models\Team;
 
 class BowlCreate extends Component
 {
-    public $teams;
+    public $teams = [];
     public $name;
     public $seasonId;
     public $channel;
@@ -18,20 +18,24 @@ class BowlCreate extends Component
     public $semiFinal;
 
     protected $rules = [
-        'name' => 'required|string',
-        'seasonId' => 'required|integer|between:1,129',
-        'channel' => 'required|string',
-        'kickoff' => 'required|date_format:H:i',
-        'date' => 'required|date_format:Y-m-d',
-        'home_id' => 'required|integer',
-        'visitor_id' => 'required|integer'
+        'name' => 'string',
+        'seasonId' => 'integer|between:1,129',
+        'channel' => 'string',
+        'kickoff' => 'date_format:H:i',
+        'date' => 'date_format:Y-m-d',
+        'home_id' => 'integer',
+        'visitor_id' => 'integer'
     ];
 
     public function mount()
     {
-        $this->teams = Team::all();
         $this->seasonId = 1;
 
+    }
+
+    public function loadTeams()
+    {
+        $this->teams = Team::all();
     }
 
     public function render()
