@@ -18,10 +18,10 @@ module.exports = {
                 'black': '5px 10px rgba(0, 0, 0, 1)'
             },
             width: {
-                '506' : '506px',
+                'skeleton-table' : '592px',
             },
             height: {
-                '1040': '1040px'
+                'skeleton-table': '1040px'
             }
         },
     },

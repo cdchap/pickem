@@ -1,6 +1,6 @@
 <div>
     <div>
-        <div class="flex flex-col items-center justify-center py-48 px-4 bg-gradient-two">
+        <div class="flex flex-col items-center justify-center py-48 px-4 bg-gradient-to-b from-cool-gray-200 via-white to-white">
             <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white">
                 <h1 class="text-4xl md:text-6xl font-sans font-black text-black border-b-4 border-red-600">College
                     Football</h1>
@@ -55,8 +55,8 @@
         <div class="py-12 mb-36">
              <livewire:bowl.bowl-list /> 
         </div>
-        <div class="transform -skew-y-6 bg-gradient-three flex flex-col justify-center items-center py-20">
-            <div class="transform skew-y-6">
+        <div class=" bg-gradient-to-b from-white to-cool-gray-200 pb-20">
+            <div class="">
                 <livewire:top-twenty-five />
             </div>
         </div>
