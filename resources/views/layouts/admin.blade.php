@@ -29,7 +29,7 @@
     </head>
 
     <body>
-        <div x-data="{ isOpen: false }" class="h-screen flex overflow-hidden bg-gray-100">
+        <div x-data="{ isOpen: false }" class="h-screen flex overflow-hidden bg-gradient-two">
             <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 
             <x-mobile-menu />
