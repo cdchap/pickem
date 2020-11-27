@@ -51,7 +51,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6">
+                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 bg-white">
                     <!-- Content goes here -->
                         <span class="font-bold text-gray-500">Total: {{ $pointTotal }}</span>
                     </div>
