@@ -1,5 +1,12 @@
 <div x-show="isOpen" x-cloak class="md:hidden">
-                <div class="fixed inset-0 flex z-40">
+                <div class="fixed inset-0 flex z-40"
+                        x-transition:enter="transition-opacity ease-linear duration-300"
+                        x-transition:enter-start="opacity-0 transform"
+                        x-transition:enter-end="opacity-100 transform"
+                        x-transition:leave="transition-opacity ease-linear duration-300"
+                        x-transition:leave-start="opacity-100 transform"
+                        x-transition:leave-end="opacity-0 transform"
+                >
                    
                     <!--
                         Off-canvas menu overlay, show/hide based on off-canvas menu state.
@@ -11,14 +18,7 @@
                         From: "opacity-100"
                         To: "opacity-0"
                     -->
-                    <div class="fixed inset-0"
-                        x-transition:enter="transition-opacity ease-linear duration-300"
-                        x-transition:enter-start="opacity-0 transform"
-                        x-transition:enter-end="opacity-100 transform"
-                        x-transition:leave="transition-opacity ease-linear duration-300"
-                        x-transition:leave-start="opacity-100 transform"
-                        x-transition:leave-end="opacity-0 transform"
-                    >
+                    <div class="fixed inset-0">
                         <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
                     </div>
                     <!--
@@ -32,12 +32,12 @@
                         To: "-translate-x-full"
                     -->
                     <div class="relative flex-1 flex flex-col max-w-xs w-full bg-white"
-                        x-transition:enter="transition ease-in-out duration-300 transform"
-                        x-transition:enter-start="-translate-x-full"
-                        x-transition:enter-end="translate-x-0"
+                        x-transition:enter="transition ease-in-out duration-300 translate transform"
+                        x-transition:enter-start="transform -translate-x-full"
+                        x-transition:enter-end="transform translate-x-0"
                         x-transition:leave="transition ease-in-out duration-300 transform"
-                        x-transition:leave-start="translate-x-0"
-                        x-transition:leave-end="-translate-x-full"
+                        x-transition:leave-start="transform translate-x-0"
+                        x-transition:leave-end="transform -translate-x-full"
                     >
                         <div class="absolute top-0 right-0 -mr-14 p-1">
                             <button
