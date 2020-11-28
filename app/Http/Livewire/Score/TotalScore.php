@@ -26,7 +26,6 @@ class TotalScore extends Component
         $this->userScores = $this->userScores->sortByDesc('score');
         $this->userScores = $this->userScores->values();
 
-
     }
 
     public function sumConfidencePicks($users, $picks) {
@@ -44,6 +43,7 @@ class TotalScore extends Component
                 }
             }
             array_push($scores, [
+                'user_id' => $user->id,
                 'username' => $user->username,
                 'score' => $score,
                 'pick_date' => $firstPick->created_at ?? $user->created_at

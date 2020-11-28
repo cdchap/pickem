@@ -4,7 +4,7 @@
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-4 mt-2">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        2020 Leader Board
+                        2020
                     </h3>
                 </div>
                 
@@ -13,7 +13,8 @@
         <ul>
             @foreach ( $userScores as $key => $score)
                 <li class="border-t border-gray-200">
-                    <a href="{{ route('user.picks', $score['username']) }}"
+                    <div x-data="{ open: false }"
+                        @click="open = !open"
                         class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
                         <div class="flex items-center px-4 py-4 sm:px-6">
                             <div class="min-w-0 flex-1 flex items-center">
@@ -59,7 +60,18 @@
                                 </svg>
                             </div>
                         </div>
-                    </a>
+                        <div x-show="open"
+                            @click.away="open = false"
+                            x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform scale-90"
+                            x-transition:enter-end="opacity-100 transform scale-100"
+                            x-transition:leave="transition ease-in duration-300"
+                            x-transition:leave-start="opacity-100 transform scale-100"
+                            x-transition:leave-end="opacity-0 transform scale-90"
+                             class="px-4 py-6" >
+                                <livewire:accordian-picks-table :userId="$score['user_id']"/>
+                        </div>
+                    </div>
                 </li>
             @endforeach
         </ul>
