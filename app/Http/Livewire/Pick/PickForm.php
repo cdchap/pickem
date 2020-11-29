@@ -18,6 +18,7 @@ class PickForm extends Component
     public $seasonId = 1;
     public $confidence;
     public $bowlCount;
+    public $teamCount;
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
     protected $rules = [
@@ -40,11 +41,6 @@ class PickForm extends Component
             ]);
         }
         $this->bowlCount = $this->bowls->count();
-    }
-
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
     }
 
     public function removeConfidenceFromArray($confidenceNumber)

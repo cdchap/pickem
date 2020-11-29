@@ -89,6 +89,7 @@
                     @endif
                 </h3>
             </div>
+           
             <div class="mt-6">
                 <span class="inline-flex rounded-md shadow-sm">
                     <button @click="showModal=true" type="button"
@@ -108,7 +109,7 @@
                 <div class="">
                     <form wire:submit.prevent>
                         <div class="flex flex-col justify-center px-6 shadow-black rounded-md bg-white border-black border-2 my-2 mx-4">
-                            <fieldset class="my-8 grid grid-cols-3  gap-4">
+                            <fieldset class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div class="">
                                     <legend class="font-medium text-l md:text-xl font-sans text-black">
                                         {{ $bowl->name }}
@@ -117,10 +118,23 @@
                                         class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
                                     <span class="font-mono text-xs">{{ $bowl->kickoff }}</span>
                                     <span class="font-mono text-xs underline">{{ $bowl->date }}</span>
+                                    <div class="mt-2">
+                                        <h3 class="font-bold">{{ $bowl->visitor->name }} <span class="font-thin text-xs">vs.</span> {{ $bowl->home->name }}</h3>
+                                    </div>
                                 </div>
     
-                                <div class="">
-                                    <div class="flex items-center mb-4">
+                                <div class="flex flex-col md:flex-row md:justify-around md:items-center  space-y-2">
+                                    <div>
+                                        <label for="team_id"
+                                            class="block text-sm font-medium text-gray-700">Select Winner</label>
+                                        <select wire:model="picks.{{$i}}.team_id" id="" name="picks[]"
+                                            class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                                            <option selected></option>
+                                            <option value={{$bowl->visitor->id}}>{{$bowl->visitor->name}}</option>
+                                            <option value={{$bowl->home->id}}>{{$bowl->home->name}}</option>
+                                        </select>
+                                    </div>
+                                    {{-- <div class="flex items-center mb-4">
                                         <input wire:model="picks.{{ $i }}.team_id" name="picks[]"
                                             type="radio"
                                             class="form-radio h-4 w-4 text-green-600 transition duration-150 ease-in-out"
@@ -140,27 +154,29 @@
                                             <span
                                                 class="block text-sm leading-5 font-medium text-gray-700">{!!$bowl->home->name!!}</span>
                                         </label>
-                                    </div>
+                                    </div> --}}
                                 </div>
     
-                                <div x-data="{ locked: false, selected: true, showModal: false }" class="flex flex-col md:flex-row md:justify-around md:items-center  space-y-2">
-                                    <div class="flex flex-col justify-center items-center">
-                                        <label for="confidence"
-                                            class="block text-sm leading-5 font-medium text-gray-700">Confidence</label>
-                                        <div x-show="locked" class="font-bold pt-2">
-                                            @if ( $picks[$i]['confidence'] )
-                                                <span>{{$picks[$i]['confidence']}}</span>
-                                            @endif
+                                <div x-data="{ locked: false, selected: true, showModal: false }" class="grid grid-cols-2 space-y-2">
+                                    <div class="flex justify-start">
+                                        <div class="flex flex-col justify-center items-center ">
+                                            <label for="confidence"
+                                                class="block text-sm leading-5 font-medium text-gray-700">Confidence</label>
+                                            <div x-show="locked" class="font-bold pt-2">
+                                                @if ( $picks[$i]['confidence'] )
+                                                    <span>{{$picks[$i]['confidence']}}</span>
+                                                @endif
+                                            </div>
+                                            <select x-show="!locked" @input="locked = true" wire:input="$emit('confidenceSelected', $event.target.value)" id="confidence" wire:model="picks.{{ $i }}.confidence"
+                                                class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                                                <option selected></option>
+                                                @foreach ($confidence as $item)
+                                                <option value="{{ $item }}">{{ $item }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                        <select x-show="!locked" @input="locked = true" wire:input="$emit('confidenceSelected', $event.target.value)" id="confidence" wire:model="picks.{{ $i }}.confidence"
-                                            class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                                            <option selected></option>
-                                            @foreach ($confidence as $item)
-                                            <option value="{{ $item }}">{{ $item }}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
-                                    <div class="flex flex-col justify-center items-center">
+                                    <div class="flex flex-col justify-center items-center ">
                                         <span x-show="locked"class="inline-flex rounded-md shadow-sm">
                                             <button @click="locked = false, selected = true" wire:click="addConfidenceToArray({{ $picks[$i]['confidence'] }}, {{ $i }})" type="button"
                                                 class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
