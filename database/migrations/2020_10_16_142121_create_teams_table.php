@@ -15,8 +15,19 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('api_id');
             $table->string('name');
-            $table->string('nickname');
+            $table->string('nickname')->nullable();
+            $table->string('abbreviation')->nullable();
+            $table->string('alt_name1')->nullable();
+            $table->string('alt_name2')->nullable();
+            $table->string('alt_name3')->nullable();
+            $table->string('conference')->nullable();
+            $table->string('division')->nullable();
+            $table->string('color')->nullable();
+            $table->string('alt_color')->nullable();
+            $table->string('logo1')->nullable();
+            $table->string('logo2')->nullable();
             $table->timestamps();
         });
     }
