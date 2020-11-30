@@ -7,7 +7,6 @@
             <div class="shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
                     <span class="font-sans text-xs">{{ $bowl->date }}</span> 
                     <span class=" font-sans text-xs text-orange-600">{{  $bowl->kickoff }} EST</span> 
                     @if ($bowl->semifinal_display)
