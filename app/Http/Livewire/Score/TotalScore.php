@@ -37,7 +37,7 @@ class TotalScore extends Component
             $firstPick = $picks->where('user_id', $user->id)->first();
             foreach ($picks as $key => $pick) {
                 if(isset($pick->bowl->winner) && $pick->user_id == $user->id) {
-                    if($pick->team_id == $pick->bowl->winner->id) {
+                    if($pick->team_id == $pick->bowl->winner->api_id) {
                         $score = $score + $pick->confidence;
                     }
                 }

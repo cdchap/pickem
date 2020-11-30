@@ -27,14 +27,14 @@ class CreateBowlsTable extends Migration
             $table->unsignedBigInteger('winner_id')->references('api_id')->on('teams')->nullable();
             $table->boolean('semi_final')->default(false);
             $table->boolean('championship')->default(false);
-            $table->unsignedBigInteger('home_quarter_one_score')->nullable();
-            $table->unsignedBigInteger('home_quarter_two_score')->nullable();
-            $table->unsignedBigInteger('home_quarter_three_score')->nullable();
-            $table->unsignedBigInteger('home_quarter_four_score')->nullable();
-            $table->unsignedBigInteger('visitor_quarter_one_score')->nullable();
-            $table->unsignedBigInteger('visitor_quarter_two_score')->nullable();
-            $table->unsignedBigInteger('visitor_quarter_three_score')->nullable();
-            $table->unsignedBigInteger('visitor_quarter_four_score')->nullable();
+            $table->unsignedBigInteger('home_quarter_one_score')->default(0);
+            $table->unsignedBigInteger('home_quarter_two_score')->default(0);
+            $table->unsignedBigInteger('home_quarter_three_score')->default(0);
+            $table->unsignedBigInteger('home_quarter_four_score')->default(0);
+            $table->unsignedBigInteger('visitor_quarter_one_score')->default(0);
+            $table->unsignedBigInteger('visitor_quarter_two_score')->default(0);
+            $table->unsignedBigInteger('visitor_quarter_three_score')->default(0);
+            $table->unsignedBigInteger('visitor_quarter_four_score')->default(0);
             $table->timestamps();
 
             $table->index('api_id');
