@@ -18,7 +18,10 @@
                 <div class="flex flex-col justify-center mt-4">
                     <div class="font-sans">
                         <div class="flex justify-between mb-1">
-                        <span class="">{!! $bowl->visitor->name !!}</span>
+                        <div class="flex space-x-2 items-center">
+                                <img src="{{ $bowl->visitor->logo1 }}" class="h-5 w-5">
+                                <span>{!! $bowl->visitor->name !!}</span>
+                            </div>
                             @if ($bowl->home_score > 0)
                                 <span class="font-bold text-xl"> {{ $bowl->visitor_score }}</span>
                             @else
@@ -26,8 +29,12 @@
                             @endif
                         </div>
                         <hr />
-                        <div class="flex justify-between mt-1">
-                            <span class="">{!! $bowl->home->name !!}</span>
+                        <div class="flex justify-between mt-2">
+                            <div class="flex space-x-2 items-center">
+                                <img src="{{ $bowl->home->logo1 }}" class="h-5 w-5">
+                                <span>{!! $bowl->home->name !!}</span>
+                            </div>
+                            
                             @if ($bowl->visitor_score > 0)
                                 <span class="font-bold text-xl"> {{ $bowl->home_score }}</span>
                             @else
