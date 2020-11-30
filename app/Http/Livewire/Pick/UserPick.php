@@ -11,6 +11,7 @@ class UserPick extends Component
     public $userName;
     public $userId;
     public $pointTotal = 0;
+
     public function mount(User $user)
     {
         $this->userName = $user->username;
@@ -18,10 +19,9 @@ class UserPick extends Component
         $picks = Pick::where(['user_id' => $this->userId, 'season_id' => 1 ])
                  ->with(['bowl'])
                  ->get();
-        // dd($picks);
         foreach ($picks as $pick) {
             if(isset($pick->bowl->winner)){
-                if($pick->team_id == $pick->bowl->winner->id) {
+                if($pick->team_id == $pick->bowl->winner->api_id) {
                     $this->pointTotal = $this->pointTotal + $pick->confidence;
                 }
             }   

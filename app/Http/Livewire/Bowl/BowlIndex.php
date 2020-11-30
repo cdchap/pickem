@@ -10,9 +10,9 @@ class BowlIndex extends Component
     public function render()
     {
         return view('livewire.bowl.bowl-index', [
-            'bowls' => Bowl::where('season_id', 1)
+            'bowls' => Bowl::where('season', 2019)
                         ->with(['season', 'home', 'visitor'])
-                        ->orderBy('date')
+                        ->orderBy('start_date')
                         ->get()
                 ])->layout('layouts.admin');
     }

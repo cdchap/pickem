@@ -19,29 +19,20 @@
                 
                 <div class="flex flex-col justify-center mt-4">
                     <div class="font-sans">
-                        <div class="flex justify-between mb-1">
-                        <div class="flex space-x-2 items-center">
+                        <div class="flex justify-between gap-4 mb-1">
+                            <div class="flex space-x-2 items-center w-1/2">
                                 <img src="{{ $bowl->visitor->logo1 ?? '' }}" class="h-5 w-5">
-                                <span>{!! $bowl->visitor->name !!}</span>
+                                <span>{{ $bowl->visitor->name }}</span>
                             </div>
-                            @if ($bowl->home_score > 0)
-                                <span class="font-bold text-xl"> {{ $bowl->visitor_score }}</span>
-                            @else
-                                <span class="font-bold text-cool-gray-300 text-xl">{{ $bowl->visitor_score }}</span>
-                            @endif
+                            <span class="font-bold text-xl"> {{ $bowl->visitor_score }}</span>    
                         </div>
                         <hr />
                         <div class="flex justify-between mt-2">
                             <div class="flex space-x-2 items-center">
                                 <img src="{{ $bowl->home->logo1 ?? '' }}" class="h-5 w-5">
-                                <span>{!! $bowl->home->name !!}</span>
+                                <span>{{ $bowl->home->name }}</span>
                             </div>
-                            
-                            @if ($bowl->visitor_score > 0)
-                                <span class="font-bold text-xl"> {{ $bowl->home_score }}</span>
-                            @else
-                                <span class="font-bold text-cool-gray-300 text-xl">{{ $bowl->home_score }}</span>
-                            @endif
+                            <span class="font-bold text-xl"> {{ $bowl->home_score }}</span>
                         </div>
                     </div>
                 </div>

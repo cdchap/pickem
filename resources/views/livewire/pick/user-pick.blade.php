@@ -32,10 +32,26 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($picks as $pick)
-                                <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->id : null) ? 'bg-green-50' : ''}}">
+                                <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->api_id : null) ? 'bg-green-100' : ''}}">
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                        test
+                                        <div class="flex space-x-2">
+                                            <span class="inline-flex space-x-1 items-center"
+                                                style="color: {{ $pick->bowl->visitor->color }}">
+                                                <img src="{{ $pick->bowl->visitor->logo1 }}" class="h-4 w-4"
+                                                    alt="" srcset="">
+                                                <span>{{ $pick->bowl->visitor->name }}</span>
+                                            </span>
+
+                                            <span class="text-xs">vs</span>
+
+                                            <span class="inline-flex space-x-1 items-center"
+                                                style="color: {{ $pick->bowl->home->color }}">
+                                                <img src="{{ $pick->bowl->home->logo1 }}" class="h-4 w-4" alt=""
+                                                    srcset="">
+                                                <span>{{ $pick->bowl->home->name }}</span>
+                                            </span>
+                                        </div>
                                     </td>
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-400">

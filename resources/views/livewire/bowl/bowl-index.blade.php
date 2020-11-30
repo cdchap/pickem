@@ -49,7 +49,7 @@
                             @foreach ($bowls as $bowl)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                        {{ $bowl->season->season }}
+                                        {{ $bowl->season }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                                         {{ $bowl->name }}
