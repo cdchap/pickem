@@ -21,7 +21,7 @@ class AccordianPicksTable extends Component
 
         foreach ($picks as $pick) {
             if (isset($pick->bowl->winner)) {
-                if ($pick->team_id == $pick->bowl->winner->id) {
+                if ($pick->team_id == $pick->bowl->winner->api_id) {
                     $this->pointTotal = $this->pointTotal + $pick->confidence;
                 }
             }
