@@ -26,7 +26,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($picks as $pick)
-                            <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->id : null) ? 'bg-green-50' : ''}}">
+                            <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->api_id : null) ? 'bg-green-100' : ''}}">
                                 <td
                                     class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                                     <div class="flex space-x-2">
