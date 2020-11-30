@@ -26,6 +26,7 @@ class PickForm extends Component
     {
         $this->bowls = Bowl::where('season', 2019)->with('home', 'visitor')->get();
         $this->season = Season::where('season', 2019)->firstOrFail();
+        $this->seasonID = $this->season->id;
         $this->user = auth()->user();
         $this->userId = auth()->user()->id;
         $this->confidence = range(1, $this->bowls->count());
@@ -38,7 +39,7 @@ class PickForm extends Component
                 'confidence' => 0
             ]);
         }
-        dd($this->picks);
+        
         $this->bowlCount = $this->bowls->count();
     }
 
@@ -70,7 +71,7 @@ class PickForm extends Component
         foreach($this->picks as $pick) {
             Pick::create([
                 'user_id' => $pick['user_id'],
-                // 'season_id' => $pick['season_id'],
+                'season_id' => $pick['season_id'],
                 'bowl_id' => $pick['bowl_id'],
                 'team_id' => $pick['team_id'] ?? 129, 
                 'confidence' => $pick['confidence']

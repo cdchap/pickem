@@ -103,7 +103,7 @@
     </div>
 {{-- bowl pick cards --}}
     @foreach($bowls as $i => $bowl)
-        <div class="grid grid-cols-8 gap-4 px-4 md:px-0">
+        <div class="grid grid-cols-1">
 
             <div class="col-span-full">
                 <div class="">
@@ -120,7 +120,7 @@
                                     @endif
                                     @if($bowl->championship_display)
                                         <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-300 text-green-600">{{ $bowl->semifinal_display }}</span>
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-300 text-indigo-600">{{ $bowl->championship_display }}</span>
                                     @endif
                                     <span class="font-mono text-xs">{{ $bowl->kickoff }}</span>
                                     <span class="font-mono text-xs underline">{{ $bowl->date }}</span>
