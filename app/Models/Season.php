@@ -12,7 +12,7 @@ class Season extends Model
     protected $guarded = [];
 
     public function bowls() {
-        return $this->hasMany('App\Models\Bowl');
+        return $this->hasMany('App\Models\Bowl', 'season', 'season');
     }
 
     public function picks()

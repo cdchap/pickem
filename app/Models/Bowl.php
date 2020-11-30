@@ -13,7 +13,7 @@ class Bowl extends Model
     
     public function season() 
     {
-        return $this->belongsTo('App\Models\Season');
+        return $this->belongsTo('App\Models\Season', 'season', 'season');
     }
 
     public function home() 
