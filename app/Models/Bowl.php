@@ -18,17 +18,17 @@ class Bowl extends Model
 
     public function home() 
     {
-        return $this->belongsTo('App\Models\Team', 'home_id');
+        return $this->belongsTo('App\Models\Team', 'home_id', 'api_id');
     }
 
     public function visitor()
     {
-        return $this->belongsTo('App\Models\Team', 'visitor_id');
+        return $this->belongsTo('App\Models\Team', 'visitor_id', 'api_id');
     }
 
     public function winner()
     {
-        return $this->belongsTo('App\Models\Team', 'winner_id');
+        return $this->belongsTo('App\Models\Team', 'winner_id', 'api_id');
     }
 
     public function picks()
@@ -36,14 +36,14 @@ class Bowl extends Model
         return $this->hasMany('App\Models\Pick', 'bowl_id', 'id');
     }
 
-    public function getDateAttribute($value)
+    public function getDateAttribute()
     {
-        return \Carbon\Carbon::parse($value)->format('m/d/y');
+        return \Carbon\Carbon::parse($this->start_date)->toFormattedDateString();
     }
 
-    public function getKickoffAttribute($value)
+    public function getKickoffAttribute()
     {
-        return \Carbon\Carbon::parse($value)->format('g:iA');
+        return \Carbon\Carbon::parse($this->start_date)->format('g:i');
     }
 
     public function getChannelColorAttribute() 
@@ -63,5 +63,11 @@ class Bowl extends Model
         return [
             true => 'Semifinal 🏈',
         ][$this->semi_final] ?? '';
+    }
+    public function getChampionshipDisplayAttribute()
+    {
+        return [
+            true => 'Championship 🏆',
+        ][$this->championship] ?? '';
     }
 }

@@ -13,17 +13,17 @@ class Team extends Model
 
     public function bowlHome() 
     {
-        return $this->hasMany('App\Models\Bowl', 'home_id', 'id');
+        return $this->hasMany('App\Models\Bowl', 'home_id', 'api_id');
     }
 
     public function bowlVisitor() 
     {
-        return $this->hasMany('App\Models\Bowl', 'visitor_id', 'id');
+        return $this->hasMany('App\Models\Bowl', 'visitor_id', 'api_id');
     }
 
     public function bowlWinner() 
     {
-        return $this->hasMany('App\Models\Bowl', 'winner_id', 'id');
+        return $this->hasMany('App\Models\Bowl', 'winner_id', 'api_id');
     }
 
     public function picks()

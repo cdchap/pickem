@@ -29,6 +29,8 @@ class CreateTeamsTable extends Migration
             $table->string('logo1')->nullable();
             $table->string('logo2')->nullable();
             $table->timestamps();
+
+            $table->index('api_id');
         });
     }
 

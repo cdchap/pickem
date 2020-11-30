@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TeamSeeder::class,
-           // add BowlSeeder when it is finished
+            BowlSeeder2019::class,
             RoleSeed::class,
             UserSeeder::class
         ]);

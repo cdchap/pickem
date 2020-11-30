@@ -8,9 +8,12 @@
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800">{{ $bowl->channel }}</span>
-                    <span class=" text-xs">{{ $bowl->kickoff }}</span> 
-                    <span class=" text-xs underline">{{  $bowl->date }}</span> 
+                    <span class="font-sans text-xs">{{ $bowl->date }}</span> 
+                    <span class=" font-sans text-xs text-orange-600">{{  $bowl->kickoff }} EST</span> 
                     @if ($bowl->semifinal_display)
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-300 text-green-600">{{$bowl->semifinal_display}}</span>
+                    @endif
+                    @if ($bowl->championship_display)
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-300 text-green-600">{{$bowl->semifinal_display}}</span>
                     @endif
                 </div>
@@ -19,7 +22,7 @@
                     <div class="font-sans">
                         <div class="flex justify-between mb-1">
                         <div class="flex space-x-2 items-center">
-                                <img src="{{ $bowl->visitor->logo1 }}" class="h-5 w-5">
+                                <img src="{{ $bowl->visitor->logo1 ?? '' }}" class="h-5 w-5">
                                 <span>{!! $bowl->visitor->name !!}</span>
                             </div>
                             @if ($bowl->home_score > 0)
@@ -31,7 +34,7 @@
                         <hr />
                         <div class="flex justify-between mt-2">
                             <div class="flex space-x-2 items-center">
-                                <img src="{{ $bowl->home->logo1 }}" class="h-5 w-5">
+                                <img src="{{ $bowl->home->logo1 ?? '' }}" class="h-5 w-5">
                                 <span>{!! $bowl->home->name !!}</span>
                             </div>
                             

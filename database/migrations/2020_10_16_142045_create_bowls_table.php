@@ -15,18 +15,29 @@ class CreateBowlsTable extends Migration
     {
         Schema::create('bowls', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('season_id')->references('id')->on('seasons');
-            $table->string('channel');
-            $table->time('kickoff', 0);
-            $table->date('date');
-            $table->unsignedBigInteger('home_id')->references('id')->on('teams')->nullable();
-            $table->unsignedBigInteger('visitor_id')->references('id')->on('teams')->nullable();
+            $table->unsignedBigInteger('api_id');
+            $table->string('name')->nullable();
+            $table->unsignedBigInteger('season')->references('season')->on('seasons');
+            $table->string('channel')->nullable();
+            $table->dateTimeTz('start_date', 0);
+            $table->unsignedBigInteger('home_id')->references('api_id')->on('teams')->nullable();
+            $table->unsignedBigInteger('visitor_id')->references('api_id')->on('teams')->nullable();
             $table->unsignedBigInteger('home_score')->default(0);
             $table->unsignedBigInteger('visitor_score')->default(0);
-            $table->unsignedBigInteger('winner_id')->references('id')->on('teams')->nullable();
+            $table->unsignedBigInteger('winner_id')->references('api_id')->on('teams')->nullable();
             $table->boolean('semi_final')->default(false);
+            $table->boolean('championship')->default(false);
+            $table->unsignedBigInteger('home_quarter_one_score')->nullable();
+            $table->unsignedBigInteger('home_quarter_two_score')->nullable();
+            $table->unsignedBigInteger('home_quarter_three_score')->nullable();
+            $table->unsignedBigInteger('home_quarter_four_score')->nullable();
+            $table->unsignedBigInteger('visitor_quarter_one_score')->nullable();
+            $table->unsignedBigInteger('visitor_quarter_two_score')->nullable();
+            $table->unsignedBigInteger('visitor_quarter_three_score')->nullable();
+            $table->unsignedBigInteger('visitor_quarter_four_score')->nullable();
             $table->timestamps();
+
+            $table->index('api_id');
         });
     }
 
