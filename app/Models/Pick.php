@@ -23,7 +23,7 @@ class Pick extends Model
 
     public function bowl()
     {
-        return $this->belongsTo('App\Models\Bowl');
+        return $this->belongsTo('App\Models\Bowl',);
     }
 
     public function team()

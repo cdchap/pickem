@@ -13,7 +13,7 @@
                             <tr>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Bowl
+                                    Matchup
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -35,7 +35,7 @@
                                 <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->id : null) ? 'bg-green-50' : ''}}">
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                        {{ $pick->bowl->name }}
+                                        test
                                     </td>
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-400">

@@ -33,7 +33,7 @@ class UserPick extends Component
         return view('livewire.pick.user-pick', [
             'picks' => Pick::where(['user_id' => $this->userId, 'season_id' => 1])
                         ->orderBy('confidence', 'desc')
-                        ->with(['team', 'bowl'])          
+                        ->with(['team', 'bowl', 'bowl.visitor', 'bowl.home'])          
                         ->get()
         ]);
     }
