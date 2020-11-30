@@ -136,8 +136,8 @@
                                         <select wire:model="picks.{{$i}}.team_id" id="" name="picks[]"
                                             class="mt-1 form-select pl-3 pr-10 py-1 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                                             <option selected></option>
-                                            <option value={{$bowl->visitor->id}}>{{$bowl->visitor->name}}</option>
-                                            <option value={{$bowl->home->id}}>{{$bowl->home->name}}</option>
+                                            <option value={{$bowl->visitor->api_id}}>{{$bowl->visitor->name}}</option>
+                                            <option value={{$bowl->home->api_id}}>{{$bowl->home->name}}</option>
                                         </select>
                                     </div>
                                     {{-- <div class="flex items-center mb-4">

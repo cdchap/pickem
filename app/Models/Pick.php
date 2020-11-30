@@ -28,7 +28,7 @@ class Pick extends Model
 
     public function team()
     {
-        return $this->belongsTo('App\Models\Team');
+        return $this->belongsTo('App\Models\Team', 'team_id', 'api_id');
     }
 
 
