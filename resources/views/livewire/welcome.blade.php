@@ -8,12 +8,16 @@
                 <h2 class="mt-4 text-xl md:text-2xl text-gray-500">🎉 🎉 🎉</h2>
                 <div class="mt-8 flex flex-col justify-center items-center">
                     @guest
+                    <div class="flex flex-col">
                         <span class="inline-flex rounded-md shadow-sm">
                             <a href="{{ route('register.request') }}"
                                 class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-purple-600 hover:text-purple-300 bg-gradient-two focus:outline-none focus:border-purple-500 focus:shadow-outline-purple active:bg-purple-500 transition ease-in-out duration-150">
                                 Request Invitation
                             </a>
                         </span>
+                    <p class="mt-1">or <a href="{{ route('login') }}" class="underline text-pink-500">sign in here</a> </p>
+                    </div>
+                        
                     @endguest
 
                     @auth
