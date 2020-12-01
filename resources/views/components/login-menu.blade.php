@@ -1,5 +1,6 @@
 <nav 
     x-data="{mobileOpen: false}"
+        
     class="bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -68,8 +69,14 @@
 
     Menu open: "block", Menu closed: "hidden"
   -->
-    <div
-        x-bind:class="{'hidden ': !mobileOpen}"
+    <div 
+        x-show="mobileOpen"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-90"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition ease-in duration-50"
+        x-transition:leave-start="transform scale-100"
+        x-transition:leave-end="transform scale-90"
         class="md:hidden">
         <div class="px-2 pt-2 pb-3 sm:px-3">
             <a href="#"
@@ -81,7 +88,7 @@
             <a href="#"
                 class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
         </div>
-        <div class="pt-4 pb-3 border-t border-gray-700">
+        {{-- <div class="pt-4 pb-3 border-t border-gray-700">
             <div class="flex items-center px-5 sm:px-6">
                 <div class="flex-shrink-0">
                     <img class="h-10 w-10 rounded-full"
@@ -103,7 +110,7 @@
                     class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Sign
                     pout</a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </nav>
 
