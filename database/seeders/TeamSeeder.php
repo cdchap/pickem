@@ -15,7 +15,7 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        $teams = Http::get('https://api.collegefootballdata.com/teams')->json();
+        $teams = Http::get('https://api.collegefootballdata.com/teams/fbs?year=2020')->json();
 
         foreach ($teams as $i => $team) {
             Team::create([

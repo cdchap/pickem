@@ -1,10 +1,10 @@
-<div class="container mx-auto flex flex-col justify-center px-4 md:px-0">
+<div class="flex flex-col px-4 md:px-0">
     <div class="pb-5 border-b border-gray-200 my-10">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
             &#64;{{ $userName }}&rsquo;s Picks
         </h3>
     </div>
-    <div class="flex flex-col justify-center items-center">
+    <div class="">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -35,7 +35,7 @@
                                 <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->api_id : null) ? 'bg-green-100' : ''}}">
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                        <div class="flex space-x-2">
+                                        <div class="flex flex-col items-start lg:flex-row lg:space-x-2">
                                             <span class="inline-flex space-x-1 items-center"
                                                 style="color: {{ $pick->bowl->visitor->color }}">
                                                 <img src="{{ $pick->bowl->visitor->logo1 }}" class="h-4 w-4"

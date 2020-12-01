@@ -29,17 +29,17 @@
                             <tr class="{{ $pick->team_id == ($pick->bowl->winner ? $pick->bowl->winner->api_id : null) ? 'bg-green-100' : ''}}">
                                 <td
                                     class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                    <div class="flex space-x-2">
+                                    <div class="flex flex-col items-start lg:flex-row  lg:space-x-2">
                                         <span class="inline-flex space-x-1 items-center" style="color: {{ $pick->bowl->visitor->color }}">
                                             <img src="{{ $pick->bowl->visitor->logo1 }}" class="h-4 w-4" alt="" srcset="">
-                                            <span>{{ $pick->bowl->visitor->name }}</span>
+                                            <span>{{ $pick->bowl->visitor->abbreviation }}</span>
                                         </span> 
 
                                         <span class="text-xs">vs</span>
 
                                         <span class="inline-flex space-x-1 items-center" style="color: {{ $pick->bowl->home->color }}">
                                             <img src="{{ $pick->bowl->home->logo1 }}" class="h-4 w-4" alt="" srcset="">
-                                            <span>{{ $pick->bowl->home->name }}</span>
+                                            <span>{{ $pick->bowl->home->abbreviation }}</span>
                                         </span>
                                     </div>
                                 </td>
