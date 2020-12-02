@@ -1,9 +1,9 @@
-<div class=" container mx-auto px-4 sm:px-6 lg:px-8 ">
+<div wire:init="loadBowlList" class=" container mx-auto px-4 sm:px-6 lg:px-8 ">
     <div class="mb-8 py-4 border-b-4 border-red-600">
         <h2 class="font-black font-sans tracking-wide uppercase text-4xl">2020 Bowl Schedule</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach($bowls as $bowl)
+        @forelse($bowls as $bowl)
             <div class="shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
@@ -39,12 +39,12 @@
                 <div class="text-xs">
                     @foreach ($picks as $pick)
                         @if ($pick->bowl_id == $bowl->id)
-                        <div class="space-y-2 mt-2 font-sans">
+                        <div class="flex justify-between mt-2 font-sans">
                             <div class="text-sm" >
-                            <span >&#64;{{$username}}&rsquo;s pick: <span style="color: {{ $pick->team->color }}">{!! $pick->team->name !!}</span></span>
+                            <span >&#64;{{$username}}&rsquo;s pick &rarr; <span style="color: {{ $pick->team->color }}">{!! $pick->team->name !!}</span></span>
                             </div>
-                            <div class="text-sm" >
-                                <span>confidence: {{ $pick->confidence }} </span>
+                            <div class="text-sm " >
+                                <span >confidence &rarr; <span class="font-semibold">{{ $pick->confidence }}</span></span>
                             </div>
                         </div>
                         @else 
@@ -53,6 +53,51 @@
                     @endforeach
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <hr>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+            </div>
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <hr>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+            </div>
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <hr>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+            </div>
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <hr>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+            </div>
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <hr>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+            </div>
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <hr>
+                <span class="inline-block bg-gray-100 w-40 h-6"></span>
+                <span class="inline-block bg-gray-100 w-16 h-4"></span>
+            </div>
+            
+        @endforelse
+
     </div>
 </div>

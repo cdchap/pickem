@@ -10,12 +10,13 @@ use Illuminate\Support\Arr;
 
 class BowlList extends Component
 {
-    public $picks;
+    public $picks = [];
     public $userId;
     public $username;
     public $season = 2019;
+    public $bowls =[];
 
-    public function mount()
+    public function loadBowlList()
     {
         if (auth()->user()) {
             $user = auth()->user();
@@ -24,8 +25,13 @@ class BowlList extends Component
             $this->picks = Pick::where('user_id', $this->userId)->select('user_id', 'bowl_id', 'team_id', 'confidence')->with('team')->get();
         } else {
             $this->username = '';
-            $this->picks= [];
+            
         }
+
+        $this->bowls = Bowl::where('season', $this->season)
+                        ->orderBy('start_date')
+                        ->with(['home', 'visitor', 'winner', 'picks'])
+                        ->get();
         
         
 
@@ -33,11 +39,11 @@ class BowlList extends Component
 
     public function render()
     {
-        return view('livewire.bowl.bowl-list', 
-        ['bowls' => Bowl::where('season', $this->season)
-                    ->orderBy('start_date')
-                    ->with(['home', 'visitor', 'winner', 'picks'])
-                    ->get()
-        ]);
+        return view('livewire.bowl.bowl-list');
+        // ['bowls' => Bowl::where('season', $this->season)
+        //             ->orderBy('start_date')
+        //             ->with(['home', 'visitor', 'winner', 'picks'])
+        //             ->get()
+        // ]);
     }
 }
