@@ -9,7 +9,7 @@
             x-transition:leave-start="translate-x-0 "
             x-transition:leave-end="translate-x-full ">
         
-            <div class="w-screen max-w-2xl">
+            <div class="w-screen max-w-2xl z-10">
                 <div class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
                     <div class="flex-1">
                         <!-- Header -->
