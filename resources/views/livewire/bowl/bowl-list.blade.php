@@ -4,7 +4,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse($bowls as $bowl)
-            <div class="shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <h3 class="text-lg font-sans font-semibold">{{ $bowl->name }}</h3>
                 <div class="flex justify-start space-x-2">
                     <span class="font-sans text-xs">{{ $bowl->date }}</span> 

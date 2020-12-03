@@ -1,7 +1,7 @@
 <div>
     <div>
         <div class="flex flex-col items-center justify-center py-48 px-4 bg-card-image bg-center bg-cover">
-            <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white rounded-md">
+            <div class="text-center px-16 py-12 border-2 border-black shadow-black bg-white rounded-2xl">
                 <h1 class="text-4xl md:text-6xl font-sans font-black text-black border-b-4 border-cool-gray-300">College
                     Football</h1>
                 <h2 class="mt-4 text-lg md:text-2xl text-gray-500">Bowl 🏈 Confidence 🏈 Pool</h2>

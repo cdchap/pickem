@@ -27,7 +27,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js" defer></script>
     </head>
-    <body class="bg-gradient-two">
+    <body class="bg-cool-gray-100">
         <div class="flex flex-col min-h-screen font-mono">
             <x-login-menu />
             @yield('content')

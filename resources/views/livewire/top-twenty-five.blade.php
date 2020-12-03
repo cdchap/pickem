@@ -6,10 +6,10 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <section>
             <h3 class='text-cool-gray-700 font-sans font-bold pl-4 sm:pl-0 mb-2'>CFP Top 25</h3>
-            <div class="flex flex-col font-sans rounded-md shadow-black">
+            <div class="flex flex-col font-sans rounded-2xl shadow-black">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="border-2 border-black overflow-hidden  rounded-md">
+                        <div class="border-2 border-black overflow-hidden  rounded-2xl">
                             <table  class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
@@ -55,7 +55,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <div class=" w-skeleton-table h-skeleton-table bg-cool-gray-50 rounded-md">
+                                        <div class=" w-skeleton-table h-skeleton-table bg-cool-gray-50 rounded-2xl">
                                             
                                         </div>
                                     @endforelse 
@@ -71,10 +71,10 @@
             <div>
                 <h3 class='text-cool-gray-700 font-sans font-bold pl-4 sm:pl-0 mb-2'>AP Top 25</h3>
             </div>
-            <div class="flex flex-col font-sans rounded-md shadow-black">
+            <div class="flex flex-col font-sans rounded-2xl shadow-black">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="border-2 border-black overflow-hidden rounded-md">
+                        <div class="border-2 border-black overflow-hidden rounded-2xl">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
