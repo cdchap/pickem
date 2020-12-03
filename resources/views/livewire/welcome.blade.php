@@ -68,7 +68,7 @@
         <div class="py-12 mb-36">
              <livewire:bowl.bowl-list /> 
         </div>
-        <div class=" pb-20">
+        <div class="pb-20 px-4">
             <div class="">
                 <livewire:top-twenty-five />
             </div>

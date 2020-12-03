@@ -41,7 +41,7 @@
                         @if ($pick->bowl_id == $bowl->id)
                         <div class="flex justify-between mt-2 font-sans">
                             <div class="text-sm" >
-                            <span >&#64;{{$username}}&rsquo;s pick &rarr; <span style="color: {{ $pick->team->color }}">{!! $pick->team->name !!}</span></span>
+                            <span >&#64;{{$username}} &rarr; <span style="color: {{ $pick->team->color }}">{!! $pick->team->name !!}</span></span>
                             </div>
                             <div class="text-sm " >
                                 <span >confidence &rarr; <span class="font-semibold">{{ $pick->confidence }}</span></span>

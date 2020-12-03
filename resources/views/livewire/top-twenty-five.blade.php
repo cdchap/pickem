@@ -6,10 +6,10 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <section>
             <h3 class='text-cool-gray-700 font-sans font-bold pl-4 sm:pl-0 mb-2'>CFP Top 25</h3>
-            <div class="flex flex-col font-sans">
+            <div class="flex flex-col font-sans rounded-md shadow-black">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 rounded-md">
+                        <div class="border-2 border-black overflow-hidden  rounded-md">
                             <table  class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
@@ -71,10 +71,10 @@
             <div>
                 <h3 class='text-cool-gray-700 font-sans font-bold pl-4 sm:pl-0 mb-2'>AP Top 25</h3>
             </div>
-            <div class="flex flex-col font-sans">
+            <div class="flex flex-col font-sans rounded-md shadow-black">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow-black border-2 border-black overflow-hidden  rounded-md">
+                        <div class="border-2 border-black overflow-hidden rounded-md">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
