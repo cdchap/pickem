@@ -13,6 +13,7 @@ module.exports = {
                 'gradient-one' : "linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%)",
                 'gradient-two' : "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)",
                 'gradient-three' : "linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)",
+                'gradient-four' : "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)"
             }),
             boxShadow: {
                 'black': '5px 10px rgba(0, 0, 0, 1)'
