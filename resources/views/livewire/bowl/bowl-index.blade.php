@@ -1,5 +1,6 @@
 <div x-data="{ showCreate: false }">
     <livewire:bowl.bowl-create />
+    <livewire:bowl.bowl-edit />
     @section('pageTitle', 'Bowls')
     <div class="flex flex-col">
         
