@@ -1,13 +1,13 @@
-<div class="flex flex-col px-4 md:px-0">
-    <div class="pb-5 border-b border-gray-200 my-10">
+<div class="flex flex-col px-4 md:px-0 mx-auto max-w-3xl">
+    <div class="pb-5 border-b border-gray-300 my-10">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
             &#64;{{ $userName }}&rsquo;s Picks
         </h3>
     </div>
-    <div class="">
+    <div class="rounded-2xl shadow-black">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <div class="overflow-hidden border-2 border-black rounded-2xl">
                     <table class="divide-y divide-gray-200">
                         <thead>
                             <tr>
@@ -40,7 +40,7 @@
                                                 style="color: {{ $pick->bowl->visitor->color }}">
                                                 <img src="{{ $pick->bowl->visitor->logo1 }}" class="h-4 w-4"
                                                     alt="" srcset="">
-                                                <span>{{ $pick->bowl->visitor->name }}</span>
+                                                <span>{{ $pick->bowl->visitor->abbreviation }}</span>
                                             </span>
 
                                             <span class="text-xs">vs</span>
@@ -49,7 +49,7 @@
                                                 style="color: {{ $pick->bowl->home->color }}">
                                                 <img src="{{ $pick->bowl->home->logo1 }}" class="h-4 w-4" alt=""
                                                     srcset="">
-                                                <span>{{ $pick->bowl->home->name }}</span>
+                                                <span>{{ $pick->bowl->home->abbreviation }}</span>
                                             </span>
                                         </div>
                                     </td>
