@@ -44,11 +44,11 @@
                                 </span>
                             </a>
                         @else
-                            <h3 class="font-sans text-xl text-gray-900">Welcome 
+                            <h3 class="font-sans text-xl text-gray-900">Hello
                                 <a
                                     class="font-mono text-blue-600 underline hover:text-blue-400"
-                                    href="{{ route('user.picks', auth()->user()->username) }}">&#64;{{ auth()->user()->username }}
-                                </a>!!
+                                    href="{{ route('user.picks', auth()->user()->username) }}"> &#64;{{ auth()->user()->username }}
+                                </a>
                             </h3>
                         @endcan
                     @endauth

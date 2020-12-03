@@ -19,14 +19,11 @@ class PickForm extends Component
     public $bowlCount;
     public $teamCount;
     public $season;
+    public $reviewedPicks =[];
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
 
-    protected $rules = [
-            
-            'picks.team_id' => 'required', 
-            
-        ];
+   
 
     public function mount()
     {
@@ -73,14 +70,12 @@ class PickForm extends Component
 
     public function submit()
     {
-        $this->validate();
-
         foreach($this->picks as $pick) {
             Pick::create([
                 'user_id' => $pick['user_id'],
                 'season_id' => $pick['season_id'],
                 'bowl_id' => $pick['bowl_id'],
-                'team_id' => $pick['team_id'] ?? 129, 
+                'team_id' => $pick['team_id'] ?? null, 
                 'confidence' => $pick['confidence']
             ]);
         }
@@ -89,6 +84,13 @@ class PickForm extends Component
         $this->user->assignRole('user');        
     
         return redirect()->route('home');
+    }
+
+    public function updatedReviewedPicks() {
+        $unsortedArray = $this->picks;
+        $this->reviewedPicks = array_values(Arr::sort($unsortedArray, function($value){
+            return $value['confidence'];
+        }));
     }
 
     public function render()
