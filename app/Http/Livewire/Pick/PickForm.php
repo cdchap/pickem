@@ -22,6 +22,12 @@ class PickForm extends Component
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
 
+    protected $rules = [
+            
+            'picks.team_id' => 'required', 
+            
+        ];
+
     public function mount()
     {
         $this->bowls = Bowl::where('season', 2019)->with('home', 'visitor')->get();
@@ -67,7 +73,8 @@ class PickForm extends Component
 
     public function submit()
     {
-        
+        $this->validate();
+
         foreach($this->picks as $pick) {
             Pick::create([
                 'user_id' => $pick['user_id'],

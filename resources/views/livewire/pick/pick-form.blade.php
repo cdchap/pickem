@@ -53,7 +53,7 @@
                     <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                             <button type="submit"
-                                wire:click="submit"
+                                {{-- wire:click="submit" --}}
                                 class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                 Pick&rsquo;em!
                             </button>
@@ -88,11 +88,21 @@
                             remaining bowls to pick!!</h3>
                     @endif
                 </h3>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
            
             <div class="mt-6">
                 <span class="inline-flex rounded-md shadow-sm">
-                    <button @click="showModal=true" type="button"
+                    <button  type="submit"
+                        wire:click="submit"
                         {{ $bowlCount > 0 ? 'disabled' : '' }}
                         class="inline-flex items-center px-2 flex-shrink-0 md:px-4 py-2 border border-transparent text-sm md:text-base leading-6 font-medium rounded-md text-white {{ $bowlCount > 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500' }} focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         Submit Picks
