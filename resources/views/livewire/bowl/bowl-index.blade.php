@@ -1,7 +1,7 @@
 <div x-data="{ showCreate: false }">
     <livewire:bowl.bowl-create />
     @section('pageTitle', 'Bowls')
-    <div class="flex flex-col">
+    <div class="flex flex-col space-y-4">
         
         <div class="mb-6">
             <span class="inline-flex rounded-md shadow-sm">
@@ -95,6 +95,9 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="">
+            {{ $bowls->links() }}
         </div>
     </div>
     
