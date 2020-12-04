@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Score;
 
-use Livewire\Component;
-
-use App\Models\User;
 use App\Models\Pick;
+use App\Models\User;
+use Livewire\Component;
 use Illuminate\Support\Arr;
 
 class TotalScore extends Component
@@ -31,17 +30,36 @@ class TotalScore extends Component
     public function sumConfidencePicks($users, $picks) {
         
         $scores = [];
-
+        
         foreach ($users as $key => $user) {
             $score = 0;
+            $correctPicks = [];
             $firstPick = $picks->where('user_id', $user->id)->first();
             foreach ($picks as $key => $pick) {
                 if(isset($pick->bowl->winner) && $pick->user_id == $user->id) {
                     if($pick->team_id == $pick->bowl->winner->api_id) {
+                        $correctPicks = Arr::prepend($correctPicks, $pick->confidence ?? 0);
                         $score = $score + $pick->confidence;
                     }
                 }
+            } 
+
+            $correctPicks = array_filter($correctPicks, function($value) {
+                return $value > 0;
+            });
+            $correctPicks = array_reverse(Arr::sort($correctPicks)); 
+
+            $championshipPick = $picks->where('bowl.championship', true);
+            $highScore = reset($correctPicks);
+
+            
+            foreach($championshipPick as $pick) {
+                if($pick->team_id == $pick->bowl->winner->api_id) {
+                    $score = $score + $highScore;
+                }
+               
             }
+            
             array_push($scores, [
                 'user_id' => $user->id,
                 'username' => $user->username,
