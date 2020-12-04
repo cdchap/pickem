@@ -8,20 +8,15 @@
                 <h2 class="mt-4 text-xl md:text-2xl text-gray-500">🎉 🎉 🎉</h2>
                 <div class="mt-8 flex flex-col justify-center items-center">
                     @guest
-                    <div class="flex justfiy-around items-center space-x-4">
+                    <div class="flex flex-col justify-center items-center space-y-4">
                         <span class="inline-flex rounded-md shadow-sm">
                             <a href="{{ route('register.request') }}"
                                 class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white  bg-green-600  hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-purple active:bg-green-700 transition ease-in-out duration-150">
                                 Request Invitation
                             </a>
                         </span>
-                        <span>or</span>
-                        <span class="inline-flex rounded-md shadow-sm">
-                            <a href="{{route('login')}}"
-                                class="inline-flex items-center px-6 py-3 border border-gray-300 text-base leading-6 font-medium rounded-md text-white bg-pink-700 hover:bg-pink-500 focus:outline-none focus:border-pink-300 focus:shadow-outline-blue active:text-white active:bg-pink-700 transition ease-in-out duration-150">
-                                Sign in
-                            </a>
-                        </span>
+                        <span>or <a href="{{route('login')}}" class="text-blue-700 underline font-medium">sign in</a></span>
+                        
                     </div>
                         
                     @endguest
