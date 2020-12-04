@@ -12,6 +12,8 @@ class PickForm extends Component
 {
     public $picks;
     public $bowls;
+    public $championship;
+    public $semiFinals;
     public $user;
     public $userId;
     public $seasonId;
@@ -23,11 +25,27 @@ class PickForm extends Component
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
 
-   
-
     public function mount()
     {
-        $this->bowls = Bowl::where('season', 2019)->with('home', 'visitor')->get();
+        $this->bowls = Bowl::where([
+                                ['season', 2019],
+                                ['championship', false],
+                            ])
+                            ->with('home', 'visitor')
+                            ->get();
+        $this->championship = Bowl::where([
+                                ['season', 2019],
+                                ['championship',true],
+                            ])
+                            ->with('home', 'visitor')
+                            ->get();
+                            
+        $this->semiFinals = Bowl::where([
+                                ['season', 2019],
+                                ['semi_final', true]
+                            ])
+                            ->with('home', 'visitor')
+                            ->get();
         $this->season = Season::where('season', 2019)->firstOrFail();
         $this->seasonID = $this->season->id;
         $this->user = auth()->user();
@@ -44,6 +62,8 @@ class PickForm extends Component
         }
         
         $this->bowlCount = $this->bowls->count();
+
+        
     }
 
     public function removeConfidenceFromArray($confidenceNumber)
@@ -86,9 +106,21 @@ class PickForm extends Component
         return redirect()->route('home');
     }
 
-    public function updatedReviewedPicks() {
-        $unsortedArray = $this->picks;
-        $this->reviewedPicks = array_values(Arr::sort($unsortedArray, function($value){
+    public function reviewedPicks() {
+      
+
+        $unsortedPicks = [];
+
+        foreach ($this->picks as $key => $pick) {
+            if(!Arr::has($pick, 'team_id')) {
+                $pick['team_id'] = null;
+            }
+
+            $unsortedPicks = Arr::prepend($unsortedPicks, $pick);
+
+        }
+
+        $this->reviewedPicks = array_values(Arr::sort($unsortedPicks, function($value){
             return $value['confidence'];
         }));
     }
