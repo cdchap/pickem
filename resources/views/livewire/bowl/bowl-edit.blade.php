@@ -113,18 +113,12 @@
                                         <p class="text-sm leading-5 text-gray-500">Is this bowl a semifinal?</p>
                                         <div class="mt-4">
                                             <div class="flex items-center">
-                                                <input id="smeifinal" name="semi_final" type="radio" wire:model="bowl.semi_final" value="true"
+                                                <input id="smeifinal" name="semi_final" type="radio" wire:model="bowl.semi_final" value="1"
+                                                    {{ $bowl->semi_final ? 'checked' : '' }}
                                                     class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
                                                 <label for="push_everything" class="ml-3">
                                                     <span
                                                         class="block text-sm leading-5 font-medium text-gray-700">Semi-final</span>
-                                                </label>
-                                            </div>
-                                            <div class="mt-4 flex items-center">
-                                                <input id="not_semifinal" name="semi_final" type="radio" wire:model="bowl.semi_final" value="false"
-                                                    class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                                <label for="push_email" class="ml-3">
-                                                    <span class="block text-sm leading-5 font-medium text-gray-700">not a semi final</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -148,18 +142,12 @@
                                         <p class="text-sm leading-5 text-gray-500">Is this bowl the National Championship?</p>
                                         <div class="mt-4">
                                             <div class="flex items-center">
-                                                <input id="championship" name="championship" type="radio" wire:model="bowl.championship" value="true"
+                                                <input id="championship" name="championship" type="radio" wire:model="bowl.championship" value="1"
+                                                    {{ $bowl->championship ? 'checked' : '' }}
                                                     class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
                                                 <label for="push_everything" class="ml-3">
                                                     <span
                                                         class="block text-sm leading-5 font-medium text-gray-700">championship</span>
-                                                </label>
-                                            </div>
-                                            <div class="mt-4 flex items-center">
-                                                <input id="not_championship" name="championship" type="radio" wire:model="bowl.championship" value="false"
-                                                    class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                                <label for="push_email" class="ml-3">
-                                                    <span class="block text-sm leading-5 font-medium text-gray-700">not the championship</span>
                                                 </label>
                                             </div>
                                         </div>

@@ -22,7 +22,7 @@
                     @endguest
 
                     @auth
-                        @can('make picks')
+                        @can('pick2020')
                             <div class="max-w-sm">
                                 <h3 class="font-sans text-xl text-gray-900">Welcome <a
                                         class="font-mono text-blue-600 underline hover:text-blue-400"

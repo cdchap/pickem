@@ -59,7 +59,8 @@ class Register extends Component
         $invitation->registered_at = $time;
         $invitation->save();
 
-        $user->assignRole('basic');
+        $user->assignRole('user');
+        $user->givePermissionTo('pick2020');
 
         event(new Registered($user));
 

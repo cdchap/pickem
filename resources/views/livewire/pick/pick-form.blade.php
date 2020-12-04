@@ -1,5 +1,5 @@
 <div x-data="{ showModal: false }" class=" mx-auto pt-8 mb-10">
-    @can('make picks')
+    @can('pick2020')
     {{-- Modal --}}
     <div  class="max-w-6xl mx-auto pt-8 mb-10">
         <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto"

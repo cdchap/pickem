@@ -26,6 +26,7 @@ class RoleSeed extends Seeder
         Permission::create(['name' => 'view']);
         Permission::create(['name' => 'update']);
         Permission::create(['name' => 'delete']);
+        Permission::create(['name' => 'pick2020']);
 
         // create roles and assign created permissions
 
@@ -35,7 +36,7 @@ class RoleSeed extends Seeder
 
         // or may be done by chaining
         $role = Role::create(['name' => 'user'])
-            ->givePermissionTo(['edit profile']);
+            ->givePermissionTo(['edit profile', 'pick2020']);
         
         $role = Role::create(['name' => 'admin'])
             ->givePermissionTo(['edit', 'view', 'update', 'edit profile']);

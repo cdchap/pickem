@@ -21,7 +21,8 @@ class BowlEdit extends Component
 
     public function save()
     {
-        dd('this saved');
+        $this->validate();
+        $this->bowl->save();
     }
 
     public function render()

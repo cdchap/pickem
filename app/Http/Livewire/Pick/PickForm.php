@@ -123,8 +123,7 @@ class PickForm extends Component
             ]);
         }
 
-        $this->user->removeRole('basic');
-        $this->user->assignRole('user');        
+        $this->user->revokePermissionTo('pick2020');        
     
         return redirect()->route('home');
     }
