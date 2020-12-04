@@ -37,14 +37,33 @@ class TopTen extends Component
 
         foreach ($users as $key => $user) {
             $score = 0;
+            $correctPicks = [];
             $firstPick = $picks->where('user_id', $user->id)->first();
             foreach ($picks as $key => $pick) {
                 if(isset($pick->bowl->winner) && $pick->user_id == $user->id) {
                     if($pick->team_id == $pick->bowl->winner->api_id) {
+                        $correctPicks = Arr::prepend($correctPicks, $pick->confidence ?? 0);
                         $score = $score + $pick->confidence;
                     }
                 }
             }
+
+        $correctPicks = array_filter($correctPicks, function($value) {
+                return $value > 0;
+            });
+        $correctPicks = array_reverse(Arr::sort($correctPicks)); 
+
+        $championshipPick = $picks->where('bowl.championship', true);
+        $highScore = reset($correctPicks);
+
+        
+        foreach($championshipPick as $pick) {
+            if($pick->team_id == $pick->bowl->winner->api_id) {
+                $score = $score + $highScore;
+            }
+            
+        }
+        
             array_push($scores, [
                 'username' => $user->username,
                 'score' => $score,
