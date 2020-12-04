@@ -13,45 +13,52 @@ class PickForm extends Component
     public $picks;
     public $bowls;
     public $championship;
+    public $champPick;
     public $semiFinals;
     public $user;
     public $userId;
     public $seasonId;
     public $confidence;
     public $bowlCount;
-    public $teamCount;
     public $season;
-    public $reviewedPicks =[];
+    public $reviewedPicks = [];
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
 
     public function mount()
     {
+        // get all the bowls
         $this->bowls = Bowl::where([
                                 ['season', 2019],
                                 ['championship', false],
                             ])
                             ->with('home', 'visitor')
                             ->get();
+        // get the championship game
         $this->championship = Bowl::where([
                                 ['season', 2019],
                                 ['championship',true],
                             ])
                             ->with('home', 'visitor')
                             ->get();
-                            
+        // get the semifinals so that I can put the teams in championship game form
         $this->semiFinals = Bowl::where([
                                 ['season', 2019],
                                 ['semi_final', true]
                             ])
                             ->with('home', 'visitor')
                             ->get();
+        // getting the season to assign the id to the picks array
         $this->season = Season::where('season', 2019)->firstOrFail();
         $this->seasonID = $this->season->id;
+        // getting the signed in user for the id
         $this->user = auth()->user();
         $this->userId = auth()->user()->id;
+        // creating an array for the amount of confidence points available
         $this->confidence = range(1, $this->bowls->count());
+        // setting picks prop to empty array, then pushing tihe information available right away
         $this->picks = [];
+        $this->champPick = [];
         foreach ($this->bowls as $i => $bowl) {
             array_push($this->picks,[
                 'bowl_id' => $bowl->id,
@@ -60,9 +67,16 @@ class PickForm extends Component
                 'confidence' => 0
             ]);
         }
-        
-        $this->bowlCount = $this->bowls->count();
+        foreach ($this->championship as $i => $bowl) {
+            array_push($this->champPick,[
+                'bowl_id' => $bowl->id,
+                'season_id' => $this->season->id,
+                'user_id' => $this->userId,
+                'confidence' => null
+            ]);
+        }
 
+        $this->bowlCount = $this->bowls->count();
         
     }
 
@@ -97,6 +111,15 @@ class PickForm extends Component
                 'bowl_id' => $pick['bowl_id'],
                 'team_id' => $pick['team_id'] ?? null, 
                 'confidence' => $pick['confidence']
+            ]);
+        }
+        foreach($this->champPick as $pick) {
+            Pick::create([
+                'user_id' => $pick['user_id'],
+                'season_id' => $pick['season_id'],
+                'bowl_id' => $pick['bowl_id'],
+                'team_id' => $pick['team_id'] ?? null,
+                'confidence' => null
             ]);
         }
 
