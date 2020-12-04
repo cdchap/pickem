@@ -24,15 +24,11 @@
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Name
+                                    Playoff
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                     Date/Kickoff
-                                </th>
-                                <th
-                                    class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    TV
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -52,15 +48,16 @@
                                         {{ $bowl->season }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                        {{ $bowl->name }}
+                                        @if ($bowl->semi_final)
+                                            <span class="text-2xl">🥈</span>
+                                        @elseif ($bowl->championship)
+                                            <span class="text-2xl">🏆</span>
+                                        @else
+                                            <span>-</span>
+                                        @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                                        {{ $bowl->date }} {{ $bowl->kickoff }} 
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-{{ $bowl->channel_color }}-100 text-{{ $bowl->channel_color }}-800 capitalize">
-                                            {{$bowl->channel}}
-                                        </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                                         {!! $bowl->home->name !!}
