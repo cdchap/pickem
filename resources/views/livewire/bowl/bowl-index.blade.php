@@ -2,16 +2,30 @@
     <livewire:bowl.bowl-create />
     @section('pageTitle', 'Bowls')
     <div class="flex flex-col space-y-4">
-        
-        <div class="mb-6">
-            <span class="inline-flex rounded-md shadow-sm">
-                <button type="button"
-                    @click="showCreate=true"
-                    class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
-                    Create new bowl
-                </button>
-            </span>
+        <div class="flex justify-between items-baseline">
+            <div>
+                <div class="mt-1 relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <!-- Heroicon name: search -->
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input id="search" wire:model="search" class="form-input block w-full pl-10 sm:text-sm sm:leading-5"
+                        placeholder="Search">
+                </div>
+            </div>
+            <div class="">
+                <span class="inline-flex rounded-md shadow-sm">
+                    <button type="button"
+                        @click="showCreate=true"
+                        class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
+                        Create new bowl
+                    </button>
+                </span>
+            </div>
         </div>
+        
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
