@@ -14,9 +14,8 @@ class BowlList extends Component
     public $userId;
     public $username;
     public $season = 2019;
-    public $bowls =[];
 
-    public function loadBowlList()
+    public function mount()
     {
         if (auth()->user()) {
             $user = auth()->user();
@@ -28,17 +27,15 @@ class BowlList extends Component
             
         }
 
-        $this->bowls = Bowl::where('season', $this->season)
-                        ->orderBy('start_date')
-                        ->with(['home', 'visitor', 'winner', 'picks'])
-                        ->get();
-        
-        
-
     }
 
     public function render()
     {
-        return view('livewire.bowl.bowl-list');
+        return view('livewire.bowl.bowl-list', [
+            'bowls' => Bowl::where('season', $this->season)
+                        ->orderBy('start_date')
+                        ->with(['home', 'visitor', 'winner', 'picks'])
+                        ->get() 
+        ]);
     }
 }

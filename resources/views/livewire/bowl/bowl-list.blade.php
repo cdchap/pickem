@@ -1,6 +1,15 @@
-<div wire:init="loadBowlList" class=" container mx-auto px-4 sm:px-6 lg:px-8 ">
-    <div class="mb-8 py-4 border-b-4 border-red-600">
-        <h2 class="font-black font-sans tracking-wide uppercase text-4xl">2020 Bowl Schedule</h2>
+<div class=" container mx-auto px-4 sm:px-6 lg:px-8 ">
+    <div class="mb-8 py-4 border-b-4 border-red-600 flex flex-col md:flex-row justify-between">
+        <h2 class="font-black font-sans tracking-wide uppercase text-4xl">{{ $season }} Bowl Schedule</h2>
+        <div class="flex space-x-3 items-center justify-between">
+            <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Bowl season</label>
+            <select id="season"
+                wire:model="season"
+                class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                <option value="2019">2019</option>
+                <option value="2020" selected>2020</option>
+            </select>
+        </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse($bowls as $bowl)
