@@ -1,5 +1,4 @@
-<div x-data="{ showCreate: false }">
-    <livewire:bowl.bowl-create />
+<div x-data="">
     @section('pageTitle', 'Bowls')
     <div class="flex flex-col space-y-4">
         <div class="flex justify-between items-baseline">
@@ -27,9 +26,16 @@
             <div class="">
                 <span class="inline-flex rounded-md shadow-sm">
                     <button type="button"
-                        @click="showCreate=true"
+                        wire:click="updateBowls"
+                        class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-green focus:border-blue-700 active:bg-blue-700">
+                        Update
+                    </button>
+                </span> 
+                <span class="inline-flex rounded-md shadow-sm">
+                    <button type="button"
+                        wire:click="updateBowls" 
                         class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
-                        Create new bowl
+                        Update Scores
                     </button>
                 </span>
             </div>
