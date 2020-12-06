@@ -11,6 +11,7 @@
             </select>
         </div>
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse($bowls as $bowl)
             <div class="shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
@@ -50,7 +51,7 @@
                         @if ($pick->bowl_id == $bowl->id)
                         <div class="flex justify-between mt-2 font-sans">
                             <div class="text-sm" >
-                            <span >&#64;{{$username}} &rarr; <span style="color: {{ $pick->team->color }}">{!! $pick->team->name !!}</span></span>
+                                <span >&#64;{{$username}} &rarr; <span style="color: {{ $pick->team->color }}">{!! $pick->team->name !!}</span></span>
                             </div>
                             <div class="text-sm " >
                                 <span >confidence &rarr; <span class="font-semibold">{{ $pick->confidence }}</span></span>
@@ -63,42 +64,42 @@
                 </div>
             </div>
         @empty
-            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <hr>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
             </div>
-            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <hr>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
             </div>
-            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <hr>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
             </div>
-            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <hr>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
             </div>
-            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <hr>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
             </div>
-            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-md">
+            <div class="flex flex-col justify-start space-y-6 h-52 shadow-black border-2 bg-white border-black px-4 py-4 rounded-2xl">
                 <span class="inline-block bg-gray-100 w-16 h-4"></span>
                 <span class="inline-block bg-gray-100 w-40 h-6"></span>
                 <hr>
