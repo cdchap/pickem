@@ -14,23 +14,17 @@
                         placeholder="Search">
                 </div>
             </div>
-            <div class="flex space-x-2 items-center">
-                <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Season</label>
-                <select id="season" wire:model="season"
-                    class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                    <option></option>
-                    <option value="2019" selected>2019</option>
-                    <option value="20202">2020</option>
-                </select>
-            </div>
-            <div class="">
-                <span class="inline-flex rounded-md shadow-sm">
-                    <button type="button"
-                        wire:click="updateBowls"
-                        class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-green focus:border-blue-700 active:bg-blue-700">
-                        Update
-                    </button>
-                </span> 
+            
+            <div class="flex justify-between space-x-4">
+                <div class="flex space-x-2 items-center">
+                    <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Season</label>
+                    <select id="season" wire:model="season"
+                        class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                        <option></option>
+                        <option value="2019" selected>2019</option>
+                        <option value="20202">2020</option>
+                    </select>
+                </div>
                 <span class="inline-flex rounded-md shadow-sm">
                     <button type="button"
                         wire:click="updateBowls" 

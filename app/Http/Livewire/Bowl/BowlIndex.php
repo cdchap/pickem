@@ -16,13 +16,12 @@ class BowlIndex extends Component
 
     public function updateBowls() {
 
-        $currentBowls = Bowl::where('season', 2019)->get();
-        $apiBowls = Http::get('https://api.collegefootballdata.com/games?year=2019&seasonType=postseason')->json();
+        $currentBowls = Bowl::where('season', $this->season)->get();
+        $apiBowls = Http::get('https://api.collegefootballdata.com/games?year=' . $this->season . '&seasonType=postseason')->json();
         
         foreach ($currentBowls as $key => $bowl) {
             foreach($apiBowls as $key => $apiBowl) {
                 if($bowl->api_id == $apiBowl['id']) {
-                    // dd($apiBowl['home_points']);
                     $bowl->home_score = $apiBowl['home_points'];
                     $bowl->visitor_score = $apiBowl['away_points'];
                     $bowl->save();

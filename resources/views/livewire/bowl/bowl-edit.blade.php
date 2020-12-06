@@ -32,34 +32,8 @@
 
                     <div
                         class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="about" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
-                            Home Team
-                        </label>
-                        <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <div class="max-w-lg">
-                                <span class="inline-flex space-x-2"><img src="{{  $bowl->home->logo1 }}" alt="{{ $bowl->home->name }}" class="h-5 w-5"><span>{{ $bowl->home->name }}</span></span>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div
-                        class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="about" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
-                            Visiting Team
-                        </label>
-                        <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <div class="max-w-lg">
-                                <span class="inline-flex space-x-2"><img src="{{  $bowl->visitor->logo1 }}" alt="{{ $bowl->visitor->name }}" class="h-5 w-5"><span>{{ $bowl->visitor->name }}</span></span>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="first_name"
-                            class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
-                            Home Score
+                        <label for="home" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                            <span class="inline-flex space-x-2"><img src="{{  $bowl->home->logo1 }}" alt="{{ $bowl->home->name }}" class="h-5 w-5"><span>{{ $bowl->home->name }}</span></span>
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
@@ -69,10 +43,10 @@
                         </div>
                     </div>
 
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="first_name"
-                            class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
-                            Visiting Score
+                    <div
+                        class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <label for="visitor" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                            <span class="inline-flex space-x-2"><img src="{{  $bowl->visitor->logo1 }}" alt="{{ $bowl->visitor->name }}" class="h-5 w-5"><span>{{ $bowl->visitor->name }}</span></span>
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
