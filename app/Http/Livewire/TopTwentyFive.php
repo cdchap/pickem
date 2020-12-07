@@ -14,8 +14,8 @@ class TopTwentyFive extends Component
     {
         $topTwentyFive = collect(Http::get('https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings')['rankings']);
     
-        $this->cfpTopTwentyFive = $topTwentyFive->firstWhere('type', 'cfp');
-        $this->cfpTopTwentyFive = $this->cfpTopTwentyFive['ranks'];
+        //$this->cfpTopTwentyFive = $topTwentyFive->firstWhere('type', 'cfp');
+        //$this->cfpTopTwentyFive = $this->cfpTopTwentyFive['ranks'] ;
         $this->apTopTwentyFive = $topTwentyFive->firstWhere('type', 'ap');
         $this->apTopTwentyFive = $this->apTopTwentyFive['ranks'];
         

@@ -8,6 +8,7 @@ use Livewire\Component;
 class BowlEdit extends Component
 {
     public Bowl $bowl;
+    public $saved = false;
 
     protected $rules = [
         'bowl.name' => '',
@@ -23,6 +24,12 @@ class BowlEdit extends Component
     {
         $this->validate();
         $this->bowl->save();
+        $this->saved = true;
+    }
+
+    public function hideNotification() 
+    {
+        $this->saved = false;
     }
 
     public function render()

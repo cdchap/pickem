@@ -1,6 +1,10 @@
 <div class="bg-white px-4 py-10 rounded-2xl shadow-md">
     @section('pageTitle', 'Edit Bowl')
 
+    @if ($saved)
+        <x-success-notification />
+    @endif
+  
     <form wire:submit.prevent>
         <div>
             <div>
@@ -65,7 +69,7 @@
                             <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
                                 <select id="winner_id" wire:model="bowl.winner_id"
                                     class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                    <option value="" selected></option>
+                                    <option value="null" selected></option>
                                     <option value="{{  $bowl->home->api_id }}">{{$bowl->home->name}}</option>
                                     <option value="{{  $bowl->visitor->api_id }}">{{$bowl->visitor->name}}</option>
                                 </select>
@@ -137,10 +141,10 @@
         <div class="mt-8 border-t border-gray-200 pt-5">
             <div class="flex justify-end">
                 <span class="inline-flex rounded-md shadow-sm">
-                    <button type="button"
+                    <a href="{{ route('admin.bowl-index') }}"
                         class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
-                        Cancel
-                    </button>
+                        Back to Bowls
+                </a>
                 </span>
                 <span class="ml-3 inline-flex rounded-md shadow-sm">
                     <button type="submit" wire:click="save"
