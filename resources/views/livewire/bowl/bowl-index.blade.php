@@ -65,7 +65,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($bowls as $key => $bowl)
+                            @forelse ($bowls as $key => $bowl)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
                                         {{ $bowl->season }}
@@ -133,7 +133,16 @@
                                         
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                                    No data available
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"></td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"></td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"></td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"></td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"></td>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
