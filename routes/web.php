@@ -63,6 +63,8 @@ Route::group(['middleware' => ['role:super-admin']], function () {
     Route::get('/admin', App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
     Route::get('/admin/bowls', App\Http\Livewire\Bowl\BowlIndex::class)->name('admin.bowl-index');
     Route::get('/admin/bowls/edit/{bowl}', App\Http\Livewire\Bowl\BowlEdit::class)->name('admin.bowl-edit');
+
+    Route::get('/admin/users', App\Http\Livewire\User\UserIndex::class)->name('admin.user-index');
     Route::get('/admin/invitations', App\Http\Livewire\Invitation\InvitationIndex::class)->name('admin.invitation-index');
 });
 
