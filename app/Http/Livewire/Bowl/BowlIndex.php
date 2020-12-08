@@ -28,6 +28,8 @@ class BowlIndex extends Component
                 }
             }
         }
+
+        $this->dispatchBrowserEvent('notify', 'The scores have been updated');
     }
 
     public function render()

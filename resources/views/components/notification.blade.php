@@ -11,7 +11,7 @@ Leaving: "transition ease-in duration-100"
     To: "opacity-0"
 -->
     <div x-data="{ show: false, message: 'test'}"
-         x-on:notify.window="show = true; message = $event.detail"
+         x-on:notify.window="show = true; message = $event.detail; setTimeout(() => { show=false }, 2500)"
          x-show="show"
          x-transition:enter="transform ease-out duration-300 transition"
          x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
