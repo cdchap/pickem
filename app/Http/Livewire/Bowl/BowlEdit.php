@@ -8,13 +8,12 @@ use Livewire\Component;
 class BowlEdit extends Component
 {
     public Bowl $bowl;
-    public $saved = false;
 
     protected $rules = [
         'bowl.name' => '',
-        'bowl.home_score' => '',
-        'bowl.visitor_score' => '',
-        'bowl.winner_id' => '',
+        'bowl.home_score' => 'integer',
+        'bowl.visitor_score' => 'integer',
+        'bowl.winner_id' => 'integer',
         'bowl.semi_final' => '',
         'bowl.championship' => ''
 
@@ -24,12 +23,8 @@ class BowlEdit extends Component
     {
         $this->validate();
         $this->bowl->save();
-        $this->saved = true;
-    }
 
-    public function hideNotification() 
-    {
-        $this->saved = false;
+        $this->dispatchBrowserEvent('notify', 'The bowl has been saved');
     }
 
     public function render()

@@ -20,9 +20,8 @@
                     <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Season</label>
                     <select id="season" wire:model="season"
                         class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                        <option></option>
                         <option value="2019" selected>2019</option>
-                        <option value="20202">2020</option>
+                        <option value="2020">2020</option>
                     </select>
                 </div>
                 <span class="inline-flex rounded-md shadow-sm">

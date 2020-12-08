@@ -73,6 +73,8 @@
                 </main>
             </div>
         </div>
+
+        <x-notification />
         @livewireScripts
         @stack('scripts')
     </body>

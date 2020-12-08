@@ -1,9 +1,5 @@
 <div class="bg-white px-4 py-10 rounded-2xl shadow-md">
     @section('pageTitle', 'Edit Bowl')
-
-    @if ($saved)
-        <x-success-notification />
-    @endif
   
     <form wire:submit.prevent>
         <div>

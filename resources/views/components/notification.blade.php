@@ -10,7 +10,17 @@ Leaving: "transition ease-in duration-100"
     From: "opacity-100"
     To: "opacity-0"
 -->
-    <div class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto">
+    <div x-data="{ show: false, message: 'test'}"
+         x-on:notify.window="show = true; message = $event.detail"
+         x-show="show"
+         x-transition:enter="transform ease-out duration-300 transition"
+         x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+         x-transition:enter-end="translate-y-0 opacity-100 sm:translate-x-0"
+         x-transition:leave="transition ease-in duration-100"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+
+         class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto">
         <div class="rounded-lg shadow-xs overflow-hidden">
             <div class="p-4">
                 <div class="flex items-start">
@@ -24,15 +34,13 @@ Leaving: "transition ease-in duration-100"
                     </div>
                     <div class="ml-3 w-0 flex-1 pt-0.5">
                         <p class="text-sm leading-5 font-medium text-gray-900">
-                            Successfully saved!
+                            Success
                         </p>
-                        <p class="mt-1 text-sm leading-5 text-gray-500">
-                            You have updated this bowl.
-                        </p>
+                        <p  x-text="message" class="mt-1 text-sm leading-5 text-gray-500"></p>
                     </div>
                     <div class="ml-4 flex-shrink-0 flex">
                         <button
-                            wire:click="hideNotification"
+                            @click="show = false"
                             class="inline-flex text-gray-400 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150">
                             <!-- Heroicon name: x -->
                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
