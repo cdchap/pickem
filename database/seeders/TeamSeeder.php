@@ -16,8 +16,15 @@ class TeamSeeder extends Seeder
     public function run()
     {
         $teams = Http::get('https://api.collegefootballdata.com/teams/fbs?year=2020')->json();
-
+        
+        $pattern = '/http/i';
         foreach ($teams as $i => $team) {
+            $logoOneHttpUrl = $team['logos']['0'];
+            $logoTwoHttpUrl = $team['logos']['0'];
+
+            $logoOneHttpsUrl = preg_replace($pattern, 'https', $logoOneHttpUrl);
+            $logoTwoHttpsUrl = preg_replace($pattern, 'https', $logoTwoHttpUrl);
+
             Team::create([
                 'api_id' => $team['id'],
                 'name' => $team['school'],
@@ -30,8 +37,8 @@ class TeamSeeder extends Seeder
                 'division' => $team['division'] ?? null,
                 'color' => $team['color'] ?? null,
                 'alt_color' => $team['alt_color'] ?? null,
-                'logo1' => $team['logos']['0'] ?? null,
-                'logo2' => $team['logos']['1'] ?? null,
+                'logo1' => $logoOneHttpsUrl ?? null,
+                'logo2' => $logoTwoHttpsUrl ?? null,
             ]);
         }
         // Team::create(['name' => 'Air Force', 'nickname' => 'Falcons']);

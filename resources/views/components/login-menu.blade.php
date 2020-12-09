@@ -39,7 +39,7 @@
                     @endcan
                 </div>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center space-x-6">
                 <div class="flex-shrink-0">
                     <span class="rounded-md shadow-sm">
                         @if(Route::has('login'))
@@ -59,6 +59,9 @@
                         
                     </span>
                 </div>
+                @auth
+                    <img class="h-8 w-8 rounded-full" src="{{auth()->user()->avatarUrl()}}" alt="">
+                @endauth
                 
             </div>
         </div>
