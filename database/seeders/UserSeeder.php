@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
         
         foreach ($users as $key => $user) {
             $user->assignRole('user');
+            $user->givePermissionTo('pick2020');
         }
     }
 }
