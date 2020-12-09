@@ -45,6 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function avatarUrl()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?d=retro';
+    }
+
     public function picks()
     {
         return $this->hasMany('App\Models\Pick', 'user_id', 'id');
