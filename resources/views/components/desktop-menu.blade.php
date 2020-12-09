@@ -21,8 +21,8 @@
                               Dashboard
                           </a>
 
-                          <a href="#"
-                            class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition ease-in-out duration-150">
+                          <a href="{{ route('admin.user-index') }}"
+                            class="{{ request()->url() == route('admin.invitation-index') ? 'bg-gray-100' : '' }} group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition ease-in-out duration-150">
                               <!-- Heroicon name: users -->
                               <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150"
                                   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
