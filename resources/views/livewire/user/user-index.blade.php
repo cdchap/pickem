@@ -20,11 +20,30 @@
                 <div class="w-full flex items-center justify-between p-6 space-x-6">
                     <div class="flex-1 truncate">
                         <div class="flex items-center space-x-3">
-                            <h3 class="text-gray-900 text-sm font-medium truncate">Jane Cooper</h3>
-                            <span
+                            <h3 class="text-gray-900 text-sm font-medium truncate">{{ $user->name }}</h3>
+                            @if($user->can('create'))
+                                <span
                                 class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">Admin</span>
+                            @endif
                         </div>
-                        <p class="mt-1 text-gray-500 text-sm truncate">Regional Paradigm Technician</p>
+                        <div class="mt-1">
+                            @if ($user->can('pick2020'))
+                                   
+                                <span class="inline-flex items-center space-x-1 text-red-500 text-sm">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                    <span class="text-gray-500">Needs to pick 2020 bowls</span> 
+                                </span>
+                            @else
+                                <span class="inline-flex items-center space-x-1 text-green-500 text-sm">
+                                    <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-500">Has picked 2020 bowls</span> 
+                                </span>
+                            @endif
+                        </div>
                     </div>
                     <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
                         src="{{ $user->avatarUrl() }}"
