@@ -19,7 +19,6 @@ class RoleSeed extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // create permissions
-        Permission::create(['name' => 'make picks']);
         Permission::create(['name' => 'edit profile']);
         Permission::create(['name' => 'edit']);
         Permission::create(['name' => 'create']);
@@ -27,19 +26,20 @@ class RoleSeed extends Seeder
         Permission::create(['name' => 'update']);
         Permission::create(['name' => 'delete']);
         Permission::create(['name' => 'pick2020']);
+        Permission::create(['name' => 'create league']);
+        Permission::create(['name' => 'invite users']);
 
         // create roles and assign created permissions
 
         // this can be done as separate statements
         $role = Role::create(['name' => 'basic']);
-        $role->givePermissionTo('make picks');
 
         // or may be done by chaining
         $role = Role::create(['name' => 'user'])
-            ->givePermissionTo(['edit profile', 'pick2020']);
+                ->givePermissionTo('edit profile');
         
         $role = Role::create(['name' => 'admin'])
-            ->givePermissionTo(['edit', 'view', 'update', 'edit profile']);
+                ->givePermissionTo(['create league', 'invite users', 'update', 'edit profile']);
 
         $role = Role::create(['name' => 'super-admin']);
         $role->givePermissionTo(Permission::all());
