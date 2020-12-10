@@ -9,11 +9,13 @@ use Livewire\WithPagination;
 class UserIndex extends Component
 {
 
-
+    public $search = '';
+    
     public function render()
     {
         return view('livewire.user.user-index', [
-            'users' => User::all()
+            'users' => User::search(['name', 'username', 'email'],$this->search)
+                        ->paginate(12)
         ])->layout('layouts.admin');
     }
 }
