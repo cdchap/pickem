@@ -1,4 +1,4 @@
-<div wire:init="loadTopTwentyFive" class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div wire:init="loadTopTwentyFive" class="container mx-auto px-2 sm:px-6 lg:px-8">
     
     <div class="mb-8 py-4 border-b-4 border-red-600">
         <h2 class="font-black font-sans tracking-wide uppercase text-4xl">Top 25 Rankings</h2>

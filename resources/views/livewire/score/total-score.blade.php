@@ -19,7 +19,7 @@
                 <li class="border-t border-gray-200">
                     <div x-data="{ open: false }"
                         @click="open = !open"
-                        class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+                        class=" hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
                         <div class="flex items-center px-4 py-4 sm:px-6">
                             <div class="min-w-0 flex-1 flex items-center">
                                 <div class="flex-shrink-0">
@@ -72,7 +72,7 @@
                             x-transition:leave="transition ease-in duration-300"
                             x-transition:leave-start="opacity-100 transform scale-100"
                             x-transition:leave-end="opacity-0 transform scale-90"
-                             class="px-4 py-6" >
+                             class="px-4 py-6 max-w-0" >
                                 <livewire:accordian-picks-table :userId="$score['user_id']"/>
                         </div>
                     </div>

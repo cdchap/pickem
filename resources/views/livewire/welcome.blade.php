@@ -53,7 +53,7 @@
             
         </div>
         <div class="py-15">
-            <div class="md:flex md:flex-col md:justify-center md:items-center">
+            <div class="md:flex md:flex-col md:justify-center md:items-center px-2">
                 <div class="mb-8 py-2 lg:py-0 border-b-4 border-red-600 mx-4 lg:mx-0">
                     <h2 class="font-black font-sans tracking-wide uppercase text-4xl">Leader Board</h2>
                 </div>
@@ -63,7 +63,7 @@
         <div class="py-12 mb-36">
              <livewire:bowl.bowl-list /> 
         </div>
-        <div class="pb-20 px-4">
+        <div class="pb-20">
             <div class="">
                 <livewire:top-twenty-five />
             </div>

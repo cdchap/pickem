@@ -35,7 +35,7 @@
                             <span class="text-2xl">🎉</span><span class="font-sans font-semibold text-xl">Pick a Champ</span>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             @foreach( $championship as $i => $bowl )
                             <div class="-ml-4">
                                 <form wire:submit.prevent>
