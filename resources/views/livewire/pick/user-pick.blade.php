@@ -1,6 +1,6 @@
-<div class="flex flex-col px-4 md:px-0 mx-auto max-w-3xl">
-    <div class="pb-5 border-b border-gray-300 my-10">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
+<div class="flex flex-col px-4 md:px-0 mx-auto max-w-3xl pt-10">
+    <div class="pb-5 border-b-4  border-red-600 my-10">
+        <h3 class="leading-6 font-black text-gray-900 ont-black font-sans tracking-wide uppercase text-4xl">
             &#64;{{ $userName }}&rsquo;s Picks
         </h3>
     </div>

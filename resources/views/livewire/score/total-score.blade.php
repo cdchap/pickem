@@ -1,5 +1,10 @@
-<div class="container mx-auto py-20 ">
-    <div class="bg-white shadow overflow-hidden rounded-md w-full">
+<div class="container flex flex-col justify-center items-center mx-auto py-20 ">
+    <div class="pb-5 border-b-4  border-red-600 my-10">
+        <h3 class="leading-6 font-black text-gray-900 ont-black font-sans tracking-wide uppercase text-4xl">
+            2020 Picks
+        </h3>
+    </div>
+    <div class="bg-white shadow overflow-hidden rounded-md max-w-2xl">
         <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-4 mt-2">

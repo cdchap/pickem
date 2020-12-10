@@ -155,7 +155,8 @@
            
         </div>
     </div>
-{{-- bowl pick cards --}}
+    
+    {{-- bowl pick cards --}}
     <div class="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto">
         @foreach($bowls as $i => $bowl)
             <div class="">
