@@ -25,23 +25,22 @@ class RoleSeed extends Seeder
         Permission::create(['name' => 'view']);
         Permission::create(['name' => 'update']);
         Permission::create(['name' => 'delete']);
-        Permission::create(['name' => 'pick2020']);
+        Permission::create(['name' => 'can pick 2020']);
         Permission::create(['name' => 'create league']);
         Permission::create(['name' => 'invite users']);
 
         // create roles and assign created permissions
 
-        // this can be done as separate statements
-        $role = Role::create(['name' => 'basic']);
+       
 
         // or may be done by chaining
-        $role = Role::create(['name' => 'user'])
-                ->givePermissionTo('edit profile');
+        $role1 = Role::create(['name' => 'user']);
+        $role1->givePermissionTo('edit profile');
         
-        $role = Role::create(['name' => 'admin'])
-                ->givePermissionTo(['create league', 'invite users', 'update', 'edit profile']);
+        $role2 = Role::create(['name' => 'admin']);
+        $role2->givePermissionTo(['create league', 'invite users', 'update', 'edit profile']);
 
-        $role = Role::create(['name' => 'super-admin']);
-        $role->givePermissionTo(Permission::all());
+        $role3 = Role::create(['name' => 'super-admin']);
+        $role3->givePermissionTo(Permission::all());
     }
 }

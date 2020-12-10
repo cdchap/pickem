@@ -42,7 +42,7 @@
                             class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                             <option selected disabled>select</option>
                             <option value="''">Has made picks</option>
-                            <option value="pick2020">Needs to pick</option>
+                            <option value="can pick 2020">Needs to pick</option>
                         </select>
                     </div>
                    <div>
@@ -73,7 +73,7 @@
                                 @endif
                             </div>
                             <div class="mt-1">
-                                @if ($user->can('pick2020'))
+                                @if ($user->can('can pick 2020'))
                                        
                                     <span class="inline-flex items-center space-x-1 text-red-500 text-sm">
                                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
