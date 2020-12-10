@@ -10,7 +10,13 @@ class UserIndex extends Component
 {
 
     public $search = '';
+    public $showFilters = false;
     
+    public function toggleShowFilters()
+    {
+        $this->showFilters = !$this->showFilters;
+    }
+
     public function render()
     {
         return view('livewire.user.user-index', [

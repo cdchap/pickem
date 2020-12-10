@@ -1,5 +1,6 @@
 <div class="space-y-6">
 @section('pageTitle', 'Users')
+    {{-- search input --}}
     <div class="flex  items-baseline">
         <div>
             <div class="mt-1 flex rounded-md shadow-sm">
@@ -17,6 +18,7 @@
                         placeholder="Search">
                 </div>
                 <button
+                    wire:click="toggleShowFilters"
                     class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                     <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
@@ -28,29 +30,32 @@
             </div>
         </div>
     </div>
+    {{-- filters --}}
     <div>
-        <div class="bg-gradient-four py-8 px-4 rounded-lg shadow-inner">
-            <div class="grid grid-cols-2 gap-6">
-                <div class="">
-                    <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Made Picks</label>
-                    <select id="location" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                        <option selected disabled></option>
-                        <option>Has made picks</option>
-                        <option>Needs to pick</option>
-                    </select>
-                </div>
-                <div class="col-span-1">
-                    <label for="location" class="block text-sm leading-5 font-medium text-gray-700">some other filter</label>
-                    <select id="location" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                        <option selected disabled></option>
-                        <option>Has made picks</option>
-                        <option>Needs to pick</option>
-                    </select>
+        @if ($showFilters)
+            <div class="bg-gradient-four py-8 px-4 rounded-lg shadow-inner">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="">
+                        <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Made Picks</label>
+                        <select id="location" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                            <option selected disabled></option>
+                            <option>Has made picks</option>
+                            <option>Needs to pick</option>
+                        </select>
+                    </div>
+                    <div class="col-span-1">
+                        <label for="location" class="block text-sm leading-5 font-medium text-gray-700">some other filter</label>
+                        <select id="location" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                            <option selected disabled></option>
+                            <option>Has made picks</option>
+                            <option>Needs to pick</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
-
+    {{--users list  --}}
     <div>
         <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @foreach ($users as $user)
