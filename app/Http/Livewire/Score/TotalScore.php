@@ -6,17 +6,20 @@ use App\Models\Pick;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Arr;
+use Livewire\WithPagination;
 
 class TotalScore extends Component
 {
+    use WithPagination;
 
+    public $seasonId = 1;
     public $users;
     public $userScores;
     public $picks;
 
     public function mount()
     {
-        $this->picks = Pick::where('season_id', 1)->with(['user', 'bowl', 'team'])->orderBy('user_id', 'asc')->get();
+        $this->picks = Pick::where('season_id', $this->seasonId)->with(['user', 'bowl', 'team'])->orderBy('user_id', 'asc')->get();
         $this->users = User::all();
 
         // total each users scores and turn that into a collection
@@ -73,6 +76,8 @@ class TotalScore extends Component
 
     public function render()
     {
-        return view('livewire.score.total-score');
+        return view('livewire.score.total-score', [
+           
+        ]);
     }
 }
