@@ -37,19 +37,22 @@
                 <div class="grid grid-cols-2 gap-6">
                     <div class="">
                         <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Made Picks</label>
-                        <select id="location" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                            <option selected disabled></option>
-                            <option>Has made picks</option>
-                            <option>Needs to pick</option>
+                        <select id="location" 
+                            wire:model="filters.hasPicked"
+                            class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                            <option selected disabled>select</option>
+                            <option value="''">Has made picks</option>
+                            <option value="pick2020">Needs to pick</option>
                         </select>
                     </div>
-                    <div class="col-span-1">
-                        <label for="location" class="block text-sm leading-5 font-medium text-gray-700">some other filter</label>
-                        <select id="location" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                            <option selected disabled></option>
-                            <option>Has made picks</option>
-                            <option>Needs to pick</option>
-                        </select>
+                   <div>
+                       <label for="permissions" class="block text-sm font-medium leading-5 text-gray-700">Search by permissions</label>
+                       <div class="mt-1 relative rounded-md shadow-sm">
+                           <input id="permissions" 
+                                wire:model="filters.permissions"
+                               class="form-input block w-full sm:text-sm sm:leading-5"
+                               placeholder="e.g. can pick 2020">
+                       </div>
                     </div>
                 </div>
             </div>
