@@ -15,6 +15,7 @@ class UserIndex extends Component
     {
         return view('livewire.user.user-index', [
             'users' => User::search(['name', 'username', 'email'],$this->search)
+                        ->orderBy('name', 'asc')
                         ->paginate(12)
         ])->layout('layouts.admin');
     }
