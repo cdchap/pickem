@@ -1,15 +1,15 @@
-<div class="container flex flex-col justify-center items-center mx-auto py-20 ">
+<div class="container flex flex-col justify-center items-center mx-auto py-20 px-2 md:px-0">
     <div class="pb-5 border-b-4  border-red-600 my-10">
         <h3 class="leading-6 font-black text-gray-900 ont-black font-sans tracking-wide uppercase text-4xl">
-            2019 Picks
+            {{ $season }} Picks
         </h3>
     </div>
-    <div class="bg-white shadow-black overflow-hidden rounded-2xl border-2 border-black max-w-2xl">
+    <div class="bg-white shadow-black overflow-hidden rounded-2xl w-full border-2 border-black max-w-2xl">
         <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-4 mt-2">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        2019
+                        {{ $season }}
                     </h3>
                 </div>
             </div>
@@ -19,8 +19,8 @@
                 <li class="border-t border-gray-200">
                     <div x-data="{ open: false }"
                         @click="open = !open"
-                        class=" hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
-                        <div class="flex items-center px-4 py-4 sm:px-6">
+                        class="flex flex-col justify-center items-center hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+                        <div class="flex w-full items-center px-4 py-4 sm:px-6">
                             <div class="min-w-0 flex-1 flex items-center">
                                 <div class="flex-shrink-0">
                                     <span>{{ $key +1 }}.</span>
