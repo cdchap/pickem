@@ -1,7 +1,7 @@
 <div x-data="">
     @section('pageTitle', 'Bowls')
     <div class="flex flex-col space-y-4">
-        <div class="flex justify-between items-baseline">
+        <div class="flex flex-col md:flex-row md:justify-between items-baseline space-y-2">
             <div>
                 <div class="mt-1 relative rounded-md shadow-sm">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -15,8 +15,8 @@
                 </div>
             </div>
             
-            <div class="flex justify-between space-x-4">
-                <div class="flex space-x-2 items-center">
+            <div class="flex flex-col md:flex-row justify-between space-y-2 md:space-x-4">
+                <div class="flex flex-col md:flex-row md:space-x-2 justify-start md:items-center">
                     <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Season</label>
                     <select id="season" wire:model="season"
                         class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
