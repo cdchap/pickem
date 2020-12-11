@@ -1,4 +1,4 @@
-<div class="origin-top -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 min-w-max-content">
+<div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 min-w-max-content">
     <div class="py-2 align-middle inline-block sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="divide-y divide-gray-200">

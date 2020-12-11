@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Database\Query\Builder;
+use Spatie\Permission\Contracts\Permission;
 
 class UserIndex extends Component
 {
@@ -17,11 +18,17 @@ class UserIndex extends Component
     public $filters = [
         'hasPicked' => '',
         'permissions' => '',
+        'roles' => '',
     ];
 
     public function toggleShowFilters()
     {
         $this->showFilters = !$this->showFilters;
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
     }
 
     public function render()
@@ -33,11 +40,14 @@ class UserIndex extends Component
                                 $query->where('name', 'LIKE', "%{$this->filters['permissions']}%");
                             });
                         })
+                        ->when($this->filters['roles'], function($query) {
+                            $query->whereHas('roles', function($query) {
+                                $query->where('name', 'LIKE',"%{$this->filters['roles']}%");
+                            });
+                        })
+                        ->with('permissions', 'roles')
                         ->orderBy('name', 'asc')
-                        ->paginate(12)
-        ])->layout('layouts.admin');
+                        ->paginate(12),
+            ])->layout('layouts.admin');
     }
 }
-
-
-// where('column', 'OPERATOR', "%{$searchTerm}%")
