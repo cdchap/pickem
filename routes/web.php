@@ -72,4 +72,5 @@ Route::middleware('auth')->group(function() {
     Route::get('/pickem', App\Http\Livewire\Pick\PickForm::class)->name('pick-form');
     Route::get('/picks', App\Http\Livewire\Score\TotalScore::class)->name('all.picks');
     Route::get('/picks/{user:username}', App\Http\Livewire\Pick\UserPick::class)->name('user.picks');
+    Route::get('/bowls/{bowl:api_id}', App\Http\Livewire\BowlProfile::class)->name('bowl.profile');
 });

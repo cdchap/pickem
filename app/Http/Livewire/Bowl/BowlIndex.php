@@ -24,6 +24,14 @@ class BowlIndex extends Component
                 if($bowl->api_id == $apiBowl['id']) {
                     $bowl->home_score = $apiBowl['home_points'];
                     $bowl->visitor_score = $apiBowl['away_points'];
+                    $bowl->home_quarter_one_score = $apiBowl['home_line_scores']['0'] ?? 0;
+                    $bowl->home_quarter_two_score = $apiBowl['home_line_scores']['1'] ?? 0;
+                    $bowl->home_quarter_three_score = $apiBowl['home_line_scores']['2'] ?? 0;
+                    $bowl->home_quarter_four_score = $apiBowl['home_line_scores']['3'] ?? 0;
+                    $bowl->visitor_quarter_one_score = $apiBowl['away_line_scores']['0'] ?? 0;
+                    $bowl->visitor_quarter_two_score = $apiBowl['away_line_scores']['1'] ?? 0;
+                    $bowl->visitor_quarter_three_score = $apiBowl['away_line_scores']['2'] ?? 0;
+                    $bowl->visitor_quarter_four_score = $apiBowl['away_line_scores']['3'] ?? 0;
                     $bowl->save();
                 }
             }
