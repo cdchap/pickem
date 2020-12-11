@@ -11,13 +11,14 @@ class AccordianPicksTable extends Component
 {   
     public $pointTotal;
     public $user;
+    public $season = 2019;
 
     public function mount($userId)
     {
         $correctPicks = [];
         $this->user = User::findOrFail($userId);
 
-        $picks = Pick::where(['user_id' => $userId, 'season_id' => 1])
+        $picks = Pick::where(['user_id' => $userId, 'season' => 2019])
                             ->with(['bowl'])
                             ->get();
 
@@ -50,7 +51,7 @@ class AccordianPicksTable extends Component
     public function render()
     {
         return view('livewire.accordian-picks-table', [
-            'picks' => Pick::where(['user_id'=> $this->user->id, 'season_id' => 1])
+            'picks' => Pick::where(['user_id'=> $this->user->id, 'season' => $this->season])
                         ->orderBy('confidence', 'desc')
                         ->with(['team', 'bowl'])          
                         ->get()

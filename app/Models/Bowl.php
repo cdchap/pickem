@@ -10,11 +10,6 @@ class Bowl extends Model
     use HasFactory;
 
     protected $guarded = [];
-    
-    public function season() 
-    {
-        return $this->belongsTo('App\Models\Season', 'season', 'season');
-    }
 
     public function home() 
     {

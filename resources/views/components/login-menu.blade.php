@@ -93,15 +93,17 @@
         </div>
         <div class="pt-4 pb-3 border-t border-gray-700">
             <div class="flex items-center px-5 sm:px-6">
-                <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full"
-                        src="{{auth()->user()->avatarUrl()}}"
-                        alt="{{auth()->user()->name}}">
-                </div>
-                <div class="ml-3">
-                    <div class="text-base font-medium leading-6 text-gray-500">{{auth()->user()->name}}</div>
-                    <div class="text-sm font-medium leading-5 text-gray-600">&#64;{{auth()->user()->username}}</div>
-                </div>
+                @auth
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full"
+                            src="{{auth()->user()->avatarUrl()}}"
+                            alt="{{auth()->user()->name}}">
+                    </div>
+                    <div class="ml-3">
+                        <div class="text-base font-medium leading-6 text-gray-500">{{auth()->user()->name}}</div>
+                        <div class="text-sm font-medium leading-5 text-gray-600">&#64;{{auth()->user()->username}}</div>
+                    </div>
+                @endauth
             </div>
             <div class="mt-3 px-2 sm:px-3">
                 <a href="#"

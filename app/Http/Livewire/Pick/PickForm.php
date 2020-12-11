@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Pick;
 use Livewire\Component;
 use App\Models\Bowl;
 use App\Models\Pick;
-use App\Models\Season;
 use Illuminate\Support\Arr;
 
 class PickForm extends Component
@@ -17,10 +16,9 @@ class PickForm extends Component
     public $semiFinals;
     public $user;
     public $userId;
-    public $seasonId;
+    public $season = 2019;
     public $confidence;
     public $bowlCount;
-    public $season;
     public $reviewedPicks = [];
 
     protected $listeners = ['confidenceSelected' => 'removeConfidenceFromArray'];
@@ -49,8 +47,8 @@ class PickForm extends Component
                             ->with('home', 'visitor')
                             ->get();
         // getting the season to assign the id to the picks array
-        $this->season = Season::where('season', 2019)->firstOrFail();
-        $this->seasonID = $this->season->id;
+        
+        
         // getting the signed in user for the id
         $this->user = auth()->user();
         $this->userId = auth()->user()->id;
@@ -62,7 +60,7 @@ class PickForm extends Component
         foreach ($this->bowls as $i => $bowl) {
             array_push($this->picks,[
                 'bowl_id' => $bowl->id,
-                'season_id' => $this->season->id,
+                'season' => $this->season,
                 'user_id' => $this->userId,
                 'confidence' => 0
             ]);
@@ -70,7 +68,7 @@ class PickForm extends Component
         foreach ($this->championship as $i => $bowl) {
             array_push($this->champPick,[
                 'bowl_id' => $bowl->id,
-                'season_id' => $this->season->id,
+                'season' => $this->season,
                 'user_id' => $this->userId,
                 'confidence' => null
             ]);
@@ -107,7 +105,7 @@ class PickForm extends Component
         foreach($this->picks as $pick) {
             Pick::create([
                 'user_id' => $pick['user_id'],
-                'season_id' => $pick['season_id'],
+                'season' => $pick['season'],
                 'bowl_id' => $pick['bowl_id'],
                 'team_id' => $pick['team_id'] ?? null, 
                 'confidence' => $pick['confidence']
@@ -116,7 +114,7 @@ class PickForm extends Component
         foreach($this->champPick as $pick) {
             Pick::create([
                 'user_id' => $pick['user_id'],
-                'season_id' => $pick['season_id'],
+                'season' => $pick['season'],
                 'bowl_id' => $pick['bowl_id'],
                 'team_id' => $pick['team_id'] ?? null,
                 'confidence' => null

@@ -17,7 +17,7 @@ class UserPick extends Component
     {
         $this->userName = $user->username;
         $this->userId = $user->id;
-        $picks = Pick::where(['user_id' => $this->userId, 'season_id' => 1 ])
+        $picks = Pick::where(['user_id' => $this->userId, 'season' => 2019 ])
                  ->with(['bowl'])
                  ->get();
 

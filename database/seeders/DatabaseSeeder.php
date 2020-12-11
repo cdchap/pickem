@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
             BowlSeeder2019::class,
             RoleSeed::class,
             UserSeeder::class,
-            SeasonSeeder::class,
         ]);
     }
 }

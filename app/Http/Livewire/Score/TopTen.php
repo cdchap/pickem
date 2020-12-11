@@ -13,12 +13,13 @@ class TopTen extends Component
     // get all of the picks for each user from the database, with bowls
     // sum all of the confidence points by checking to see if they match the bowl winners
     public $users;
+    public $season = 2019;
     public $userScores;
     public $picks;
 
     public function mount()
     {
-        $this->picks = Pick::where('season_id', 1)->with(['user', 'bowl', 'team'])->orderBy('user_id', 'asc')->get();
+        $this->picks = Pick::where('season', $this->season)->with(['user', 'bowl', 'team'])->orderBy('user_id', 'asc')->get();
         $this->users = User::all();
 
         // total each users scores and turn that into a collection

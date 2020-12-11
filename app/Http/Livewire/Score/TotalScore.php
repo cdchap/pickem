@@ -12,14 +12,14 @@ class TotalScore extends Component
 {
     use WithPagination;
 
-    public $seasonId = 1;
+    public $season = 2019;
     public $users;
     public $userScores;
     public $picks;
 
     public function mount()
     {
-        $this->picks = Pick::where('season_id', $this->seasonId)->with(['user', 'bowl', 'team'])->orderBy('user_id', 'asc')->get();
+        $this->picks = Pick::where('season', $this->season)->with(['user', 'bowl', 'team'])->orderBy('user_id', 'asc')->get();
         $this->users = User::all();
 
         // total each users scores and turn that into a collection

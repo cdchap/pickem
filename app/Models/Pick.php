@@ -11,11 +11,6 @@ class Pick extends Model
 
     protected $guarded = [];
 
-    public function season()
-    {
-        return $this->belongsTo('App\Models\Season');
-    }
-
     public function user()
     {
         return $this->belongsTo('App\Models\User');

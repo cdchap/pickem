@@ -15,14 +15,14 @@ class CreatePicksTable extends Migration
     {
         Schema::create('picks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('season_id')->references('id')->on('seasons');
+            $table->unsignedBigInteger('season');
             $table->unsignedBigInteger('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('bowl_id')->references('id')->on('bowls');
             $table->unsignedBigInteger('team_id')->references('id')->on('teams');
             $table->unsignedBigInteger('confidence')->nullable();
             $table->timestamps();
 
-            $table->index(['user_id', 'bowl_id', 'team_id', 'season_id']);
+            $table->index(['user_id', 'bowl_id', 'team_id', 'season']);
         });
     }
 

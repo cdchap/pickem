@@ -17,7 +17,7 @@ class CreateBowlsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('api_id');
             $table->string('name')->nullable();
-            $table->unsignedBigInteger('season')->references('season')->on('seasons');
+            $table->unsignedBigInteger('season');
             $table->string('channel')->nullable();
             $table->dateTimeTz('start_date', 0);
             $table->unsignedBigInteger('home_id')->references('api_id')->on('teams')->nullable();

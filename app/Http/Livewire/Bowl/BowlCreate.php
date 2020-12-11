@@ -9,7 +9,7 @@ class BowlCreate extends Component
 {
     public $teams = [];
     public $name;
-    public $seasonId;
+    public $season;
     public $channel;
     public $kickoff;
     public $date;
@@ -19,7 +19,7 @@ class BowlCreate extends Component
 
     protected $rules = [
         'name' => 'string',
-        'seasonId' => 'integer|between:1,129',
+        'season' => 'integer',
         'channel' => 'string',
         'kickoff' => 'date_format:H:i',
         'date' => 'date_format:Y-m-d',
@@ -29,7 +29,7 @@ class BowlCreate extends Component
 
     public function mount()
     {
-        $this->seasonId = 1;
+        
 
     }
 

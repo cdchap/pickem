@@ -1,7 +1,7 @@
 <div class="container flex flex-col justify-center items-center mx-auto py-20 ">
     <div class="pb-5 border-b-4  border-red-600 my-10">
         <h3 class="leading-6 font-black text-gray-900 ont-black font-sans tracking-wide uppercase text-4xl">
-            2020 Picks
+            2019 Picks
         </h3>
     </div>
     <div class="bg-white shadow-black overflow-hidden rounded-2xl border-2 border-black max-w-2xl">
@@ -9,7 +9,7 @@
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-4 mt-2">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        2020
+                        2019
                     </h3>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                             x-transition:leave="transition ease-in duration-300"
                             x-transition:leave-start="opacity-100 transform scale-100"
                             x-transition:leave-end="opacity-0 transform scale-90"
-                             class="px-4 py-6 max-w-0" >
+                             class="px-4 py-6" >
                                 <livewire:accordian-picks-table :userId="$score['user_id']"/>
                         </div>
                     </div>

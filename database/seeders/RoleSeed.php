@@ -25,6 +25,7 @@ class RoleSeed extends Seeder
         Permission::create(['name' => 'view']);
         Permission::create(['name' => 'update']);
         Permission::create(['name' => 'delete']);
+        Permission::create(['name' => 'can pick 2019']);
         Permission::create(['name' => 'can pick 2020']);
         Permission::create(['name' => 'create league']);
         Permission::create(['name' => 'invite users']);
