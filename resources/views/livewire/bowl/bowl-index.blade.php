@@ -65,7 +65,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @forelse ($bowls as $key => $bowl)
-                                <tr>
+                                <tr wire:loading.class="opacity-75">
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
                                         {{ $bowl->season }}
                                     </td>

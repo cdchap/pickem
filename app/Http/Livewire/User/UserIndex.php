@@ -18,7 +18,7 @@ class UserIndex extends Component
     public $filters = [
         'hasPicked' => '',
         'permissions' => '',
-        'roles' => '',
+        'roles' => null,
     ];
 
     public function toggleShowFilters()
@@ -29,6 +29,11 @@ class UserIndex extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function clearFilters()
+    {
+        $this->reset('filters');
     }
 
     public function render()

@@ -40,8 +40,7 @@
                         <select id="location" 
                             wire:model="filters.permissions"
                             class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                            <option selected disabled>select</option>
-                            <option value="''">Has made picks</option>
+                            <option value="" selected disabled>Select a permission</option>
                             <option value="can pick 2019">Needs to pick 2019</option> 
                             <option value="can pick 2020">Needs to pick 2020</option>
                         </select>
@@ -55,9 +54,16 @@
                                placeholder="e.g. admin">
                        </div>
                     </div>
-                </div>
-                <div>
-                    
+                    <div>
+                        <span class="inline-flex rounded-md shadow-sm">
+                            <button 
+                                wire:click="clearFilters"
+                                type="button"
+                                class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
+                                Clear filters
+                            </button>
+                        </span>
+                    </div>
                 </div>
             </div>
         @endif
