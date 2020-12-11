@@ -5,8 +5,8 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Database\Query\Builder;
-use Spatie\Permission\Contracts\Permission;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserIndex extends Component
 {
@@ -18,7 +18,7 @@ class UserIndex extends Component
     public $filters = [
         'hasPicked' => '',
         'permissions' => '',
-        'roles' => null,
+        'roles' => '',
     ];
 
     public function toggleShowFilters()
@@ -27,6 +27,11 @@ class UserIndex extends Component
     }
 
     public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingFilters()
     {
         $this->resetPage();
     }
@@ -53,6 +58,8 @@ class UserIndex extends Component
                         ->with('permissions', 'roles')
                         ->orderBy('name', 'asc')
                         ->paginate(12),
+            'permissions' => Permission::all(),
+            'roles' => Role::all(),
             ])->layout('layouts.admin');
     }
 }

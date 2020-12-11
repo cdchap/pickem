@@ -36,25 +36,30 @@
             <div class="bg-gradient-four py-8 px-4 rounded-lg shadow-inner">
                 <div class="grid grid-cols-2 gap-6">
                     <div class="">
-                        <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Made Picks</label>
+                        <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Permsissions</label>
                         <select id="location" 
                             wire:model="filters.permissions"
                             class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                             <option value="" selected disabled>Select a permission</option>
-                            <option value="can pick 2019">Needs to pick 2019</option> 
-                            <option value="can pick 2020">Needs to pick 2020</option>
+                            @foreach ($permissions as $permission)
+                                <option value="{{ $permission->name }}">{{ $permission->name }}</option> 
+                            @endforeach
                         </select>
                     </div>
                    <div>
-                       <label for="permissions" class="block text-sm font-medium leading-5 text-gray-700">Search by permissions</label>
+                       <label for="permissions" class="block text-sm font-medium leading-5 text-gray-700">Roles</label>
                        <div class="mt-1 relative rounded-md shadow-sm">
-                           <input id="permissions" 
-                                wire:model="filters.roles"
-                               class="form-input block w-full sm:text-sm sm:leading-5"
-                               placeholder="e.g. admin">
+                           <select id="roles" 
+                            wire:model="filters.roles"
+                            class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                            <option value="" selected disabled>Select a role</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->name }}">{{ $role->name }}</option> 
+                            @endforeach
+                        </select>
                        </div>
                     </div>
-                    <div>
+                    <div class="bg-green-300">
                         <span class="inline-flex rounded-md shadow-sm">
                             <button 
                                 wire:click="clearFilters"
