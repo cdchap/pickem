@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Pick', 'user_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

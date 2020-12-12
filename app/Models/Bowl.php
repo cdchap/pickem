@@ -31,6 +31,11 @@ class Bowl extends Model
         return $this->hasMany('App\Models\Pick', 'bowl_id', 'id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function getDateAttribute()
     {
         return \Carbon\Carbon::parse($this->start_date)->toFormattedDateString();
