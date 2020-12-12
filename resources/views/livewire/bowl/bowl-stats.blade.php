@@ -1,6 +1,6 @@
 <div 
-    class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 bg-white rounded-2xl shadow-black border-2 border-black px-4 md:px-6 py-6 ">
-    <div class="col-span-1 md:col-span-2 flex flex-col justify-center items-center my-2">
+    class="grid grid-cols-1 gap-4 mt-10 bg-white rounded-2xl shadow-black border-2 border-black px-4 md:px-6 py-6 ">
+    <div class="flex flex-col justify-center items-center my-2">
         <div class="border-b-2 border-red-600 ">
             <h3 class="font-bold font-sans text-xl text-center">Pick %</h3>
         </div>
@@ -37,19 +37,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (!empty($bowlStats))
-                                    @foreach ($bowlStats['0']['teams']['0']['stats'] as $i => $stats)   
-                                        <tr class="{{$i % 2 == 1 ? 'bg-gray-50' : 'bg-white'}}">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                {{$stats['category']}}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{$bowlStats['0']['teams']['1']['stats'][$i]['stat']}}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{$bowlStats['0']['teams']['0']['stats'][$i]['stat']}}
-                                            </td>
-                                        </tr>
+                                @if (!empty($homeStats))
+                                    @foreach ($homeStats as $i => $stat )
+                                    <tr class="{{$i % 2 == 1 ? 'bg-gray-50' : 'bg-white'}}">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            {{$stat['category']}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{$homeStats[$i]['stat']}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{$visitorStats[$i]['stat']}}
+                                        </td>
+                                    </tr>
                                     @endforeach 
                                 @endif
                             </tbody>
