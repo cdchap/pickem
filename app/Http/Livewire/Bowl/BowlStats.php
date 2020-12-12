@@ -19,6 +19,7 @@ class BowlStats extends Component
     {
         $this->picks = Pick::where('bowl_id', $this->bowl->id)->get();
         $this->findPickAvg($this->picks, $this->bowl);
+        $this->bowlStats = Http::get('https://api.collegefootballdata.com/games/teams?year=' . $this->bowl->season .'&gameId=' . $this->bowl->api_id)->json();
         
     }
 
@@ -29,11 +30,6 @@ class BowlStats extends Component
          $homeCount = $this->picks->where('team_id', $bowl->home->api_id)->count();
          $this->visitorPickPercentage = $visitorCount/$count * 100;
          $this->homePickPercentage = $homeCount/$count * 100;
-    }
-
-    public function loadBowlStats()
-    {
-        $this->bowlStats = Http::get('https://api.collegefootballdata.com/games/teams?year=' . $this->bowl->season .'&gameId=' . $this->bowl->api_id)->json();
     }
 
     public function render()
