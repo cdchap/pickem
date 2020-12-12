@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Http;
 class BowlProfile extends Component
 {   
     public Bowl $bowl;
-    public $gameStats;
     public $homeRecord;
     public $visitorRecord;
     public $game;
@@ -21,13 +20,6 @@ class BowlProfile extends Component
         $this->visitorRecord = Http::get('https://api.collegefootballdata.com/records?year='. $this->bowl->season .'&team=' . $this->bowl->visitor->name)->json();
         $this->homeRecord = Http::get('https://api.collegefootballdata.com/records?year='. $this->bowl->season .'&team=' . $this->bowl->home->name)->json();
         $this->game = Http::get('https://api.collegefootballdata.com/games?year='. $this->bowl->season . '&seasonType=postseason&id='. $this->bowl->api_id)->json();
-        $this->gameStats = Http::get('https://api.collegefootballdata.com/games/teams?year=' . $this->bowl->season .'&gameId=' . $this->bowl->api_id)->json();
-        dump($this->game);
-    }
-
-    public function getGameStats()
-    {
-        $this->gameStats = Http::get('https://api.collegefootballdata.com/games/teams?year=' . $this->bowl->season .'&gameId=' . $this->bowl->api_id)->json(); 
     }
 
     public function render()

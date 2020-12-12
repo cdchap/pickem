@@ -1,4 +1,4 @@
-<div class="container mx-auto max-w-5xl py-20 flex flex-col">
+<div class="container mx-auto max-w-5xl py-20 flex flex-col px-2 md:px-0">
     <section>
         <div class="overflow-hidden grid gird-cols-3 md:grid-cols-5 gap-4 shadow-black border-2 border-black bg-white rounded-2xl py-10 px-6 font-sans">
             <div class="hidden md:block -my-10 -mx-6 overflow-hidden">
@@ -100,10 +100,8 @@
         </div>
     </section>
     <section>
-        <div class="flex flex-col mt-10 bg-white rounded-2xl shadow-black border-2 border-black px-6 py-10">
-            <div>
-                here we goe
-            </div>
-        </div>
+
+        <livewire:bowl.bowl-stats :bowl="$bowl"/>
+        
     </section>
 </div>
