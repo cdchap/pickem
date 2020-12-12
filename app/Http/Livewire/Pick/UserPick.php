@@ -12,12 +12,13 @@ class UserPick extends Component
     public $userName;
     public $userId;
     public $pointTotal = 0;
+    public $season = 2019;
 
     public function mount(User $user)
     {
         $this->userName = $user->username;
         $this->userId = $user->id;
-        $picks = Pick::where(['user_id' => $this->userId, 'season' => 2019 ])
+        $picks = Pick::where(['user_id' => $this->userId, 'season' => $this->season ])
                  ->with(['bowl'])
                  ->get();
 
@@ -53,7 +54,7 @@ class UserPick extends Component
     public function render()
     {
         return view('livewire.pick.user-pick', [
-            'picks' => Pick::where(['user_id' => $this->userId, 'season_id' => 1])
+            'picks' => Pick::where(['user_id' => $this->userId, 'season' => $this->season])
                         ->orderBy('confidence', 'desc')
                         ->with(['team', 'bowl', 'bowl.visitor', 'bowl.home'])          
                         ->get()
