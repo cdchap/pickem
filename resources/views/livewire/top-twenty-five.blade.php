@@ -55,9 +55,13 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <div class=" w-skeleton-table h-skeleton-table bg-cool-gray-50 rounded-2xl">
-                                            
-                                        </div>
+                                        <tr class="bg-white">
+                                           <td class="px-6 py-6 whitespace-no-wrap text-sm  font-medium text-gray-500">Rankings not available</td> 
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                        </tr>
                                     @endforelse 
                                 </tbody>
                             </table>
@@ -120,9 +124,13 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <div class=" w-skeleton-table h-skeleton-table rounded-md bg-cool-gray-50">
-                                            
-                                        </div>
+                                        <tr class="bg-white">
+                                           <td class="px-6 py-6 whitespace-no-wrap text-sm  font-medium text-gray-500">Rankings not available</td> 
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                           <td class="px-6 py-2 whitespace-no-wrap text-sm  font-medium text-gray-500"></td>
+                                        </tr>
                                     @endforelse
                                 </tbody>
                             </table>

@@ -37,6 +37,31 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($homeStats as $i => $stat)
+                                   <tr class="{{$i % 2 == 1 ? 'bg-gray-50' : 'bg-white'}}">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            {{$stat['category']}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{$homeStats[$i]['stat']}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{$visitorStats[$i]['stat']}}
+                                        </td>
+                                    </tr> 
+                                @empty
+                                    <tr class="bg-white">
+                                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                           Stats not available at this time
+                                       </td>
+                                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            
+                                        </td>
+                                    </tr>
+                                @endforelse
                                 @if (!empty($homeStats))
                                     @foreach ($homeStats as $i => $stat )
                                     <tr class="{{$i % 2 == 1 ? 'bg-gray-50' : 'bg-white'}}">
