@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Arr;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
 
 class User extends Authenticatable
@@ -58,5 +59,38 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getConfidencePoints($picks)
+    {
+        $score = 0;
+        $correctPicks = [];
+
+        foreach ($picks as $key => $pick) {
+            if(isset($pick->bowl->winner) && $pick->user_id == $this->id) {
+                if($pick->team_id == $pick->bowl->winner->api_id) {
+                    $correctPicks = Arr::prepend($correctPicks, $pick->confidence ?? 0);
+                    $score = $score + $pick->confidence;
+                }
+            }
+        }
+
+        $correctPicks = array_filter($correctPicks, function($value){
+            return $value > 0;
+        });
+        $correctPicks = array_reverse(Arr::sort($correctPicks));
+
+        $championshipPick = $picks->where('bowl.championship', true);
+        $highScore = reset($correctPicks);
+
+        foreach($championshipPick as $pick) {
+                if(isset($pick->bowl->winner) && $pick->team_id == $pick->bowl->winner->api_id) {
+                    $score = $score + $highScore;
+                }
+               
+            }
+
+        return $score;
+
     }
 }

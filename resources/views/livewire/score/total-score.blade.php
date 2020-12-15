@@ -15,7 +15,7 @@
             </div>
         </div>
         <ul>
-            @foreach ( $userScores as $key => $score)
+            @foreach ( $users as $key => $user)
                 <li class="border-t border-gray-200">
                     <div x-data="{ open: false }"
                         @click="open = !open"
@@ -23,23 +23,22 @@
                         <div class="flex w-full items-center px-4 py-4 sm:px-6">
                             <div class="min-w-0 flex-1 flex items-center">
                                 <div class="flex-shrink-0">
-                                    <span>{{ $key +1 }}.</span>
+                                    
                                 </div>
                                 <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                                     <div class="flex justify-start items-center">
                                         <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
-                                            &#64;{{ $score['username'] }}
+                                            &#64;{{ $user->username }}
                                         </div>
                                     </div>
                                     <div class="block">
                                         <div>
                                             <div class="text-sm leading-5 text-gray-900">
-                                                Picked on
-                                                <time datetime="2020-01-07">{{ $score['pick_date']->toFormattedDateString() }}</time>
+                                                Total
                                             </div>
                                             <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
                                                 <!-- Heroicon name: check-circle -->
-                                                @if($key <= 2 && $score['score'] > 0)
+                                                @if($key <= 2 && $user->getConfidencePoints($picks) > 0)
                                                     <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                         fill="currentColor">
@@ -48,7 +47,7 @@
                                                             clip-rule="evenodd" />
                                                     </svg>
                                                 @endif
-                                                {{ $score['score'] }} pts
+                                                {{ $user->getConfidencePoints($picks) }} pts
                                             </div>
                                         </div>
                                     </div>
@@ -73,12 +72,15 @@
                             x-transition:leave-start="opacity-100 transform scale-100"
                             x-transition:leave-end="opacity-0 transform origin-top scale-20"
                              class="px-4 py-6" >
-                                <livewire:accordian-picks-table :userId="$score['user_id']"/>
+                                <livewire:accordian-picks-table :userId="$user->id"/>
                         </div>
                     </div>
                 </li>
             @endforeach
         </ul>
+    </div>
+    <div class="w-1/2 mt-10">
+        {{ $users->links() }}
     </div>
 </div>
 
