@@ -13,6 +13,12 @@ class TotalScore extends Component
     use WithPagination;
 
     public $season = 2019;
+    public $search = '';
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
@@ -21,7 +27,7 @@ class TotalScore extends Component
                         ->with(['user', 'bowl', 'team'])
                         ->orderBy('user_id', 'asc')
                         ->get(),
-            'users' => User::orderBy('username', 'asc')->paginate(10),
+            'users' => User::search(['name', 'username'], $this->search)->orderBy('username', 'asc')->paginate(10),
         ]);
     }
 }
