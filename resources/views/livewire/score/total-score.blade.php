@@ -26,19 +26,16 @@
     <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
         @forelse ($users as $user)
             <div class="border-2 border-black rounded-2xl shadow-black h-96 px-6 py-8 bg-white">
-
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-2 items-center">
-                                <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{$user->avatarUrl()}}" alt="{{$user->name}}">
-                                <h3 class="text-gray-500">&#64;{{ $user->username }}</h3>
-                            </div>
-                            <p class="text-green-400">301 pts</p>
-                        </div>
-
-
-                <div class="border-2 border-black rounded-2xl h-auto mt-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-2 items-center">
+                        <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{$user->avatarUrl()}}" alt="{{$user->name}}">
+                        <h3 class="text-gray-500">&#64;{{ $user->username }}</h3>
+                    </div>
+                    <p class="text-green-500">{{$user->getConfidencePoints($picks)}} pts</p>
+                </div>
+                <div class="border-2 border-black rounded-2xl h-64 mt-4">
                     <div class="overflow-hidden overflow-y-scroll">
-                        <livewire:accordian-picks-table :userId="$user->id"/>
+                        <livewire:accordian-picks-table :user="$user"/>
                     </div>
                 </div>
             </div>
