@@ -22,10 +22,10 @@
                <div class="px-4 py-5 sm:p-6">
                    <dl>
                        <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
-                           Avg. Open Rate
+                           Invitations to approve
                        </dt>
                        <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                           58.16%
+                           {{$invitationsCount}}
                        </dd>
                    </dl>
                </div>
@@ -34,10 +34,10 @@
                <div class="px-4 py-5 sm:p-6">
                    <dl>
                        <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
-                           Avg. Click Rate
+                           Some other metric
                        </dt>
                        <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                           24.57%
+                           100%
                        </dd>
                    </dl>
                </div>

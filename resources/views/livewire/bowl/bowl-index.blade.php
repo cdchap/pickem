@@ -11,7 +11,7 @@
                         </svg>
                     </div>
                     <input id="search" wire:model="search" class="form-input block w-full pl-10 sm:text-sm sm:leading-5"
-                        placeholder="Search">
+                        placeholder="Search by team">
                 </div>
             </div>
             
