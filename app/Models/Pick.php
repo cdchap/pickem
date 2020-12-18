@@ -26,5 +26,10 @@ class Pick extends Model
         return $this->belongsTo('App\Models\Team', 'team_id', 'api_id');
     }
 
+    public function league()
+    {
+        return $this->belongsTo(League::class, 'league_id', 'id');
+    }
+
 
 }

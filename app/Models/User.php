@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function leagues()
+    {
+        return $this->belongsToMany(League::class);
+    }
+    
     public function getConfidencePoints($picks)
     {
         $score = 0;

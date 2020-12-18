@@ -16,6 +16,7 @@ class PickForm extends Component
     public $semiFinals;
     public $user;
     public $userId;
+    public $league;
     public $season = 2019;
     public $confidence;
     public $bowlCount;
@@ -46,8 +47,6 @@ class PickForm extends Component
                             ])
                             ->with('home', 'visitor')
                             ->get();
-        // getting the season to assign the id to the picks array
-        
         
         // getting the signed in user for the id
         $this->user = auth()->user();
@@ -61,6 +60,7 @@ class PickForm extends Component
             array_push($this->picks,[
                 'bowl_id' => $bowl->id,
                 'season' => $this->season,
+                'league_id' => 1,
                 'user_id' => $this->userId,
                 'confidence' => 0
             ]);
@@ -108,6 +108,7 @@ class PickForm extends Component
                 'season' => $pick['season'],
                 'bowl_id' => $pick['bowl_id'],
                 'team_id' => $pick['team_id'] ?? null, 
+                'league_id' => $pick['league_id'],
                 'confidence' => $pick['confidence']
             ]);
         }

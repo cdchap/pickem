@@ -70,8 +70,14 @@ class BowlStats extends Component
          $count = $this->picks->count();
          $visitorCount = $this->picks->where('team_id', $bowl->visitor->api_id)->count();
          $homeCount = $this->picks->where('team_id', $bowl->home->api_id)->count();
-         $this->visitorPickPercentage = $visitorCount/$count * 100;
-         $this->homePickPercentage = $homeCount/$count * 100;
+
+         if($count > 0) {
+             $this->visitorPickPercentage = $visitorCount/$count * 100;
+             $this->homePickPercentage = $homeCount/$count * 100;
+         } else {
+            $this->visitorPickPercentage = 0; 
+            $this->homePickPercentage = 0;
+         }
     }
 
     public function save()
