@@ -84,6 +84,6 @@
             </div>
         </div>
     </div>
-    <livewire:bowl.bowl-comments :bowl="$bowl"/>
+    <livewire:bowl.bowl-comments :bowl="$bowl" :user="auth()->user()" />
 </div>
 

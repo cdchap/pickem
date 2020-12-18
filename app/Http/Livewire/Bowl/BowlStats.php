@@ -4,18 +4,28 @@ namespace App\Http\Livewire\Bowl;
 
 use App\Models\Bowl;
 use App\Models\Pick;
+use App\Models\User;
+use App\Models\Comment;
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 
 class BowlStats extends Component
 {
     public Bowl $bowl;
+    public User $user;
+    public $userId;
     public $bowlStats;
     public $homeStats;
     public $visitorStats;
     public $homePickPercentage = 0;
     public $visitorPickPercentage = 0;
     public $picks;
+    public $comment;
+
+    protected $rules = [
+        'comment' => 'required'
+    ];
+
     public $categories = [
         'tacklesForLoss', 
         'tackles',
@@ -50,7 +60,8 @@ class BowlStats extends Component
 
         $this->visitorStats = $visitorStats->whereIn('category', $this->categories)->values();
         $this->homeStats = $homeStats->whereIn('category', $this->categories)->values();
-        
+
+        $this->userId = auth()->user()->id;
         
     }
 
@@ -63,8 +74,24 @@ class BowlStats extends Component
          $this->homePickPercentage = $homeCount/$count * 100;
     }
 
+    public function save()
+    {
+        $this->validate();
+
+        Comment::create([
+            'bowl_id' => $this->bowl->id,
+            'user_id' => $this->userId,
+            'body' => $this->comment,
+        ]);
+
+    }
+
     public function render()
     {
-        return view('livewire.bowl.bowl-stats');
+        return view('livewire.bowl.bowl-stats', [
+            'comments' => Comment::where('bowl_id', $this->bowl->id)
+                        ->with('user')
+                        ->get()
+        ]);
     }
 }

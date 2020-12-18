@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Bowl;
 
 use App\Models\Bowl;
+use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
 
 class BowlComments extends Component
 {
     public Bowl $bowl;
+    public User $user;
     public $comment;
     public $userId;
 
@@ -16,17 +18,12 @@ class BowlComments extends Component
         'comment' => 'required'
     ];
 
-    public function mount()
-    {
-        $this->userId = auth()->user()->id;
-    }
-
-    public function updateComments()
-    {
-        $this->comments = Comment::where('bowl_id', $this->bowl->id)
-                        ->with('users')
-                        ->get();
-    }
+    // public function updateComments()
+    // {
+    //     $this->comments = Comment::where('bowl_id', $this->bowl->id)
+    //                     ->with('users')
+    //                     ->get();
+    // }
 
     public function save()
     {
@@ -34,11 +31,11 @@ class BowlComments extends Component
 
         Comment::create([
             'bowl_id' => $this->bowl->id,
-            'user_id' => $this->userId,
+            'user_id' => $this->user->id,
             'body' => $this->comment,
         ]);
 
-        $this->updateComments();
+        // $this->updateComments();
     }
 
     public function render()

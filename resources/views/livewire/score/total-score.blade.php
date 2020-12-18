@@ -23,7 +23,7 @@
             <p>e.g. name or username</p>
         </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @forelse ($users as $user)
             <div class="border-2 border-black rounded-2xl shadow-black h-96 px-6 py-8 bg-white">
                 <div class="flex justify-between items-center">
@@ -33,9 +33,60 @@
                     </div>
                     <p class="text-green-500">{{$user->getConfidencePoints($picks)}} pts</p>
                 </div>
-                <div class="border-2 border-black rounded-2xl h-64 mt-4">
-                    <div class="overflow-hidden overflow-y-scroll">
-                        <livewire:accordian-picks-table :user="$user"/>
+                <div class="border-2 border-black rounded-2xl h-64 mt-4 overflow-y-scroll">
+                    <div class="">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Matchup
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Winner
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Pick
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Conf.
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Odd row -->
+                                @foreach ($picks as $i => $pick)
+                                    @if ($pick->user_id == $user->id)
+                                        <tr class="{{ $pick->team_id == $pick->bowl->winner_id ? 'bg-green-100' : ($i % 2 == 0 ? 'bg-white' : 'bg-gray-50') }}">
+                                            <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                <div class="flex flex-col space-y-1">
+                                                    <div class="flex items-center space-x-2">
+                                                        <img class="w-5 h-5" src="{{$pick->bowl->visitor->logo1}}" alt="{{$pick->bowl->visitor->name}}">
+                                                        <h4 class="" style="color: {{ $pick->bowl->visitor->color }}">{{$pick->bowl->visitor->abbreviation}}</h4>
+                                                    </div>
+                                                    <div class="flex items-center space-x-2">
+                                                        <img class="w-5 h-5" src="{{$pick->bowl->home->logo1}}" alt="{{$pick->bowl->home->name}}">
+                                                        <h4 class="" style="color: {{ $pick->bowl->home->color }}">{{$pick->bowl->home->abbreviation}}</h4>
+                                                    </div
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                {{$pick->bowl->winner_id == $pick->team_id ? $pick->bowl->winner->abbreviation : 'N/A'}}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{$pick->team->abbreviation}}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{$pick->confidence}}
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -45,7 +96,7 @@
             </div>
         @endforelse
     </div>
-    <div class="w-1/2 mt-10">
+    <div class="mt-10">
         {{ $users->links() }}
     </div>
 </div>
