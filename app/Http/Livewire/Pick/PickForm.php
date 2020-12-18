@@ -16,7 +16,7 @@ class PickForm extends Component
     public $semiFinals;
     public $user;
     public $userId;
-    public $league;
+    public $league = 1;
     public $season = 2019;
     public $confidence;
     public $bowlCount;
@@ -60,7 +60,7 @@ class PickForm extends Component
             array_push($this->picks,[
                 'bowl_id' => $bowl->id,
                 'season' => $this->season,
-                'league_id' => 1,
+                'league_id' => $this->league,
                 'user_id' => $this->userId,
                 'confidence' => 0
             ]);

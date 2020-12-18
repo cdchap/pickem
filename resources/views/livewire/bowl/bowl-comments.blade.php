@@ -1,5 +1,6 @@
 <div class="flex flex-col h-full rounded-2xl border-2 border-black px-8 py-10">
-    <div class="h-full flex-grow-0 overflow-y-scroll flex flex-col space-y-2 mb-8">
+    <div class="h-96 flex-grow-0 overflow-y-scroll flex flex-col space-y-2 mb-8">
+        <h3 class="font-sans font-bold text-xl">Discussion</h3>
         @foreach ($comments as $comment)
             <div class="flex space-x-4">
                 <h4 class="text-gray-400">
@@ -14,7 +15,7 @@
     </div>
     <div class="mt-2">
         <form wire:submit.prevent="save" >
-            <h3 class="font-sans font-bold text-xl">Comment</h3>
+            <h3 class="font-sans font-bold text-xl">Add a comment</h3>
             <textarea 
                 wire:model="comment"
                 class="mt-1 mb-4 border-2 block w-full px-4 py-4 sm:text-sm border-black rounded-2xl" name="comment" id="comment"

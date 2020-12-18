@@ -13,12 +13,12 @@
             <span>{{ $homePickPercentage }}%</span>
         </div>
     </div>
-    <div class="">
+    <div class="h-96 overflow-y-scroll border-2 border-black rounded-2xl">
         <div
             class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 ">
-                    <div class="shadow overflow-hidden rounded-2xl border-2 border-black">
+                    <div class="shadow overflow-hidden">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
@@ -84,6 +84,8 @@
             </div>
         </div>
     </div>
-    <livewire:bowl.bowl-comments :bowl="$bowl" :user="auth()->user()" />
+    <div class="mt-4">
+        <livewire:bowl.bowl-comments :bowl="$bowl" :user="auth()->user()" />
+    </div>
 </div>
 
