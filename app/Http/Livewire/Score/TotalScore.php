@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Score;
 use App\Models\Pick;
 use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Arr;
 use Livewire\WithPagination;
 
 class TotalScore extends Component
