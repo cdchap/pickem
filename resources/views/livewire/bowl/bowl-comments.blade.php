@@ -1,10 +1,10 @@
-<div class="flex flex-col h-full bg-pink-200 rounded-2xl border-2 border-black px-8 py-10">
-    <div class="h-full flex-grow-0 overflow-y-scroll flex flex-col space-y-2">
+<div class="flex flex-col h-full rounded-2xl border-2 border-black px-8 py-10">
+    <div class="h-full flex-grow-0 overflow-y-scroll flex flex-col space-y-2 mb-8">
         @foreach ($comments as $comment)
-            <div class="flex space-x-4 bg-pink-200 h-10">
-                <div>
-                    {{$comment->user->username}}
-                </div>
+            <div class="flex space-x-4">
+                <h4 class="text-gray-400">
+                    &#64;{{$comment->user->username}}
+                </h4>
                 <div>
                     {{$comment->body}}
                 </div>
@@ -25,7 +25,7 @@
                         
                         type="submit"    
                         type="button"
-                        class="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
+                        class="bg-gradient-four inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
                         Comment
                     </button>
                 </span>
