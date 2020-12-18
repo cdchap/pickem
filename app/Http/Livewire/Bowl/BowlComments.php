@@ -13,37 +13,39 @@ class BowlComments extends Component
     public User $user;
     public $comment;
     public $userId;
+    public $comments;
 
     protected $rules = [
         'comment' => 'required'
     ];
 
-    // public function updateComments()
-    // {
-    //     $this->comments = Comment::where('bowl_id', $this->bowl->id)
-    //                     ->with('users')
-    //                     ->get();
-    // }
+    public function mount()
+    {
+        $initialComments = Comment::where('bowl_id', $this->bowl->id)
+                                ->with('user')
+                                ->get();
+        $this->comments = $initialComments;
+    }
 
     public function save()
     {
         $this->validate();
 
-        Comment::create([
+        $newComment = Comment::create([
             'bowl_id' => $this->bowl->id,
             'user_id' => $this->user->id,
             'body' => $this->comment,
         ]);
 
-        // $this->updateComments();
+        $this->comments->push($newComment);
+
+        $this->comment = '';
     }
 
     public function render()
     {
         return view('livewire.bowl.bowl-comments',[
-            'comments' => Comment::where('bowl_id', $this->bowl->id)
-                        ->with('user')
-                        ->get(),
+            
         ]);
     }
 }

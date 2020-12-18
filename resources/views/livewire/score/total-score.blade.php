@@ -58,7 +58,7 @@
                             </thead>
                             <tbody>
                                 <!-- Odd row -->
-                                @foreach ($picks as $i => $pick)
+                                @forelse ($picks as $i => $pick)
                                     @if ($pick->user_id == $user->id)
                                         <tr class="{{ $pick->team_id == $pick->bowl->winner_id ? 'bg-green-100' : ($i % 2 == 0 ? 'bg-white' : 'bg-gray-50') }}">
                                             <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -84,7 +84,22 @@
                                             </td>
                                         </tr>
                                     @endif
-                                @endforeach
+                                @empty
+                                       <tr class="bg-white">
+                                            <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                &#64;{{$user->username}} has not picked yet
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                                                
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                
+                                            </td>
+                                        </tr> 
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
