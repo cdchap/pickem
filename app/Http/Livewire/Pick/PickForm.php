@@ -70,6 +70,7 @@ class PickForm extends Component
                 'bowl_id' => $bowl->id,
                 'season' => $this->season,
                 'user_id' => $this->userId,
+                'league_id' => $this->league,
                 'confidence' => null
             ]);
         }
@@ -117,6 +118,7 @@ class PickForm extends Component
                 'user_id' => $pick['user_id'],
                 'season' => $pick['season'],
                 'bowl_id' => $pick['bowl_id'],
+                'league_id' => $pick['league_id'],
                 'team_id' => $pick['team_id'] ?? null,
                 'confidence' => null
             ]);

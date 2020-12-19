@@ -4,13 +4,15 @@
         <div class="border-b-2 border-red-600 ">
             <h3 class="font-bold font-sans text-xl text-center">Pick %</h3>
         </div>
-        <div class="mt-1">
-            <span>{{ $bowl->visitor->abbreviation }}</span>
-            <span>{{ $visitorPickPercentage }}%</span>
-        </div>
-        <div>
-            <span>{{ $bowl->home->abbreviation }}</span>
-            <span>{{ $homePickPercentage }}%</span>
+        <div class="mt-1 flex flex-col items-start">
+            <div class="mt-1">
+                <span>{{ $bowl->visitor->abbreviation }}</span>
+                <span>{{ $visitorPickPercentage }}%</span>
+            </div>
+            <div>
+                <span>{{ $bowl->home->abbreviation }}</span>
+                <span>{{ $homePickPercentage }}%</span>
+            </div>
         </div>
     </div>
     <div class="h-96 overflow-y-scroll border-2 border-black rounded-2xl">

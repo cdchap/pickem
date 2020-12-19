@@ -19,6 +19,7 @@ class CreatePicksTable extends Migration
             $table->unsignedBigInteger('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('bowl_id')->references('id')->on('bowls');
             $table->unsignedBigInteger('team_id')->references('id')->on('teams');
+            $table->unsignedBigInteger('league_id')->references('id')->on('leagues');
             $table->unsignedBigInteger('confidence')->nullable();
             $table->timestamps();
 

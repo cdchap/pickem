@@ -1,4 +1,5 @@
-<div class="flex flex-col h-full rounded-2xl border-2 border-black px-8 py-10">
+<div wire:poll
+    class="flex flex-col h-full rounded-2xl border-2 border-black px-8 py-10">
     <div class="h-96 flex-grow-0 overflow-y-scroll flex flex-col space-y-2 mb-8">
         <h3 class="font-sans font-bold text-xl">Discussion</h3>
         @foreach ($comments as $comment)
