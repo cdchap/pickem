@@ -73,7 +73,8 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 sm:mt-5 sm:border-t sm:border-gray-200 sm:pt-5">
+                    <div x-data="{ semiFinal: @entangle('semiFinal') }"
+                        class="mt-6 sm:mt-5 sm:border-t sm:border-gray-200 sm:pt-5">
                         <div role="group" aria-labelledby="label-notifications">
                             <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline">
                                 <div>
@@ -84,8 +85,21 @@
                                 </div>
                                 <div class="sm:col-span-2">
                                     <div class="max-w-lg">
-                                        <p class="text-sm leading-5 text-gray-500">Is this bowl a semifinal?</p>
-                                        <div class="mt-4">
+                                        <p class="text-sm leading-5 text-gray-500 mb-2">Is this bowl a semifinal?</p>
+                                        <!-- On: "bg-indigo-600", Off: "bg-gray-200" -->
+                                        <span
+                                            :class="semiFinal ? 'bg-indigo-600' : 'bg-gray-200'"
+                                            :aria-checked="semiFinal"
+                                            @click="semiFinal = !semiFinal"
+                                            role="checkbox" tabindex="0" 
+                                            class="mt-2 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline">
+                                            <!-- On: "translate-x-5", Off: "translate-x-0" -->
+                                            <span aria-hidden="true"
+                                                :class="semiFinal ? 'translate-x-5' : 'translate-x-0'"
+                                                class="inline-block h-5 w-5 rounded-full bg-white shadow transform transition ease-in-out duration-200"></span>
+                                        </span>
+
+                                        {{-- <div class="mt-4">
                                             <div class="flex items-center">
                                                 <input id="smeifinal" name="semi_final" type="radio" wire:model="bowl.semi_final" value="1"
                                                     {{ $bowl->semi_final ? 'checked' : '' }}
@@ -95,14 +109,15 @@
                                                         class="block text-sm leading-5 font-medium text-gray-700">Semi-final</span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 sm:mt-5 sm:border-t sm:border-gray-200 sm:pt-5">
+                    <div x-data="{ championship: @entangle('championship') }"
+                        class="mt-6 sm:mt-5 sm:border-t sm:border-gray-200 sm:pt-5">
                         <div role="group" aria-labelledby="label-notifications">
                             <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline">
                                 <div>
@@ -111,10 +126,23 @@
                                         National Championship
                                     </div>
                                 </div>
+                                <!-- On: "bg-indigo-600", Off: "bg-gray-200" -->
                                 <div class="sm:col-span-2">
                                     <div class="max-w-lg">
                                         <p class="text-sm leading-5 text-gray-500">Is this bowl the National Championship?</p>
-                                        <div class="mt-4">
+                                        <span
+                                            :class="championship ? 'bg-indigo-600' : 'bg-gray-200'"
+                                            :aria-checked="championship"
+                                            @click="championship = !championship"
+                                            role="checkbox" tabindex="0" 
+                                            class="mt-2 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline">
+                                            <!-- On: "translate-x-5", Off: "translate-x-0" -->
+                                            <span aria-hidden="true"
+                                                :class="championship ? 'translate-x-5' : 'translate-x-0'"
+                                                class="inline-block h-5 w-5 rounded-full bg-white shadow transform transition ease-in-out duration-200"></span>
+                                        </span>
+                                        <span>{{$championship}}</span>
+                                        {{-- <div class="mt-4">
                                             <div class="flex items-center">
                                                 <input id="championship" name="championship" type="radio" wire:model="bowl.championship" value="1"
                                                     {{ $bowl->championship ? 'checked' : '' }}
@@ -124,7 +152,7 @@
                                                         class="block text-sm leading-5 font-medium text-gray-700">championship</span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
