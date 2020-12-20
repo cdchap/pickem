@@ -23,11 +23,10 @@ class UserSeeder extends Seeder
                       'password' => Hash::make('password')]);
         $user->assignRole('super-admin');
 
-        $users = User::factory()->count(10)->create();
-        
-        foreach ($users as $key => $user) {
-            $user->assignRole('user');
-            $user->givePermissionTo(['can pick 2020', 'can pick 2019', 'edit profile']);
-        }
+        $user = User::create(['username' => 'dustinwc81',
+                      'name' => 'Dustin Crowder',
+                      'email' => 'crowderdwcm@gmail.com',
+                      'password' => Hash::make('password')]);
+        $user->assignRole('super-admin'); 
     }
 }
