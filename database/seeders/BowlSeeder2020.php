@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Bowl;
 use Carbon\Carbon;
+use App\Models\Bowl;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Http;
 
-class BowlSeeder2019 extends Seeder
+class BowlSeeder2020 extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class BowlSeeder2019 extends Seeder
      */
     public function run()
     {
-        $bowls = Http::get('https://api.collegefootballdata.com/games?year=2019&seasonType=postseason')->json();
+        $bowls = Http::get('https://api.collegefootballdata.com/games?year=2020&seasonType=postseason')->json();
 
         foreach ($bowls as $key => $bowl) {
             Bowl::create([
@@ -36,6 +36,5 @@ class BowlSeeder2019 extends Seeder
                'visitor_quarter_three_score' => $bowl['away_line_scores']['2'] ?? 0,
                'visitor_quarter_four_score' => $bowl['away_line_scores']['3'] ?? 0,
             ]);
-        }
     }
 }
