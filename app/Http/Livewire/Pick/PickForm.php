@@ -124,7 +124,7 @@ class PickForm extends Component
             ]);
         }
 
-        $this->user->revokePermissionTo('can pick 2019');        
+        $this->user->revokePermissionTo('can pick 2020');        
     
         return redirect()->route('home');
     }
