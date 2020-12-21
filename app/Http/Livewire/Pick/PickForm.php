@@ -17,7 +17,7 @@ class PickForm extends Component
     public $user;
     public $userId;
     public $league = 1;
-    public $season = 2019;
+    public $season = 2020;
     public $confidence;
     public $bowlCount;
     public $reviewedPicks = [];
@@ -28,21 +28,21 @@ class PickForm extends Component
     {
         // get all the bowls
         $this->bowls = Bowl::where([
-                                ['season', 2019],
+                                ['season', $this->season],
                                 ['championship', false],
                             ])
                             ->with('home', 'visitor')
                             ->get();
         // get the championship game
         $this->championship = Bowl::where([
-                                ['season', 2019],
+                                ['season', $this->season],
                                 ['championship',true],
                             ])
                             ->with('home', 'visitor')
                             ->get();
         // get the semifinals so that I can put the teams in championship game form
         $this->semiFinals = Bowl::where([
-                                ['season', 2019],
+                                ['season', $this->season],
                                 ['semi_final', true]
                             ])
                             ->with('home', 'visitor')

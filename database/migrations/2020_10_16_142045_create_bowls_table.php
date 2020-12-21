@@ -15,7 +15,7 @@ class CreateBowlsTable extends Migration
     {
         Schema::create('bowls', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('api_id');
+            $table->unsignedBigInteger('api_id')->nullable();
             $table->string('name')->nullable();
             $table->unsignedBigInteger('season');
             $table->string('channel')->nullable();

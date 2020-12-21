@@ -72,12 +72,16 @@
                                             <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
                                                 <div class="flex flex-col space-y-1">
                                                     <div class="flex items-center space-x-2">
-                                                        <img class="w-5 h-5" src="{{$pick->bowl->visitor->logo1}}" alt="{{$pick->bowl->visitor->name}}">
-                                                        <h4 class="" style="color: {{ $pick->bowl->visitor->color }}">{{$pick->bowl->visitor->abbreviation}}</h4>
+                                                        @if (isset($pick->bowl->visitor))
+                                                            <img class="w-5 h-5" src="{{$pick->bowl->visitor->logo1}}" alt="{{$pick->bowl->visitor->name}}">
+                                                            <h4 class="" style="color: {{ $pick->bowl->visitor->color }}">{{$pick->bowl->visitor->abbreviation}}</h4>
+                                                        @endif
                                                     </div>
                                                     <div class="flex items-center space-x-2">
-                                                        <img class="w-5 h-5" src="{{$pick->bowl->home->logo1}}" alt="{{$pick->bowl->home->name}}">
-                                                        <h4 class="" style="color: {{ $pick->bowl->home->color }}">{{$pick->bowl->home->abbreviation}}</h4>
+                                                        @if(isset($pick->bowl->home))
+                                                            <img class="w-5 h-5" src="{{$pick->bowl->home->logo1}}" alt="{{$pick->bowl->home->name}}">
+                                                            <h4 class="" style="color: {{ $pick->bowl->home->color }}">{{$pick->bowl->home->abbreviation}}</h4>
+                                                        @endif
                                                     </div
                                                 </div>
                                             </td>

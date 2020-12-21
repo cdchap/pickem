@@ -32,6 +32,7 @@ class BowlList extends Component
     {
         return view('livewire.bowl.bowl-list', [
             'bowls' => Bowl::where('season', $this->season)
+                        ->where('championship', '=', false)
                         ->orderBy('start_date')
                         ->with(['home', 'visitor', 'winner', 'picks'])
                         ->get(),

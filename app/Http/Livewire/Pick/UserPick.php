@@ -12,7 +12,7 @@ class UserPick extends Component
     public $userName;
     public $userId;
     public $pointTotal = 0;
-    public $season = 2019;
+    public $season = 2020;
 
     public function mount(User $user)
     {
@@ -44,8 +44,10 @@ class UserPick extends Component
 
             
             foreach($championshipPick as $pick) {
-                if($pick->team_id == $pick->bowl->winner->api_id) {
-                    $this->pointTotal = $this->pointTotal + $highScore;
+                if(isset($pick->bowl->winner)){
+                    if($pick->team_id == $pick->bowl->winner->api_id) {
+                        $this->pointTotal = $this->pointTotal + $highScore;
+                    }
                 }
                
             }

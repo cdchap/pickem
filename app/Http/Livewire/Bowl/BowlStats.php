@@ -55,11 +55,14 @@ class BowlStats extends Component
         $this->picks = Pick::where('bowl_id', $this->bowl->id)->get();
         $this->findPickAvg($this->picks, $this->bowl);
         $this->bowlStats = Http::get('https://api.collegefootballdata.com/games/teams?year=' . $this->bowl->season .'&gameId=' . $this->bowl->api_id)->json();
-        $homeStats = collect($this->bowlStats['0']['teams']['1']['stats']);
-        $visitorStats = collect($this->bowlStats['0']['teams']['0']['stats']);
 
-        $this->visitorStats = $visitorStats->whereIn('category', $this->categories)->values();
-        $this->homeStats = $homeStats->whereIn('category', $this->categories)->values();
+        if(isset($this->bowlStats)) {
+            $homeStats = collect($this->bowlStats['0']['teams']['1']['stats'] ?? 0);
+            $visitorStats = collect($this->bowlStats['0']['teams']['0']['stats'] ?? 0);
+    
+            $this->visitorStats = $visitorStats->whereIn('category', $this->categories)->values();
+            $this->homeStats = $homeStats->whereIn('category', $this->categories)->values();
+        }
 
         $this->userId = auth()->user()->id;
         

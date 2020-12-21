@@ -36,21 +36,32 @@
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                                         <div class="flex flex-col items-start lg:flex-row lg:space-x-2">
+                                            @if(isset($pick->bowl->visitor))
                                             <span class="inline-flex space-x-1 items-center"
                                                 style="color: {{ $pick->bowl->visitor->color }}">
                                                 <img src="{{ $pick->bowl->visitor->logo1 }}" class="h-4 w-4"
                                                     alt="" srcset="">
                                                 <span>{{ $pick->bowl->visitor->abbreviation }}</span>
                                             </span>
-
+                                            @else
+                                               <span class="inline-flex space-x-1 items-center">
+                                                <span>TBD</span>
+                                                </span> 
+                                            @endif
                                             <span class="text-xs">vs</span>
 
+                                            @if(isset($pick->bowl->home))
                                             <span class="inline-flex space-x-1 items-center"
                                                 style="color: {{ $pick->bowl->home->color }}">
                                                 <img src="{{ $pick->bowl->home->logo1 }}" class="h-4 w-4" alt=""
                                                     srcset="">
                                                 <span>{{ $pick->bowl->home->abbreviation }}</span>
                                             </span>
+                                            @else
+                                                <span class="inline-flex space-x-1 items-center">
+                                                    <span>TBD</span>
+                                                </span> 
+                                            @endif
                                         </div>
                                     </td>
                                     <td
