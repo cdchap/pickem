@@ -23,8 +23,6 @@ class Register extends Component
     /** @var string */
     public $email = '';
 
-    public $my_name;
-
     /** @var string */
     public $password = '';
 
@@ -48,14 +46,6 @@ class Register extends Component
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
-
-        if(! $this->my_name) {
-            abort(422, 'spam Detected');
-        }
-
-        if(! empty($this->my_name)) {
-            abort(422, 'spam Detected');
-        }
 
         $user = User::create([
             'email' => $this->email,

@@ -74,14 +74,6 @@
                 </div>
 
                 <div class="mt-6">
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model="my_name" id="my_name" type="text" class="hidden" />
-                    </div>
-
-                </div>
-
-                <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
                         Password
                     </label>
