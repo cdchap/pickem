@@ -17,7 +17,7 @@
                             <div class="flex items-start justify-between space-x-3">
                                 <div class="space-y-1">
                                     <h2 class="text-lg leading-7 font-medium text-gray-900">
-                                        Create new bowl
+                                        Create Bowl
                                     </h2>
                                     <p class="text-sm text-gray-500 leading-5">
                                         Get started by filling in the information below to create a new bowl.
