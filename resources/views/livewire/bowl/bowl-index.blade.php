@@ -24,13 +24,6 @@
                         <option value="2020">2020</option>
                     </select>
                 </div>
-                <span class="inline-flex rounded-md shadow-sm">
-                    <button type="button"
-                        wire:click="updateBowls" 
-                        class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
-                        Update {{ $season }} Scores
-                    </button>
-                </span>
             </div>
         </div>
         

@@ -1,6 +1,6 @@
 <div class="bg-white px-4 py-10 rounded-2xl shadow-md">
     @section('pageTitle', 'Edit Bowl')
-  
+    
     <form wire:submit.prevent>
         <div>
             <div>
@@ -99,17 +99,6 @@
                                                 class="inline-block h-5 w-5 rounded-full bg-white shadow transform transition ease-in-out duration-200"></span>
                                         </span>
 
-                                        {{-- <div class="mt-4">
-                                            <div class="flex items-center">
-                                                <input id="smeifinal" name="semi_final" type="radio" wire:model="bowl.semi_final" value="1"
-                                                    {{ $bowl->semi_final ? 'checked' : '' }}
-                                                    class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                                <label for="push_everything" class="ml-3">
-                                                    <span
-                                                        class="block text-sm leading-5 font-medium text-gray-700">Semi-final</span>
-                                                </label>
-                                            </div>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -145,6 +134,19 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div
+                        class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <label for="visitor" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                            <span class="inline-flex space-x-2"><img src="{{  $bowl->visitor->logo1 }}" alt="{{ $bowl->visitor->name }}" class="h-5 w-5"><span>{{ $bowl->visitor->name }}</span></span>
+                        </label>
+                        <span class="inline-flex rounded-md shadow-sm">
+                            <button type="button" wire:click="updateBowl"
+                                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">
+                                Update Bowl
+                            </button>
+                        </span>
                     </div>
 
                 </div>

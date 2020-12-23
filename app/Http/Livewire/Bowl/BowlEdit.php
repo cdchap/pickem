@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Bowl;
 
 use App\Models\Bowl;
 use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 
 class BowlEdit extends Component
 {
@@ -23,6 +24,24 @@ class BowlEdit extends Component
     {
         $this->semiFinal = $this->bowl->semi_final;
         $this->championship = $this->bowl->championship;
+    }
+
+    public function updateBowl()
+    {
+        $apiBowl = Http::get('https://api.collegefootballdata.com/games?year='. $this->bowl->season .'&seasonType=postseason&id=' . $this->bowl->api_id)->json();
+        
+        $this->bowl->home_score = $apiBowl['0']['home_points'];
+        $this->bowl->visitor_score = $apiBowl['0']['away_points'];
+        $this->bowl->home_quarter_one_score = $apiBowl['0']['home_line_scores']['0'] ?? 0;
+        $this->bowl->home_quarter_two_score = $apiBowl['0']['home_line_scores']['1'] ?? 0;
+        $this->bowl->home_quarter_three_score = $apiBowl['0']['home_line_scores']['2'] ?? 0;
+        $this->bowl->home_quarter_four_score = $apiBowl['0']['home_line_scores']['3'] ?? 0;
+        $this->bowl->visitor_quarter_one_score = $apiBowl['0']['away_line_scores']['0'] ?? 0;
+        $this->bowl->visitor_quarter_two_score = $apiBowl['0']['away_line_scores']['1'] ?? 0;
+        $this->bowl->visitor_quarter_three_score = $apiBowl['0']['away_line_scores']['2'] ?? 0;
+        $this->bowl->visitor_quarter_four_score = $apiBowl['0']['away_line_scores']['3'] ?? 0;
+        $this->bowl->save();
+
     }
 
     public function save()
