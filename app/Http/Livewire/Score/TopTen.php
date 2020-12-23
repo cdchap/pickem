@@ -13,7 +13,7 @@ class TopTen extends Component
     // get all of the picks for each user from the database, with bowls
     // sum all of the confidence points by checking to see if they match the bowl winners
     public $users;
-    public $season = 2019;
+    public $season = 2020;
     public $userScores;
     public $picks;
 
