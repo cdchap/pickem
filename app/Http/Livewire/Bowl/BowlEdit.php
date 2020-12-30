@@ -29,18 +29,27 @@ class BowlEdit extends Component
     public function updateBowl()
     {
         $apiBowl = Http::get('https://api.collegefootballdata.com/games?year='. $this->bowl->season .'&seasonType=postseason&id=' . $this->bowl->api_id)->json();
+
+        // dd($apiBowl);
+
+        if(empty($apiBowl['0']['home_points'])) {
+            $this->dispatchBrowserEvent('notify', 'Score not currently avaialble. Check back after the game has been played.');
+        } else {
+
+            $this->bowl->home_score = $apiBowl['0']['home_points'];
+            $this->bowl->visitor_score = $apiBowl['0']['away_points'];
+            $this->bowl->home_quarter_one_score = $apiBowl['0']['home_line_scores']['0'] ?? 0;
+            $this->bowl->home_quarter_two_score = $apiBowl['0']['home_line_scores']['1'] ?? 0;
+            $this->bowl->home_quarter_three_score = $apiBowl['0']['home_line_scores']['2'] ?? 0;
+            $this->bowl->home_quarter_four_score = $apiBowl['0']['home_line_scores']['3'] ?? 0;
+            $this->bowl->visitor_quarter_one_score = $apiBowl['0']['away_line_scores']['0'] ?? 0;
+            $this->bowl->visitor_quarter_two_score = $apiBowl['0']['away_line_scores']['1'] ?? 0;
+            $this->bowl->visitor_quarter_three_score = $apiBowl['0']['away_line_scores']['2'] ?? 0;
+            $this->bowl->visitor_quarter_four_score = $apiBowl['0']['away_line_scores']['3'] ?? 0;
+            $this->bowl->save();
+
+        }
         
-        $this->bowl->home_score = $apiBowl['0']['home_points'];
-        $this->bowl->visitor_score = $apiBowl['0']['away_points'];
-        $this->bowl->home_quarter_one_score = $apiBowl['0']['home_line_scores']['0'] ?? 0;
-        $this->bowl->home_quarter_two_score = $apiBowl['0']['home_line_scores']['1'] ?? 0;
-        $this->bowl->home_quarter_three_score = $apiBowl['0']['home_line_scores']['2'] ?? 0;
-        $this->bowl->home_quarter_four_score = $apiBowl['0']['home_line_scores']['3'] ?? 0;
-        $this->bowl->visitor_quarter_one_score = $apiBowl['0']['away_line_scores']['0'] ?? 0;
-        $this->bowl->visitor_quarter_two_score = $apiBowl['0']['away_line_scores']['1'] ?? 0;
-        $this->bowl->visitor_quarter_three_score = $apiBowl['0']['away_line_scores']['2'] ?? 0;
-        $this->bowl->visitor_quarter_four_score = $apiBowl['0']['away_line_scores']['3'] ?? 0;
-        $this->bowl->save();
 
     }
 
