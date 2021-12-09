@@ -12,7 +12,7 @@ class BowlIndex extends Component
     use WithPagination;
 
     public $search = '';
-    public $season = '2020';
+    public $season = '2021';
 
     public function render()
     {
