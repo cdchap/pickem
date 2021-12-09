@@ -40,7 +40,12 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+    /*
+      Application Secret Key for College Football Data API
+    */
 
+    'cfbd_access_key' => env('CFBD_ACCESS_KEY'),
+    
     /*
     |--------------------------------------------------------------------------
     | Application URL

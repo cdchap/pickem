@@ -7,7 +7,7 @@ use App\Models\Bowl;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Http;
 
-class BowlSeeder2020 extends Seeder
+class BowlSeeder2021 extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,9 @@ class BowlSeeder2020 extends Seeder
      */
     public function run()
     {
-        $bowls = Http::get('https://api.collegefootballdata.com/games?year=202&seasonType=postseason')->json();
+        $bowls = Http::withHeaders([
+            'Authorization' => 'Bearer IiFaJWuDO9F0LQfWlMbWiKos3kQEJbmC/3Gae25vqMSRJ4720/vnWa3h1gjLbzmH',
+        ])->get('https://api.collegefootballdata.com/games?year=2021&seasonType=postseason')->json();
 
         foreach ($bowls as $key => $bowl) {
             Bowl::create([

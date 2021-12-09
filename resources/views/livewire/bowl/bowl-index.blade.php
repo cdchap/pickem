@@ -20,8 +20,9 @@
                     <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Season</label>
                     <select id="season" wire:model="season"
                         class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                        <option value="2019" selected>2019</option>
+                        <option value="2019">2019</option>
                         <option value="2020">2020</option>
+                        <option value="2021">2021</option>
                     </select>
                 </div>
             </div>
@@ -87,7 +88,6 @@
                                             @endif
                                             <span>{!! $bowl->home->name !!}</span>
                                         </div>
-                                        
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
                                         <div class="flex">
@@ -110,16 +110,6 @@
                                                     class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-50 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
                                                     edit
                                                 </a>
-                                            </span>
-                                            
-                                            <span class="inline-flex rounded-md shadow-sm">
-                                                <a href="#">
-                                                    <button type="button"
-                                                        class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
-                                                        delete
-                                                    </button>
-                                                </a>
-                                                
                                             </span>
                                         </div>
                                         

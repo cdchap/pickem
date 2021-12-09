@@ -12,7 +12,7 @@ class BowlList extends Component
 {
     public $userId;
     public $username;
-    public $season = 2020;
+    public $season = 2021;
 
     public function mount()
     {
