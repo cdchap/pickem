@@ -17,7 +17,7 @@ class BowlSeeder2021 extends Seeder
     public function run()
     {
         $bowls = Http::withHeaders([
-            'Authorization' => 'Bearer' . config('app.cfbd_token'),
+            'Authorization' => 'Bearer ' . config('app.cfbd_token'),
         ])->get('https://api.collegefootballdata.com/games?year=2021&seasonType=postseason')->json();
 
         foreach ($bowls as $key => $bowl) {

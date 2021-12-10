@@ -138,9 +138,10 @@
 
                     <div
                         class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="visitor" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                        {{-- <label for="visitor" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
                             <span class="inline-flex space-x-2"><img src="{{  $bowl->visitor->logo1 }}" alt="{{ $bowl->visitor->name }}" class="h-5 w-5"><span>{{ $bowl->visitor->name }}</span></span>
-                        </label>
+                        </label> --}}
+                        <span></span>
                         <span class="inline-flex rounded-md shadow-sm">
                             <button type="button" wire:click="updateBowl"
                                 class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-green-700 active:bg-green-700">

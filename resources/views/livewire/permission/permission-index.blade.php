@@ -11,7 +11,7 @@
                         </svg>
                     </div>
                     <input id="search" wire:model="search" class="form-input block w-full pl-10 sm:text-sm sm:leading-5"
-                        placeholder="Search by team">
+                        placeholder="Search permissions">
                 </div>
             </div>
             
@@ -34,79 +34,38 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr>
-                                <th
+                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Season
+                                    ID
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Playoff
+                                    Name
                                 </th>
                                 <th
                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Date/Kickoff
-                                </th>
-                                <th
-                                    class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Home
-                                </th>
-                                <th
-                                    class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Visitor
+                                    Guard
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50"></th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @forelse ($bowls as $key => $bowl)
+                            @forelse ($permissions as $key => $permission)
                                 <tr wire:loading.class="opacity-75">
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
-                                        {{ $bowl->season }}
+                                        {{ $permission->id }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
+                                        {{ $permission->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
-                                        @if ($bowl->semi_final)
-                                            <span class="text-2xl">🥈</span>
-                                        @elseif ($bowl->championship)
-                                            <span class="text-2xl">🏆</span>
-                                        @else
-                                            <span>-</span>
-                                        @endif
+                                       {{ $permission->guard_name }} 
                                     </td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
-                                       {{ $bowl->date }} {{ $bowl->kickoff }} 
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
-                                        <div class="flex">
-                                            @if ($bowl->home->api_id == $bowl->winner_id)
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            @endif
-                                            <span>{!! $bowl->home->name !!}</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
-                                        <div class="flex">
-                                            @if ($bowl->visitor->api_id == $bowl->winner_id)
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            @endif
-                                            <span>{!! $bowl->visitor->name !!}</span>
-                                        </div>
-                                    </td>
+                                                                       
                                     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium {{ $key % 2 == 1 ? 'bg-gray-50' : ''}}">
                                         <div>
                                             <span class="inline-flex rounded-md shadow-sm mr-2">
-                                            <a href="{{ route('admin.bowl-edit', $bowl) }}"
+                                            <a href="{{ route('admin.bowl-edit', $permission) }}"
                                                     class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-50 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
                                                     edit
                                                 </a>
@@ -131,7 +90,7 @@
             </div>
         </div>
         <div class="">
-            {{ $bowls->links() }}
+            {{ $permissions->links() }}
         </div>
     </div>
     

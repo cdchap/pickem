@@ -28,7 +28,10 @@ class BowlEdit extends Component
 
     public function updateBowl()
     {
-        $apiBowl = Http::get('https://api.collegefootballdata.com/games?year='. $this->bowl->season .'&seasonType=postseason&id=' . $this->bowl->api_id)->json();
+        $apiBowl = Http::withHeaders([
+            'Authorization' => 'Bearer ' . config('app.cfbd_token') 
+        ])
+        ->get('https://api.collegefootballdata.com/games?year='. $this->bowl->season .'&seasonType=postseason&id=' . $this->bowl->api_id)->json();
 
         // dd($apiBowl);
 
