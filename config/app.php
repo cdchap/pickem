@@ -43,8 +43,8 @@ return [
     /*
       Application Secret Key for College Football Data API
     */
-
-    'cfbd_access_key' => env('CFBD_ACCESS_KEY'),
+    
+    'cfbd_token' => env('CFBD_ACCESS_TOKEN'),
     
     /*
     |--------------------------------------------------------------------------
