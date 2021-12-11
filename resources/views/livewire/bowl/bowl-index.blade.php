@@ -10,7 +10,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
-                    <input id="search" wire:model="search" class="form-input block w-full pl-10 sm:text-sm sm:leading-5"
+                    <input id="search" wire:model="search" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 py-2 sm:text-sm border-gray-300 rounded-md"
                         placeholder="Search by team">
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="flex flex-col md:flex-row md:space-x-2 justify-start md:items-center">
                     <label for="season" class="block text-sm leading-5 font-medium text-gray-700">Season</label>
                     <select id="season" wire:model="season"
-                        class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                        class="form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5 rounded-md">
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>

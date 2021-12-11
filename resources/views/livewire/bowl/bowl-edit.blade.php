@@ -25,7 +25,7 @@
                                     {{$bowl->name}}
                                 </span>
                                 <input type="text" id="bowl.name" wire:model="bowl.name"
-                                    class="flex-1 form-input block w-full min-w-0 rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    class="flex-1 form-input block w-full min-w-0 rounded-none border-gray-300 rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
                                 <input type="text" id="home_score" wire:model="bowl.home_score"
-                                    class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    class="form-input block w-full transition duration-150 ease-in-out border-gray-300 sm:text-sm sm:leading-5 rounded-md">
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
                                 <input type="text" id="home_score" wire:model="bowl.visitor_score"
-                                    class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    class="form-input block w-full transition duration-150 border-gray-300 ease-in-out sm:text-sm sm:leading-5 rounded-md">
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
                                 <select id="winner_id" wire:model="bowl.winner_id"
-                                    class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-md border-gray-300">
                                     <option value="null" selected></option>
                                     <option value="{{  $bowl->home->api_id }}">{{$bowl->home->name}}</option>
                                     <option value="{{  $bowl->visitor->api_id }}">{{$bowl->visitor->name}}</option>
