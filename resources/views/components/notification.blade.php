@@ -1,4 +1,4 @@
-<div 
+<div x-cloak 
     class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end">
     <!--
 Notification panel, show/hide based on alert state.
