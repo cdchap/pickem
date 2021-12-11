@@ -68,6 +68,7 @@ Route::group(['middleware' => ['role:super-admin']], function () {
     Route::get('/admin/invitations', App\Http\Livewire\Invitation\InvitationIndex::class)->name('admin.invitation-index');
 
     Route::get('/admin/permissions', App\Http\Livewire\Permission\PermissionIndex::class)->name('admin.permission-index');
+    Route::get('/admin/permissions/create', App\Http\Livewire\Permission\PermissionCreate::class)->name('admin.permission-create');
 });
 
 Route::middleware('auth')->group(function() {
