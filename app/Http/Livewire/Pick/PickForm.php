@@ -123,7 +123,6 @@ class PickForm extends Component
                 'confidence' => null
             ]);
         }
-
         $this->user->revokePermissionTo('can pick 2021');        
     
         return redirect()->route('home');
