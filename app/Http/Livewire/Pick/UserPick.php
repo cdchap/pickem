@@ -12,7 +12,7 @@ class UserPick extends Component
     public $userName;
     public $userId;
     public $pointTotal = 0;
-    public $season = 2020;
+    public $season = 2021;
 
     public function mount(User $user)
     {

@@ -11,7 +11,7 @@ class TotalScore extends Component
 {
     use WithPagination;
 
-    public $season = 2020;
+    public $season = 2021;
     public $search = '';
 
     public function updatingSearch()

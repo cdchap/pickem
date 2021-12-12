@@ -15,7 +15,7 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
-                <input id="search" wire:model="search" class="form-input block w-full pl-10 sm:text-sm sm:leading-5"
+                <input id="search" wire:model="search" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md py-2"
                     placeholder="Search">
             </div>
             <div class="text-gray-400">
@@ -24,10 +24,11 @@
         </div>
         <div class="relative rounded-md shadow-sm">
             <select id="season" wire:model="season"
-                class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5 rounded-md">
                 <option value="" selected disabled>Select a season</option>
                 <option value="2019">2019</option>
                 <option value="2020">2020</option>
+                <option value="2021">2021</option>
             </select>
         </div>
         </div>

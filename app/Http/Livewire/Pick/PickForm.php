@@ -17,7 +17,7 @@ class PickForm extends Component
     public $user;
     public $userId;
     public $league = 1;
-    public $season = 2020;
+    public $season = 2021;
     public $confidence;
     public $bowlCount;
     public $reviewedPicks = [];
@@ -124,7 +124,7 @@ class PickForm extends Component
             ]);
         }
 
-        $this->user->revokePermissionTo('can pick 2020');        
+        $this->user->revokePermissionTo('can pick 2021');        
     
         return redirect()->route('home');
     }
