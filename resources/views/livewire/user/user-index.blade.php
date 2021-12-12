@@ -131,15 +131,10 @@
                                 </a>
                             </div>
                             <div class="-ml-px w-0 flex-1 flex">
-                                <a href="#"
-                                    class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
-                                    <!-- Heroicon name: phone -->
-                                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                                    </svg>
-                                    
-                                    <span class="ml-3">{{$user->username}}</span>
-                                </a>
+                                <button wire:click="delete({{$user->id}}, '{{ $user->username }}')" type="button"
+                                    class="inline-flex items-center justify-center py-1.5 border border-transparent text-xs font-medium rounded-br-lg w-full text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                    Delete user
+                                </button>
                             </div>
                         </div>
                     </div>

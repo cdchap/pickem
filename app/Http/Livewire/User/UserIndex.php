@@ -41,6 +41,16 @@ class UserIndex extends Component
         $this->reset('filters');
     }
 
+    public function delete($id, $username)
+    {
+        // dd($user['username']);
+
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        $this->dispatchBrowserEvent('notify', $username . ' has been deleted');
+    }
+
     public function render()
     {
         return view('livewire.user.user-index', [
