@@ -12,9 +12,10 @@ module.exports = {
                 sans: ['Inter var'],
             },
             backgroundImage: theme => ({
-                'card-image': "url('/images/alex-batchelor-q5IEr16VrTA-unsplash-2.jpg')",
+                
+                'card-image': "url('/images/51710934036_4a5612c2fd_k.jpg')",
                 'xoxo': "url('/images/tic-tac-toe.svg')",
-                'mich-stadium': "url('/images/alex-mertz-tDSmhEFfasI-unsplash-2.jpg')",
+                'mich-stadium': "url('/images/51710934036_4a5612c2fd_k.jpg')",
                 'gradient-one' : "linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%)",
                 'gradient-two' : "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)",
                 'gradient-three' : "linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)",
