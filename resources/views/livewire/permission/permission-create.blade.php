@@ -1,5 +1,5 @@
 
-<div x-cloak x-show="createOpen" 
+<div x-show="createOpen" 
 
         x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
         x-transition:enter-start="otranslate-x-full"
@@ -34,9 +34,21 @@
               <!-- Replace with your content -->
               <div class="absolute inset-0 px-4 sm:px-6">
                   <form wire:submit.prevent>
-                      
+                      <div>
+                          <label for="name" class="block text-sm font-medium text-gray-700">Permission name</label>
+                          <div class="mt-1">
+                              <input wire:model="name" type="text" name="name" id="name"
+                                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                  placeholder="permission name">
+                          </div>
+                      </div>
+                      <button wire:click="save" type="button"
+                          class="mt-2 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                          Save Permission
+                      </button>
                   </form>
               </div>
+              
               <!-- /End replace -->
             </div>
           </div>
