@@ -60,7 +60,7 @@ class Register extends Component
         $invitation->save();
 
         $user->assignRole('user');
-        $user->givePermissionTo(['can pick 2020', 'edit profile']);
+        $user->givePermissionTo(['can pick 2021', 'edit profile']);
 
         event(new Registered($user));
 
