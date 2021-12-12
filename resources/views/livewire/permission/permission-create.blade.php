@@ -12,16 +12,6 @@
     <!-- Background overlay, show/hide based on slide-over state. -->
     <div class="absolute inset-0" aria-hidden="true">
       <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
-        <!--
-          Slide-over panel, show/hide based on slide-over state.
-
-          Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-            From: "translate-x-full"
-            To: "translate-x-0"
-          Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-            From: "translate-x-0"
-            To: "translate-x-full"
-        -->
         <div class="w-screen max-w-md">
           <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
             <div class="px-4 sm:px-6">
@@ -43,7 +33,9 @@
             <div class="mt-6 relative flex-1 px-4 sm:px-6">
               <!-- Replace with your content -->
               <div class="absolute inset-0 px-4 sm:px-6">
-                <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true"></div>
+                  <form wire:submit.prevent>
+                      
+                  </form>
               </div>
               <!-- /End replace -->
             </div>
