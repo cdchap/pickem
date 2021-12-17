@@ -187,6 +187,7 @@
                                                     <img src="{{ $bowl->home->logo1 }}" alt="{{ $bowl->home->name }}" class="w-5 h-5 mr-1">{{ $bowl->home->abbreviation }}
                                                 </span>
                                             </div>
+                                            <span class="font-mono text-xs text-green-700 font-bold">{{ $bowl->spread }}</span>
                                         </div>
                                     </div>
         

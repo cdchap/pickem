@@ -17,7 +17,6 @@ class BowlEdit extends Component
         'bowl.home_score' => 'integer',
         'bowl.visitor_score' => 'integer',
         'bowl.winner_id' => 'integer',
-
     ];
 
     public function mount()
@@ -33,12 +32,18 @@ class BowlEdit extends Component
         ])
         ->get('https://api.collegefootballdata.com/games?year='. $this->bowl->season .'&seasonType=postseason&id=' . $this->bowl->api_id)->json();
 
-        // dd($apiBowl);
+        $spread = Http::withHeaders([
+            'Authorization' => 'Bearer ' . config('app.cfbd_token')
+        ])->get('https://api.collegefootballdata.com/lines?gameId=' . $this->bowl->api_id . '&year='. $this->bowl->season .'&seasonType=postseason')->json();
 
         if(empty($apiBowl['0']['home_points'])) {
+            $this->bowl->name = $apiBowl[0]['notes']; 
+            $this->bowl->spread = $spread[0]['lines'][0]['formattedSpread'];
+            $this->bowl->save();
             $this->dispatchBrowserEvent('notify', 'Score not currently avaialble. Check back after the game has been played.');
         } else {
-
+            $this->bowl->name = $apiBowl[0]['notes'];
+            $this->bowl->spread = $spread[0]['lines'][0]['formattedSpread'];
             $this->bowl->home_score = $apiBowl['0']['home_points'];
             $this->bowl->visitor_score = $apiBowl['0']['away_points'];
             $this->bowl->home_quarter_one_score = $apiBowl['0']['home_line_scores']['0'] ?? 0;
