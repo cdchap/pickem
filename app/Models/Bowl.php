@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Http;
 
 class Bowl extends Model
 {
@@ -69,5 +70,12 @@ class Bowl extends Model
         return [
             true => 'Championship 🏆',
         ][$this->championship] ?? '';
+    }
+    public function getSpread() {
+        $response =  Http::withHeaders([
+            'Authorization' => 'Bearer ' . config('app.cfbd_token')
+            ])
+        ->get('https://api.collegefootballdata.com/lines?gameId='.$this->api_id.'&year='.$this->season.'&seasonType=postseason')->json();
+        return  $response[0]['lines'][0]['formattedSpread'];
     }
 }

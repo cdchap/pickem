@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Bowl;
 use App\Models\Pick;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Http;
 
 class PickForm extends Component
 {
@@ -47,7 +48,6 @@ class PickForm extends Component
                             ])
                             ->with('home', 'visitor')
                             ->get();
-        
         // getting the signed in user for the id
         $this->user = auth()->user();
         $this->userId = auth()->user()->id;

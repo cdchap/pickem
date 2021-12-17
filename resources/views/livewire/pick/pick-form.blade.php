@@ -84,6 +84,7 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            
                                         </fieldset>
                                     </div>
                                 </form>
@@ -164,7 +165,7 @@
                     <div class="">
                         <form wire:submit.prevent>
                             <div class="flex flex-col justify-center px-6 shadow-black rounded-2xl bg-white border-black border-2 my-2 mx-4">
-                                <fieldset class="my-8 grid grid-cols-1 md:grid-cols-1 gap-2">
+                                <fieldset class="my-8 grid grid-cols-1 md:grid-cols-1 gap-2"> 
                                     <div class="">
                                         @if($bowl->semifinal_display)
                                             <span
