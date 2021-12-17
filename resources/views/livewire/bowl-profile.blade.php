@@ -1,6 +1,10 @@
 <div class="container mx-auto max-w-5xl py-20 flex flex-col px-2 md:px-0">
     <section>
-        <div class="overflow-hidden grid gird-cols-3 md:grid-cols-5 gap-4 shadow-black border-2 border-black bg-white rounded-2xl py-10 px-6 font-sans">
+        <div class="flex justify-center mb-4">
+                <h2 class="font-bold font-sans">{{ $bowl->name }}</h2>
+        </div>
+        <div class="overflow-hidden grid grid-cols-3 md:grid-cols-5 gap-4 shadow-black border-2 border-black bg-white rounded-2xl py-10 px-6 font-sans">
+            
             <div class="hidden md:block -my-10 -mx-6 overflow-hidden">
                 <img class="object-cover w-full h-48" src="{{ $bowl->visitor->logo1 }}" alt="">
             </div>
